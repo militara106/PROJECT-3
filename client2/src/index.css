@@ -1,13 +1,45 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url("https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300&display=swap");
+
+html, body, #app, #app>div {
+  height: 100%;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+body{
+  background-color: #0B0C10;
+  color: #66FCF1;
+  text-shadow: 2px 2px 5px grey;
+  font-family: 'Open Sans Condensed', sans-serif;
 }
+
+/* Test Coloration for Divs */
+.testColor{
+  background-color: red;
+  color: white;
+}
+
+/* DARKEST BG COLOR */
+.darkestBg{
+  background-color: #0B0C10;
+}
+
+/* DARK BG COLOR */
+.darkBg{
+  background-color: #1f2833;
+}
+
+/* MEDIUM FONT COLOR */
+.medFont{
+  color: #c5c6c7;
+}
+
+/* LIGHT FONT COLOR */
+.lightFont{
+  color: #66FCF1;
+}
+
+/* DARK FONT COLOR */
+.darkFont{
+  color: #45A29e;
+}
+
+

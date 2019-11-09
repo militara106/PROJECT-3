@@ -1,0 +1,31 @@
+body{
+    background-color: #0B0C10;
+    color: #66FCF1;
+    font-family: 'Open Sans Condensed', sans-serif;
+    text-shadow: 2px 2px 5px grey;
+}
+
+/* DARKEST BG COLOR */
+.darkestBg{
+    background-color: #0B0C10;
+}
+
+/* DARK BG COLOR */
+.darkBg{
+    background-color: #1f2833;
+}
+
+/* MEDIUM FONT COLOR */
+.medFont{
+    color: #c5c6c7;
+}
+
+/* LIGHT FONT COLOR */
+.lightFont{
+    color: #66FCF1;
+}
+
+/* DARK FONT COLOR */
+.darkFont{
+    color: #45A29e;
+}

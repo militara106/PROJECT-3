@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300&display=swap");
 
-html, body, #app, #app>div {
+html, body, #app, #app>div, #root {
   height: 100%;
 }
 
@@ -42,4 +42,9 @@ body{
   color: #45A29e;
 }
 
-
+.overlay{
+position: absolute;
+width: 100%;
+top: 40%;
+z-index: 10;
+}

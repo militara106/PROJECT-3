@@ -5,18 +5,13 @@ import Home from './pages/Home';
 
 class App extends Component {
   render() {
-    const App = () => (
-      <div>
+    return (
+      <div className="h-100">
         <Switch>
           <Route exact path='/' component={Home}/>
         </Switch>
       </div>
     )
-    return (
-      <Switch>
-        <App/>
-      </Switch>
-    );
   }
 }
 

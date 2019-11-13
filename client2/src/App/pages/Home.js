@@ -12,6 +12,7 @@ const audioPos = {
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
+  marginBottom: "1rem"
 }
 
 class Home extends Component {

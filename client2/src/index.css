@@ -14,15 +14,6 @@ body {
   color: #66fcf1;
   text-shadow: 2px 2px 5px grey;
   font-family: "Open Sans Condensed", sans-serif;
-  border-width: 3px;
-  border-style: solid;
-  border-image: 
-    linear-gradient(
-      to bottom, 
-      #45a294, 
-      rgba(0, 0, 0, 0)
-    ) 1 100%;
-  border-top: none;
 }
 
 /* Test Coloration for Divs */
@@ -101,6 +92,16 @@ body {
   text-align: center;
   height: 100%;
   width: 100%;
+}
+
+.mainVisualOverlay{
+  position: absolute;
+  height: 90%;
+  width: 100%;
+  background-image: url("./Assets/overlayBG.jpg");
+  background-position: center;
+  background-size: cover;
+  opacity: 0.1;
 }
 
 .fillerText{

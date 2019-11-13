@@ -52,10 +52,13 @@ body {
   color: #45a29e;
 }
 
+/* VYBE LOGO */
 .vybe{
   font-family: 'Bungee Inline', cursive;
+  font-size: 500%;
 }
 
+/* NAVBAR GRADIENT */
 .navGradient{
   background: linear-gradient(180deg, #0b0c10 80%, rgba(40,40,40,0) 100%);
   padding: 1rem;
@@ -96,7 +99,8 @@ body {
 
 .mainVisualOverlay{
   position: absolute;
-  height: 90%;
+  top: 0%;
+  height: 100%;
   width: 100%;
   background-image: url("./Assets/overlayBG.jpg");
   background-position: center;
@@ -115,5 +119,9 @@ top: 40%;
   /* For mobile phones: */
   .overlay{
     left: 0%;
+  }
+
+  .vybe{
+    font-size: 300%;
   }
 }

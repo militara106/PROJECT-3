@@ -1,50 +1,109 @@
 @import url("https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Bungee+Inline&display=swap");
 
-html, body, #app, #app>div, #root {
+html,
+body,
+#app,
+#app > div,
+#root {
   height: 100%;
 }
 
-body{
-  background-color: #0B0C10;
-  color: #66FCF1;
+body {
+  background-color: #282828;
+  color: #66fcf1;
   text-shadow: 2px 2px 5px grey;
-  font-family: 'Open Sans Condensed', sans-serif;
+  font-family: "Open Sans Condensed", sans-serif;
+  border-width: 3px;
+  border-style: solid;
+  border-image: 
+    linear-gradient(
+      to bottom, 
+      #45a294, 
+      rgba(0, 0, 0, 0)
+    ) 1 100%;
+  border-top: none;
 }
 
 /* Test Coloration for Divs */
-.testColor{
+.testColor {
   background-color: red;
   color: white;
 }
 
 /* DARKEST BG COLOR */
-.darkestBg{
-  background-color: #0B0C10;
+.darkestBg {
+  background-color: #0b0c10;
 }
 
 /* DARK BG COLOR */
-.darkBg{
+.darkBg {
   background-color: #1f2833;
 }
 
+/* LIGHT BG COLOR */
+.lightBg{
+  background-color: #2b2f3f;
+}
+
 /* MEDIUM FONT COLOR */
-.medFont{
+.medFont {
   color: #c5c6c7;
 }
 
 /* LIGHT FONT COLOR */
-.lightFont{
-  color: #66FCF1;
+.lightFont {
+  color: #66fcf1;
 }
 
 /* DARK FONT COLOR */
-.darkFont{
-  color: #45A29e;
+.darkFont {
+  color: #45a29e;
 }
 
-.overlay{
-position: absolute;
-width: 100%;
+.vybe{
+  font-family: 'Bungee Inline', cursive;
+}
+
+.navGradient{
+  background: linear-gradient(180deg, #0b0c10 80%, rgba(40,40,40,0) 100%);
+  padding: 1rem;
+}
+
+.overlay {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  padding: 1rem;
+  border-radius: 1rem;
+  width: auto;
+  left: 10%;
+  top: 70%;
+  z-index: 10;
+}
+
+.songInfo{
+  /* border-left: 2px solid #66fcf1; */
+  border-width: 4px;
+  border-style: solid;
+  border-image: 
+    linear-gradient(
+      to right,
+      #66fcf1, 
+      rgba(0, 0, 0, 0)
+    ) 1 100%;
+    border-right: none;
+  padding: 5px;
+}
+
+.mainVisual{
+  text-align: center;
+  height: 100%;
+  width: 100%;
+}
+
+.fillerText{
+position: relative;
 top: 40%;
-z-index: 10;
 }

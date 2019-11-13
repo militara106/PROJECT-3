@@ -2,10 +2,13 @@ import React from "react";
 
 function Navbar() {
   return (
-    <nav className="navbar darkestBg lightFont navbar-fixed-top">
-        <div>Logo</div>
+    <div>
+    <nav className="navbar navGradient lightFont navbar-fixed-top topNavBar">
+        <h1 className="vybe">VYBE</h1>
         <div>Options/Code</div> 
     </nav>
+    <div className="lowerBorderGradient" />
+    </div>
   );
 }
 

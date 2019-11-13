@@ -3,15 +3,17 @@ import Row from "../components/Row";
 import Col from "../components/Col";
 import NavBar from "../components/Navbar";
 import TextOverlay from "../components/TextOverlay";
+import MainVisual from "../components/MainVisual";
 
 // import { Link } from 'react-router-dom';
 
 class Home extends Component {
   render() {
     return (
-      <div className="h-100">
+      <div className="d-flex flex-column h-100">
         <NavBar />
-            <TextOverlay songName="Song Name" artist="Artist" />
+        <MainVisual />
+        <TextOverlay songName="Song Name" artist="Artist" />
       </div>
     );
   }

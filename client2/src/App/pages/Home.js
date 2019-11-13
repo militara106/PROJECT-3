@@ -5,6 +5,7 @@ import NavBar from "../components/Navbar";
 import TextOverlay from "../components/TextOverlay";
 import MainVisual from "../components/MainVisual";
 
+
 // import { Link } from 'react-router-dom';
 
 class Home extends Component {

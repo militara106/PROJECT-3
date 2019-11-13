@@ -15,14 +15,20 @@ const audioPos = {
 }
 
 class Home extends Component {
+  state = {
+    songName: "Creative",
+    artist: "Bensound",
+    src: "bensound-creativeminds.mp3"
+  }
+
   render() {
     return (
       <div className="d-flex flex-column h-100">
         <NavBar />
         <MainVisual />
-        <TextOverlay songName="Song Name" artist="Artist" />
+        <TextOverlay songName={this.state.songName} artist={this.state.artist} />
         <div style={audioPos}>
-          <ReactAudioPlayer src="bensound-creativeminds.mp3" autoPlay controls />
+          <ReactAudioPlayer src={this.state.src} autoPlay controls />
         </div>
       </div>
     );

@@ -70,12 +70,13 @@ body {
   width: auto;
   left: 10%;
   top: 70%;
+  pointer-events: none;
   z-index: 10;
 }
 
 .songInfo{
-  /* border-left: 2px solid #66fcf1; */
-  border-width: 4px;
+  border-left: 2px solid #66fcf1;
+  /* border-width: 4px;
   border-style: solid;
   border-image: 
     linear-gradient(
@@ -83,7 +84,7 @@ body {
       #66fcf1, 
       rgba(0, 0, 0, 0)
     ) 1 100%;
-    border-right: none;
+    border-right: none; */
     padding: 1rem;
 }
 
@@ -107,4 +108,12 @@ body {
 .fillerText{
 position: relative;
 top: 40%;
+}
+
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  .overlay{
+    left: 0%;
+  }
 }

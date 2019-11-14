@@ -4,23 +4,20 @@ import './App.css';
 import Home from './pages/Home';
 import Dashboard from './pages/Dashboard';
 import SpotifyAuth from './pages/SpotifyAuth';
+import Login from './pages/Login';
 
 class App extends Component {
   render() {
-    const App = () => (
-      <div>
+    return (
+      <div className="h-100">
         <Switch>
           <Route exact path='/' component={Home}/>
           <Route exact path='/spotify' component={SpotifyAuth}/>
+          <Route path='/login' component={Login}/>
           <Route path='/dashboard' component={Dashboard}/>
         </Switch>
       </div>
     )
-    return (
-      <Switch>
-        <App/>
-      </Switch>
-    );
   }
 }
 

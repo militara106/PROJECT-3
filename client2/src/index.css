@@ -1,13 +1,139 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url("https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Bungee+Inline&display=swap");
+
+html,
+body,
+#app,
+#app > div,
+#root {
+  height: 100%;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+body {
+  background-color: #282828;
+  color: #66fcf1;
+  text-shadow: 2px 2px 5px grey;
+  font-family: "Open Sans Condensed", sans-serif;
+}
+
+/* Test Coloration for Divs */
+.testColor {
+  background-color: red;
+  color: white;
+}
+
+/* DARKEST BG COLOR */
+.darkestBg {
+  background-color: #0b0c10;
+}
+
+/* DARK BG COLOR */
+.darkBg {
+  background-color: #1f2833;
+}
+
+/* LIGHT BG COLOR */
+.lightBg{
+  background-color: #2b2f3f;
+}
+
+/* MEDIUM FONT COLOR */
+.medFont {
+  color: #c5c6c7;
+}
+
+/* LIGHT FONT COLOR */
+.lightFont {
+  color: #66fcf1;
+}
+
+/* DARK FONT COLOR */
+.darkFont {
+  color: #45a29e;
+}
+
+/* VYBE LOGO */
+.vybe{
+  font-family: 'Bungee Inline', cursive;
+  font-size: 500%;
+}
+
+/* NAVBAR GRADIENT */
+.navGradient{
+  background: linear-gradient(180deg, #0b0c10 80%, rgba(40,40,40,0) 100%);
+  padding: 1rem;
+}
+
+.overlay {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  padding: 1rem;
+  border-radius: 1rem;
+  width: auto;
+  left: 10%;
+  top: 70%;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.songInfo{
+  border-left: 2px solid #66fcf1;
+  /* border-width: 4px;
+  border-style: solid;
+  border-image: 
+    linear-gradient(
+      to right,
+      #66fcf1, 
+      rgba(0, 0, 0, 0)
+    ) 1 100%;
+    border-right: none; */
+    padding: 1rem;
+}
+
+.mainVisual{
+  text-align: center;
+  height: 100%;
+  width: 100%;
+}
+
+.mainVisualOverlay{
+  position: absolute;
+  top: 0%;
+  height: 100%;
+  width: 100%;
+  background-image: url("./Assets/overlayBG.jpg");
+  background-position: center;
+  background-size: cover;
+  opacity: 0.1;
+  z-index: -1;
+}
+
+.loginBG{
+  position: absolute;
+  top: 0%;
+  height: 100%;
+  width: 100%;
+  background-image: url("./Assets/loginBG.jpg");
+  background-position: center;
+  background-size: cover;
+  opacity: 0.1;
+  z-index: -1;
+}
+
+.fillerText{
+position: relative;
+top: 40%;
+}
+
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  .overlay{
+    left: 0%;
+  }
+
+  .vybe{
+    font-size: 300%;
+  }
 }

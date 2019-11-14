@@ -21,7 +21,9 @@ class Home extends Component {
   state = {
     songName: "Creative",
     artist: "Bensound",
-    src: "bensound-creativeminds.mp3"
+    src: "bensound-creativeminds.mp3",
+    account: "",
+    room: ""
   }
 
   render() {

@@ -109,6 +109,18 @@ body {
   z-index: -1;
 }
 
+.loginBG{
+  position: absolute;
+  top: 0%;
+  height: 100%;
+  width: 100%;
+  background-image: url("./Assets/loginBG.jpg");
+  background-position: center;
+  background-size: cover;
+  opacity: 0.1;
+  z-index: -1;
+}
+
 .fillerText{
 position: relative;
 top: 40%;

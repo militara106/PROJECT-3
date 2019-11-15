@@ -14,7 +14,7 @@ app.use(express.static(path.join(__dirname, "client2/build")))
    .use(cors())
    .use(cookieParser());
 
-require("./client2/src/App/components/utils/Api.js")(app);
+require("./client2/src/App/utils/Api.js")(app);
 
 const port = process.env.PORT || 5000;
 app.listen(port);

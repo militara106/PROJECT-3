@@ -12,7 +12,8 @@ const audioPos = {
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
-  marginBottom: "1rem"
+  marginBottom: "1rem",
+  zIndex: "10"
 }
 
 class Home extends Component {
@@ -41,7 +42,7 @@ class Home extends Component {
 
         {/* Audio Player */}
         <div style={audioPos}>
-          <ReactAudioPlayer src={this.state.src} autoPlay controls />
+          <ReactAudioPlayer src={this.state.src} id={"audio-element"} controls />
         </div>
 
       </div>

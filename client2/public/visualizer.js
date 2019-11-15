@@ -37,36 +37,80 @@ var r = 28;
 renderBarVisualizer();
 
 // Render Visualizer
-function renderBarVisualizer() {
-  id = requestAnimationFrame(renderBarVisualizer);
-  analyzer.getByteFrequencyData(freqArray);
-  canvasContext.clearRect(0, 0, canvas.width, canvas.height)
+// function renderBarVisualizer() {
+//   id = requestAnimationFrame(renderBarVisualizer);
+//   analyzer.getByteFrequencyData(freqArray);
+//   canvasContext.clearRect(0, 0, canvas.width, canvas.height)
 
-  drawBaseCanvas();
+//   drawBaseCanvas();
 
-  x = canvas.width / 2;
-  x2 = x;
+//   x = canvas.width / 2;
+//   x2 = x;
 
-  for (var i = 0; i < analyzer.frequencyBinCount; i++) {
-    barHeight = freqArray[i] + 5;
+//   for (var i = 0; i < analyzer.frequencyBinCount; i++) {
+//     barHeight = freqArray[i] + 5;
 
-    setCanvasColor(i, barHeight);
-    canvasContext.fillRect(
-      x,
-      (canvas.height - barHeight * 2.5) / 2,
-      barWidth,
-      barHeight * 2.5
-    );
-    canvasContext.fillRect(
-      x2,
-      (canvas.height - barHeight * 2.5) / 2,
-      barWidth,
-      barHeight * 2.5
-    );
+//     setCanvasColor(i, barHeight);
+//     canvasContext.fillRect(
+//       x,
+//       (canvas.height - barHeight * 2.5) / 2,
+//       barWidth,
+//       barHeight * 2.5
+//     );
+//     canvasContext.fillRect(
+//       x2,
+//       (canvas.height - barHeight * 2.5) / 2,
+//       barWidth,
+//       barHeight * 2.5
+//     );
 
-    x += barWidth + 1;
-    x2 -= barWidth + 1;
-  }
+//     x += barWidth + 1;
+//     x2 -= barWidth + 1;
+//   }
+// }
+function renderCircleVisualizer() {
+
+    id = requestAnimationFrame(renderCircleVisualizer);
+    analyzer.getByteFrequencyData(freqArray);
+
+    var center_x = canvas.width / 2;
+    var center_y = canvas.height / 2;
+    var radius = 400;
+    var bars = 200;
+    var rads;
+
+    drawBaseCanvas();
+
+    for (var i = 0; i < bars; i++) {
+        rads = Math.PI * 2 / bars;
+        barHeight = freqArray[i] / 2 + 5;
+
+        x = center_x + Math.cos(rads * i) * (radius - barHeight);
+        y = center_y + Math.sin(rads * i) * (radius - barHeight);
+        x2 = center_x + Math.cos(rads * i) * (radius + barHeight);
+        y2 = center_y + Math.sin(rads * i) * (radius + barHeight);
+
+        setCanvasColor(i,barHeight);
+        canvasContext.lineWidth = barWidth;
+        drawBar(x,y,x2,y2);
+    }
+
+    bars = bars * 2;
+    for (var i = 0; i < bars; i++) {
+        radius = 800
+        rads = Math.PI * 2 / bars;
+        barHeight = freqArray[i];
+
+        x = center_x + Math.cos(rads * i) * (radius - barHeight);
+        y = center_y + Math.sin(rads * i) * (radius - barHeight);
+        x2 = center_x + Math.cos(rads * i) * (radius + barHeight);
+        y2 = center_y + Math.sin(rads * i) * (radius + barHeight);
+
+        setCanvasColor(i,barHeight);
+        canvasContext.lineWidth = barWidth;
+        drawBar(x,y,x2,y2);
+
+    }
 }
 
 //  Draw Base Canvas

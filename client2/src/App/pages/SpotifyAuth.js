@@ -30,6 +30,7 @@ class SpotifyAuth extends Component {
 
     if (_token) {
       // Set token
+      console.log("token identified");
       this.setState({
         token: _token
       });

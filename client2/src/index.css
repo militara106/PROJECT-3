@@ -16,6 +16,10 @@ body {
   font-family: "Open Sans Condensed", sans-serif;
 }
 
+.navbar{
+  z-index: 10;
+}
+
 /* Test Coloration for Divs */
 .testColor {
   background-color: red;
@@ -62,6 +66,13 @@ body {
 .navGradient{
   background: linear-gradient(180deg, #0b0c10 80%, rgba(40,40,40,0) 100%);
   padding: 1rem;
+}
+
+#visualizerContainer{
+  position: absolute;
+  top:0%;
+  height: 100%;
+  width: 100%;
 }
 
 .overlay {

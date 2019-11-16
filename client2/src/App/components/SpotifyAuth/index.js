@@ -48,8 +48,7 @@ class SpotifyAuth extends Component {
         response_type: "code",
         redirect_uri: redirectUri,
         scope: scopes,
-        show_dialog: true,
-        origin: "http://69.196.45.181:3000/"
+        show_dialog: true
       },
       success: function(res) {
         console.log("success", res);

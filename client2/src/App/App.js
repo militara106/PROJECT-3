@@ -3,7 +3,6 @@ import { Route, Switch } from 'react-router-dom';
 import './App.css';
 import Home from './pages/Home';
 import Dashboard from './pages/Dashboard';
-import SpotifyAuth from './components/SpotifyAuth';
 import Login from './pages/Login';
 
 class App extends Component {

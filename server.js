@@ -11,7 +11,9 @@ app
 // Serve the static files from the React app
 
 app.use(express.static(path.join(__dirname, "client2/build")))
-   .use(cors())
+   .use(cors({
+    // origin: 'http://69.196.45.181:3000/'
+   }))
    .use(cookieParser());
 
 app.get('*', (req,res) => {

@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Row from "../components/Row";
 import Col from "../components/Col";
-import NavBar from "../components/Navbar";
 // import { Link } from 'react-router-dom';
 class Login extends Component {
   // Default State/Song

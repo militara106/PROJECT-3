@@ -16,7 +16,7 @@ body {
   font-family: "Open Sans Condensed", sans-serif;
 }
 
-.navbar{
+.navbar {
   z-index: 10;
 }
 
@@ -24,6 +24,11 @@ body {
 .testColor {
   background-color: red;
   color: white;
+}
+
+/* Dark Border */
+.darkBorder {
+  border: solid .2rem #2b2f3f;
 }
 
 /* DARKEST BG COLOR */
@@ -37,44 +42,53 @@ body {
 }
 
 /* LIGHT BG COLOR */
-.lightBg{
+.lightBg {
   background-color: #2b2f3f;
 }
 
 /* MEDIUM FONT COLOR */
 .medFont {
-  color: #c5c6c7;
+  /* color: #c5c6c7; */
+  color: #f2a10b;
 }
 
 /* LIGHT FONT COLOR */
 .lightFont {
-  color: #66fcf1;
+  /* color: #66fcf1; */
+  color: #f7f503;
 }
 
 /* DARK FONT COLOR */
 .darkFont {
-  color: #45a29e;
+  /* color: #45a29e; */
+  color: #82811c;
+}
+
+/* LIGHTEST FONT COLOR */
+.lightestFont {
+  color: white;
 }
 
 /* VYBE LOGO */
-.vybe{
-  font-family: 'Bungee Inline', cursive;
+.vybe {
+  font-family: "Bungee Inline", cursive;
   font-size: 500%;
 }
 
 /* NAVBAR GRADIENT */
-.navGradient{
-  background: linear-gradient(180deg, #0b0c10 80%, rgba(40,40,40,0) 100%);
+.navGradient {
+  background: linear-gradient(180deg, #0b0c10 80%, rgba(40, 40, 40, 0) 100%);
   padding: 1rem;
 }
 
-#visualizerContainer{
+#visualizerContainer {
   position: absolute;
-  top:0%;
+  top: 0%;
   height: 100%;
   width: 100%;
 }
 
+/*--Flaoting Song Info--*/
 .overlay {
   display: flex;
   flex-direction: column;
@@ -88,27 +102,21 @@ body {
   z-index: 10;
 }
 
-.songInfo{
-  border-left: 2px solid #66fcf1;
-  /* border-width: 4px;
-  border-style: solid;
-  border-image: 
-    linear-gradient(
-      to right,
-      #66fcf1, 
-      rgba(0, 0, 0, 0)
-    ) 1 100%;
-    border-right: none; */
-    padding: 1rem;
+.songInfo {
+  border-left: 2px solid #f2a10b;
+  padding: 1rem;
+  transition: .2s;
 }
+/*--Floating Song Info END--*/
 
-.mainVisual{
+/*--Visualizer and Background--*/
+.mainVisual {
   text-align: center;
   height: 100%;
   width: 100%;
 }
 
-.mainVisualOverlay{
+.mainVisualOverlay {
   position: absolute;
   top: 0%;
   height: 100%;
@@ -119,8 +127,9 @@ body {
   opacity: 0.1;
   z-index: -1;
 }
+/*--Visualizer and Background END--*/
 
-.loginBG{
+.loginBG {
   position: absolute;
   top: 0%;
   height: 100%;
@@ -132,19 +141,45 @@ body {
   z-index: -1;
 }
 
-.fillerText{
-position: relative;
-top: 40%;
+/*--Options Menu--*/
+
+.optionsBtn {
+  display: block;
+  cursor: pointer;
 }
 
+.optionsBtn:hover {
+  transition: 0.2s;
+  font-size: 110%;
+  color: white;
+}
+
+.btnCustom:hover {
+  transition: 0.2s;
+  font-size: 110%;
+  color: white;
+}
+
+.optionsMenu{
+  display: none;
+  position: absolute;
+  padding: 1rem;
+  right:0%;
+  top:100%;
+  height: 100%;
+  border-radius: 1rem;
+  box-shadow: 2px 2px 5px black ;
+}
+
+/*--Options Menu END--*/
 
 @media only screen and (max-width: 768px) {
   /* For mobile phones: */
-  .overlay{
+  .overlay {
     left: 0%;
   }
 
-  .vybe{
+  .vybe {
     font-size: 300%;
   }
 }

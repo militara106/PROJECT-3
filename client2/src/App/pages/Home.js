@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import NavBar from "../components/Navbar";
 import TextOverlay from "../components/TextOverlay";
 import MainVisual from "../components/MainVisual";
-import ReactAudioPlayer from "react-audio-player";
+// import ReactAudioPlayer from "react-audio-player";
+import AudioPlayer from "react-h5-audio-player";
 import CollapseMenu from "../components/CollapseMenu";
 
 // import { Link } from 'react-router-dom';
@@ -19,7 +20,7 @@ class Home extends Component {
   // Default State/Song
   state = {
     songName: "Creative",
-    artist: "Bensound",
+    artist: "Bensound.com",
     src: "bensound-creativeminds.mp3",
     account: "",
     room: "",
@@ -27,10 +28,36 @@ class Home extends Component {
     visualizerCheck: false
   };
 
+  // Changes state based on file uploaded
+  handleFileUpload = event => {
+    // Get File src
+    let newsrc = URL.createObjectURL(event.target.files[0]);
 
+    // Get only File Name from path
+    let fullPath = document.getElementById("thefile").value;
+    let startIndex =
+      fullPath.indexOf("\\") >= 0
+        ? fullPath.lastIndexOf("\\")
+        : fullPath.lastIndexOf("/");
+    let filename = fullPath.substring(startIndex);
+    if (filename.indexOf("\\") === 0 || filename.indexOf("/") === 0) {
+      filename = filename.substring(1);
+    }
+
+    // Remove File Extension
+    filename = filename.replace(/\.[^/.]+$/, "");
+
+    // Uppercase file Letter
+    filename = filename.charAt(0).toUpperCase() + filename.slice(1);
+
+    // Set States
+    this.setState({ src: newsrc, songName: filename, artist: "" });
+  };
+
+  // Toggles Visibility of Visualizer
   ToggleVisualizer = () => {
     // Audio Variables
-    let audio = document.getElementById("audio-element");
+    let audio = document.getElementsByTagName("audio")[0];
     // let audioContext = new AudioContext();
     let audioContext = new (window.AudioContext || window.webkitAudioContext)();
     let src = this.state.mediaElement;
@@ -40,7 +67,7 @@ class Home extends Component {
     let analyzer = audioContext.createAnalyser();
     let freqArray = new Uint8Array(analyzer.frequencyBinCount);
     analyzer.connect(audioContext.destination);
-    analyzer.fftSize = 512;
+    analyzer.fftSize = 1024;
 
     // Toggle Logic
     let canvas = document.getElementById("visualizer");
@@ -74,7 +101,7 @@ class Home extends Component {
 
     // Visualizer Variables
     let barHeight = 5;
-    let barWidth = (canvas.width / analyzer.frequencyBinCount) * 2.5;
+    let barWidth = (canvas.width / analyzer.frequencyBinCount) * 2;
     let x, x2;
     // let y, y2;
     let g, b;
@@ -92,7 +119,7 @@ class Home extends Component {
       x2 = x - barWidth;
 
       for (var i = 0; i < canvas.width; i++) {
-        barHeight = (freqArray[i*3] + 5) * 2.5 ;
+        barHeight = (freqArray[i * 3] + 5) * 2.5;
 
         setCanvasColor(i, barHeight);
         canvasContext.fillRect(
@@ -126,9 +153,9 @@ class Home extends Component {
       g = barHeight + i / analyzer.frequencyBinCount - 50;
       r = barHeight + i / analyzer.frequencyBinCount + 100;
       canvasContext.fillStyle =
-        "rgba(" + r + "," + g + "," + b + "," + .8 + ")";
+        "rgba(" + r + "," + g + "," + b + "," + 0.8 + ")";
       canvasContext.strokeStyle =
-        "rgba(" + r + "," + g + "," + b + "," + .8 + ")";
+        "rgba(" + r + "," + g + "," + b + "," + 0.8 + ")";
     }
   };
   // ----------------------AUDIO VISUALIZER END-----------------------
@@ -138,7 +165,20 @@ class Home extends Component {
       <div className="d-flex flex-column h-100">
         {/* NavBar */}
         <NavBar>
-          <CollapseMenu toggle={this.ToggleVisualizer}/>
+          <CollapseMenu toggle={this.ToggleVisualizer}>
+            <div className="inputContainer btnCustom">
+              <input
+                type="file"
+                id="thefile"
+                className="inputFile"
+                accept="audio/*"
+                onChange={this.handleFileUpload}
+              />
+              <label id="fileLabel" for="thefile">
+                Upload a File
+              </label>
+            </div>
+          </CollapseMenu>
         </NavBar>
 
         {/* Main/Center Content */}
@@ -152,16 +192,17 @@ class Home extends Component {
         {/* Song Info */}
         <TextOverlay
           songName={this.state.songName}
-          artist={`By ${this.state.artist}`}
+          artist={this.state.artist}
         />
 
         {/* Audio Player */}
         <div style={audioPos}>
-          <ReactAudioPlayer
+          {/* <ReactAudioPlayer
             src={this.state.src}
             id={"audio-element"}
             controls
-          />
+          /> */}
+          <AudioPlayer autoPlay src={this.state.src} />
         </div>
       </div>
     );

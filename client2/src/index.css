@@ -205,12 +205,12 @@ body {
 }
 
 .toggle-play-button{
-  background-color: #f2a10b !important;
+  background-color: rgba(40, 40, 40, 0) !important;
   box-shadow: none !important;
 }
 
 .pause-icon{
-  box-shadow: #f2a10b 7px 0px 0px 0px inset !important;
+  box-shadow: rgba(40, 40, 40, 1) 7px 0px 0px 0px inset !important;
 }
 /*--Audio Player End*/
 

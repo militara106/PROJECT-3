@@ -19,9 +19,9 @@ const audioPos = {
 class Home extends Component {
   // Default State/Song
   state = {
-    songName: "Creative",
-    artist: "Bensound.com",
-    src: "bensound-creativeminds.mp3",
+    songName: "",
+    artist: "No Audio Playing",
+    src: "",
     account: "",
     room: "",
     mediaElement: "",

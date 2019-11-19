@@ -83,17 +83,15 @@ class SpotifyAuth extends Component {
       <div className="App">
         <header className="App-header">
           {!this.state.token && (
-            // <a
-            //   className="btn btn--loginApp-link"
-            //   href={`${authEndpoint}?client_id=${clientId}&redirect_uri=${redirectUri}&scope=${scopes.join(
-            //     "%20"
-            //   )}&response_type=token&show_dialog=true`}
-            // >
-            //   Login to Spotify
-            // </a>
-            <button className="btn" onClick={this.callSpotify}>
+            <a
+              className="btn btn--loginApp-link"
+              href="/api/spotify/login"
+            >
               Login to Spotify
-            </button>
+            </a>
+            // <button className="btn" onClick={this.callSpotify}>
+            //   Login to Spotify
+            // </button>
           )}
           {this.state.token && (
             <Player

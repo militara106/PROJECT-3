@@ -1,14 +1,5 @@
 import React, { Component } from "react";
 
-const style = {
-  optionHeader: {
-    fontSize: "120%",
-    padding: ".2rem",
-    width: "100%",
-    textAlign:"center"
-  }
-};
-
 class CollapseMenu extends Component {
   constructor(props) {
     super();
@@ -55,9 +46,7 @@ class CollapseMenu extends Component {
         >
           {/* Display Options */}
           <div>
-            <div style={style.optionHeader} className="darkBorderBot">
-              Visualizers
-            </div>
+            <div className="darkBorderBot optionsHeader">Visualizers</div>
             <div className="subMenu">
               <div className="btnCustom" onClick={this.props.toggle}>
                 <div id="visualizerToggle" onClick={this.toggleVisualizer}>
@@ -66,14 +55,7 @@ class CollapseMenu extends Component {
               </div>
             </div>
           </div>
-
-          {/* Audio Option */}
-          <div>
-            <div style={style.optionHeader} className="darkBorderBot">
-              Audio
-            </div>
-            <div className="subMenu">{this.props.children}</div>
-          </div>
+          {this.props.children}
         </div>
       </div>
     );

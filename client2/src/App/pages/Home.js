@@ -16,6 +16,11 @@ const audioPos = {
   zIndex: "10"
 };
 
+const audioOptions = {
+  display: "flex",
+  flexDirection: "column"
+};
+
 class Home extends Component {
   // Default State/Song
   state = {
@@ -34,32 +39,41 @@ class Home extends Component {
     let newsrc = URL.createObjectURL(event.target.files[0]);
 
     // Get only File Name from path
-    let fullPath = document.getElementById("thefile").value;
-    let startIndex =
-      fullPath.indexOf("\\") >= 0
-        ? fullPath.lastIndexOf("\\")
-        : fullPath.lastIndexOf("/");
-    let filename = fullPath.substring(startIndex);
-    if (filename.indexOf("\\") === 0 || filename.indexOf("/") === 0) {
-      filename = filename.substring(1);
+    let pathName = document.getElementById("thefile").value;
+    let start =
+      pathName.indexOf("\\") >= 0
+        ? pathName.lastIndexOf("\\")
+        : pathName.lastIndexOf("/");
+    let newFileName = pathName.substring(start);
+    if (newFileName.indexOf("\\") === 0 || newFileName.indexOf("/") === 0) {
+      newFileName = newFileName.substring(1);
     }
 
     // Remove File Extension
-    filename = filename.replace(/\.[^/.]+$/, "");
+    newFileName = newFileName.replace(/\.[^/.]+$/, "");
 
     // Uppercase file Letter
-    filename = filename.charAt(0).toUpperCase() + filename.slice(1);
+    newFileName = newFileName.charAt(0).toUpperCase() + newFileName.slice(1);
 
     // Set States
-    this.setState({ src: newsrc, songName: filename, artist: "" });
+    this.setState({ src: newsrc, songName: newFileName, artist: "" });
+  };
+
+  //Start "BenSound" Demo
+  handleDemoSong = () => {
+    this.setState({
+      src: "bensound-creativeminds.mp3",
+      songName: "Creative",
+      artist: "Bensound.com"
+    });
   };
 
   // Toggles Visibility of Visualizer
   ToggleVisualizer = () => {
     // Audio Variables
     let audio = document.getElementsByTagName("audio")[0];
-    // let audioContext = new AudioContext();
-    let audioContext = new (window.AudioContext || window.webkitAudioContext)();
+    let audioContext = new AudioContext();
+    // let audioContext = new (window.AudioContext || window.webkitAudioContext)();
     let src = this.state.mediaElement;
     console.log("Audio: " + audio.src);
 
@@ -166,17 +180,24 @@ class Home extends Component {
         {/* NavBar */}
         <NavBar>
           <CollapseMenu toggle={this.ToggleVisualizer}>
-            <div className="inputContainer btnCustom">
-              <input
-                type="file"
-                id="thefile"
-                className="inputFile"
-                accept="audio/*"
-                onChange={this.handleFileUpload}
-              />
-              <label id="fileLabel" for="thefile">
-                Upload a File
-              </label>
+            {/* Start Demo */}
+            <div style={audioOptions}>
+              <div className="btnCustom" onClick={this.handleDemoSong}>
+                Demo Song
+              </div>
+              {/* Upload File */}
+              <div className="inputContainer btnCustom">
+                <input
+                  type="file"
+                  id="thefile"
+                  className="inputFile"
+                  accept="audio/*"
+                  onChange={this.handleFileUpload}
+                />
+                <label id="fileLabel" for="thefile">
+                  Upload a File
+                </label>
+              </div>
             </div>
           </CollapseMenu>
         </NavBar>

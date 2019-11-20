@@ -10,8 +10,8 @@ class App extends Component {
     return (
       <div className="h-100">
         <Switch>
-          <Route exact path='/' component={Home}/>
-          <Route path='/login' component={Login}/>
+        <Route path='/' component={Login}/>
+          <Route exact path='/home' component={Home}/>
           <Route path='/dashboard' component={Dashboard}/>
         </Switch>
       </div>

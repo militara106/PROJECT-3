@@ -9,12 +9,12 @@ body,
   height: 100%;
   color: white;
   overflow-x: hidden;
+  font-family: "Open Sans Condensed", sans-serif;
 }
 
 body {
   background-color: #282828;
   text-shadow: 2px 2px 5px grey;
-  font-family: "Open Sans Condensed", sans-serif;
 }
 
 .navbar {

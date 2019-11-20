@@ -29,7 +29,7 @@ app.get("/api/spotify/login", (req, res) => {
   res.redirect(url + "&show_dialog=true");
 });
 
-app.get("/api/spotify/callback", async (req, res) => {
+app.get("/api/spotify/callback/", async (req, res) => {
   const { code } = req.query;
   console.log(code);
   try {
@@ -38,7 +38,7 @@ app.get("/api/spotify/callback", async (req, res) => {
     spotifyApi.setAccessToken(access_token);
     spotifyApi.setRefreshToken(refresh_token);
 
-    res.redirect("http://localhost:5000/api/spotify/callback");
+    res.redirect("http://162.222.193.3:5000/api/spotify/callback/");
   } catch (err) {
     res.redirect("/#/error/invalid token");
   }

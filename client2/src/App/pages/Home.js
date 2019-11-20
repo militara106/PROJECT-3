@@ -58,14 +58,6 @@ class Home extends Component {
     this.setState({ src: newsrc, songName: newFileName, artist: "" });
   };
 
-  // Handle Picture Upload
-  handlePicUpload = event => {
-    // Get File src
-    let newUrl = URL.createObjectURL(event.target.files[0]);
-    let overlay = document.getElementsByClassName("mainVisualOverlay")[0];
-    overlay.style.backgroundImage = "url('"+newUrl+"')";
-  };
-
   //Start "BenSound" Demo
   handleDemoSong = () => {
     this.setState({
@@ -74,6 +66,19 @@ class Home extends Component {
       artist: "Bensound.com"
     });
   };
+
+  // Handle Picture Upload
+  handlePicUpload = event => {
+    // Get File src
+    let newUrl = URL.createObjectURL(event.target.files[0]);
+    let overlay = document.getElementsByClassName("mainVisualOverlay")[0];
+    overlay.style.backgroundImage = "url('"+newUrl+"')";
+  };
+
+  handleDefaultPic = () => {
+    let overlay = document.getElementsByClassName("mainVisualOverlay")[0];
+    overlay.style.backgroundImage = "url('overlayBG.jpg')";
+  }
 
   // Toggles Visibility of Visualizer
   ToggleVisualizer = () => {
@@ -220,6 +225,12 @@ class Home extends Component {
               <div className="darkBorderBot optionsHeader">BG Image</div>
               <div className="subMenu">
                 <div style={optionsBox}>
+
+                  {/* Default Image */}
+                  <div className="btnCustom" onClick={this.handleDefaultPic}>
+                    Default Picture
+                  </div>
+
                   {/* Upload File */}
                   <div className="inputContainer btnCustom">
                     <input

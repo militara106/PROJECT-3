@@ -4,8 +4,8 @@ const style = {
   optionHeader: {
     fontSize: "120%",
     padding: ".2rem",
-    margin: ".2rem",
-    textDecoration: "underline"
+    width: "100%",
+    textAlign:"center"
   }
 };
 
@@ -22,10 +22,12 @@ class CollapseMenu extends Component {
 
   toggleMenu = () => {
     if (this.state.menuVisible === false) {
-      document.getElementById("menu").style.display = "block";
+      document.getElementById("menu").style.right = "1%";
+      document.getElementById("options").style.color = "white";
       this.setState({ menuVisible: true });
     } else {
-      document.getElementById("menu").style.display = "none";
+      document.getElementById("menu").style.right = "-50%";
+      document.getElementById("options").style.color = "inherit";
       this.setState({ menuVisible: false });
     }
   };
@@ -43,17 +45,34 @@ class CollapseMenu extends Component {
   render() {
     return (
       <div className="optionsContainer">
-        <div className="optionsBtn" onClick={this.toggleMenu}>
+        <div id="options" className="optionsBtn" onClick={this.toggleMenu}>
           Options
         </div>
-        <div id="menu" className="optionsMenu darkestBg darkBorder text-center">
-          <div style={style.optionHeader}>Change Music:</div>
-          {this.props.children}
-          <div style={style.optionHeader}>Toggle Display:</div>
-          <div className="btnCustom" onClick={this.props.toggle}>
-            <div id="visualizerToggle" onClick={this.toggleVisualizer}>
-              Visualizer
+
+        <div
+          id="menu"
+          className="optionsMenu optionsPos text-center darkestBg medFont"
+        >
+          {/* Display Options */}
+          <div>
+            <div style={style.optionHeader} className="darkBorderBot">
+              Visualizers
             </div>
+            <div className="subMenu">
+              <div className="btnCustom" onClick={this.props.toggle}>
+                <div id="visualizerToggle" onClick={this.toggleVisualizer}>
+                  Bars
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Audio Option */}
+          <div>
+            <div style={style.optionHeader} className="darkBorderBot">
+              Audio
+            </div>
+            <div className="subMenu">{this.props.children}</div>
           </div>
         </div>
       </div>

@@ -7,6 +7,8 @@ body,
 #app > div,
 #root {
   height: 100%;
+  color: white;
+  overflow-x: hidden;
 }
 
 body {
@@ -26,10 +28,9 @@ body {
 }
 
 /* Dark Border */
-.darkBorder {
-  border: solid .2rem #2b2f3f;
+.darkBorderBot {
+  border-bottom: solid 1px #2b2f3f;
 }
-
 /* DARKEST BG COLOR */
 .darkestBg {
   background-color: #0b0c10;
@@ -104,7 +105,7 @@ body {
 .songInfo {
   border-left: 2px solid #f2a10b;
   padding: 1rem;
-  transition: .2s;
+  transition: 0.2s;
 }
 /*--Floating Song Info END--*/
 
@@ -155,61 +156,61 @@ body {
 
 .btnCustom:hover {
   transition: 0.2s;
-  font-size: 110%;
   color: white;
   cursor: pointer;
 }
 
-.optionsMenu{
-  display: none;
+.optionsPos{
+  right: -50%;
+  top: 100%;
   position: absolute;
-  padding: 1rem;
-  right:0%;
-  top:100%;
+}
+.optionsMenu {
+  display: flex;
+  border-radius: .2rem;
   height: auto;
-  border-radius: 1rem;
-  box-shadow: 2px 2px 5px black ;
+  box-shadow: 2px 2px 5px black;
+  transition: 0.2s;
+  padding: .5rem;
 }
 
-.inputContainer{
+.subMenu{
+  padding: .5rem;
+}
+
+.inputContainer {
   display: flex;
   text-align: center;
 }
 
 .inputFile {
-	width: 0.1px;
-	height: 0.1px;
-	opacity: 0;
-	overflow: hidden;
-	position: absolute;
-	z-index: -1;
-}
-
-#fileLabel{
-  display: block;
-  text-align: center;
-  margin: auto;
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
 }
 
 /*--Options Menu END--*/
 
 /*--Audio Player--*/
-.flex{
+.flex {
   background: none !important;
   box-shadow: none !important;
   color: white;
 }
 
-.react-h5-audio-player{
+.react-h5-audio-player {
   width: 50% !important;
 }
 
-.toggle-play-button{
+.toggle-play-button {
   background-color: rgba(40, 40, 40, 0) !important;
   box-shadow: none !important;
 }
 
-.pause-icon{
+.pause-icon {
   box-shadow: rgba(40, 40, 40, 1) 7px 0px 0px 0px inset !important;
 }
 /*--Audio Player End*/

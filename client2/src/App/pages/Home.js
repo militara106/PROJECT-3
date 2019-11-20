@@ -16,7 +16,7 @@ const audioPos = {
   zIndex: "10"
 };
 
-const audioOptions = {
+const optionsBox = {
   display: "flex",
   flexDirection: "column"
 };
@@ -33,7 +33,7 @@ class Home extends Component {
     visualizerCheck: false
   };
 
-  // Changes state based on file uploaded
+  // Handle Audio File Upload
   handleFileUpload = event => {
     // Get File src
     let newsrc = URL.createObjectURL(event.target.files[0]);
@@ -48,7 +48,6 @@ class Home extends Component {
     if (newFileName.indexOf("\\") === 0 || newFileName.indexOf("/") === 0) {
       newFileName = newFileName.substring(1);
     }
-
     // Remove File Extension
     newFileName = newFileName.replace(/\.[^/.]+$/, "");
 
@@ -57,6 +56,14 @@ class Home extends Component {
 
     // Set States
     this.setState({ src: newsrc, songName: newFileName, artist: "" });
+  };
+
+  // Handle Picture Upload
+  handlePicUpload = event => {
+    // Get File src
+    let newUrl = URL.createObjectURL(event.target.files[0]);
+    let overlay = document.getElementsByClassName("mainVisualOverlay")[0];
+    overlay.style.backgroundImage = "url('"+newUrl+"')";
   };
 
   //Start "BenSound" Demo
@@ -180,31 +187,61 @@ class Home extends Component {
         {/* NavBar */}
         <NavBar>
           <CollapseMenu toggle={this.ToggleVisualizer}>
-            {/* Start Demo */}
-            <div style={audioOptions}>
-              <div className="btnCustom" onClick={this.handleDemoSong}>
-                Demo Song
-              </div>
-              {/* Upload File */}
-              <div className="inputContainer btnCustom">
-                <input
-                  type="file"
-                  id="thefile"
-                  className="inputFile"
-                  accept="audio/*"
-                  onChange={this.handleFileUpload}
-                />
-                <label id="fileLabel" for="thefile">
-                  Upload a File
-                </label>
+            {/*---- Audio Option ----*/}
+            <div>
+              <div className="darkBorderBot optionsHeader">Audio</div>
+              <div className="subMenu">
+                {/* Start Demo */}
+                <div style={optionsBox}>
+                  <div className="btnCustom" onClick={this.handleDemoSong}>
+                    Demo Song
+                  </div>
+
+                  {/* Upload File */}
+                  <div className="inputContainer btnCustom">
+                    <input
+                      type="file"
+                      id="thefile"
+                      className="inputFile"
+                      accept="audio/*"
+                      onChange={this.handleFileUpload}
+                    />
+                    <label id="fileLabel" for="thefile">
+                      Upload Music
+                    </label>
+                  </div>
+                </div>
               </div>
             </div>
+            {/*---- Audio Option End ----*/}
+
+            {/*---- Overlay Option ----*/}
+            <div>
+              <div className="darkBorderBot optionsHeader">BG Image</div>
+              <div className="subMenu">
+                <div style={optionsBox}>
+                  {/* Upload File */}
+                  <div className="inputContainer btnCustom">
+                    <input
+                      type="file"
+                      id="imageFile"
+                      className="inputFile"
+                      accept="image/*"
+                      onChange={this.handlePicUpload}
+                    />
+                    <label id="fileLabel" for="imageFile">
+                      Upload Picture
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {/*---- Overlay Option End ----*/}
           </CollapseMenu>
         </NavBar>
 
         {/* Main/Center Content */}
         <MainVisual>
-          {/* <div className="fillerText">Visualizer Center</div> */}
           <div id="visualizerContainer">
             <canvas id="visualizer"></canvas>
           </div>

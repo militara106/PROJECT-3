@@ -30,7 +30,13 @@ class Home extends Component {
     account: "",
     room: "",
     mediaElement: "",
-    visualizerCheck: false
+    visualizerCheck: false,
+    redAdd: 100,
+    redMult: 1,
+    greenAdd: -50,
+    greenMult: 1,
+    blueAdd: 0,
+    blueMult: 0
   };
 
   // Handle Audio File Upload
@@ -72,13 +78,13 @@ class Home extends Component {
     // Get File src
     let newUrl = URL.createObjectURL(event.target.files[0]);
     let overlay = document.getElementsByClassName("mainVisualOverlay")[0];
-    overlay.style.backgroundImage = "url('"+newUrl+"')";
+    overlay.style.backgroundImage = "url('" + newUrl + "')";
   };
 
   handleDefaultPic = () => {
     let overlay = document.getElementsByClassName("mainVisualOverlay")[0];
     overlay.style.backgroundImage = "url('overlayBG.jpg')";
-  }
+  };
 
   // Toggles Visibility of Visualizer
   ToggleVisualizer = () => {
@@ -113,6 +119,22 @@ class Home extends Component {
     }
   };
 
+  changeTheme = (rA, rM, gA, gM, bA, bM) => {
+    this.setState({
+      redAdd: rA,
+      redMult: rM,
+      greenAdd: gA,
+      greenMult: gM,
+      blueAdd: bA,
+      blueMult: bM
+    });
+  };
+
+  handleTheme = () => {
+    // Black and White Test
+    this.changeTheme(0, 1, 0, 1, 0, 1);
+  };
+
   // ----------------------AUDIO VISUALIZER-----------------------
   Visualizer = (analyzer, freqArray) => {
     // Canvas Variables
@@ -130,16 +152,26 @@ class Home extends Component {
     let barWidth = (canvas.width / analyzer.frequencyBinCount) * 2;
     let x, x2;
     // let y, y2;
-    let g, b;
-    let r = 0;
+    let rA = this.state.redAdd;
+    let rM = this.state.redMult;
+    let gA = this.state.greenAdd;
+    let gM = this.state.greenMult;
+    let bA = this.state.blueAdd;
+    let bM = this.state.blueMult;
 
     //Bar Visualizer
-    renderBarVisualizer();
-    function renderBarVisualizer() {
+    const renderBarVisualizer = () => {
       requestAnimationFrame(renderBarVisualizer);
       analyzer.getByteFrequencyData(freqArray);
 
       drawBaseCanvas();
+
+      let rA = this.state.redAdd;
+      let rM = this.state.redMult;
+      let gA = this.state.greenAdd;
+      let gM = this.state.greenMult;
+      let bA = this.state.blueAdd;
+      let bM = this.state.blueMult;
 
       x = canvas.width / 2 + barWidth;
       x2 = x - barWidth;
@@ -147,7 +179,7 @@ class Home extends Component {
       for (var i = 0; i < canvas.width; i++) {
         barHeight = (freqArray[i * 3] + 5) * 2.5;
 
-        setCanvasColor(i, barHeight);
+        setCanvasColor(i, barHeight, rA, rM, gA, gM, bA, bM);
         canvasContext.fillRect(
           x,
           (canvas.height - barHeight) / 2,
@@ -164,7 +196,8 @@ class Home extends Component {
         x += barWidth;
         x2 -= barWidth;
       }
-    }
+    };
+    renderBarVisualizer();
 
     //  Draw Base Canvas
     function drawBaseCanvas() {
@@ -174,10 +207,12 @@ class Home extends Component {
     }
 
     //  Set Canvas color
-    function setCanvasColor(i, barHeight) {
-      b = (barHeight + i / analyzer.frequencyBinCount) * 0;
-      g = barHeight + i / analyzer.frequencyBinCount - 50;
-      r = barHeight + i / analyzer.frequencyBinCount + 100;
+    // 'rr' Red Color Addition, 'r1' Red Color Multiplier
+    // Same convention for 'g' for Green and 'b' for Blue
+    function setCanvasColor(i, barHeight, rr, r1, gg, g1, bb, b1) {
+      let b = (barHeight + i / analyzer.frequencyBinCount) * b1 + bb;
+      let g = (barHeight + i / analyzer.frequencyBinCount) * g1 + gg;
+      let r = (barHeight + i / analyzer.frequencyBinCount) * r1 + rr;
       canvasContext.fillStyle =
         "rgba(" + r + "," + g + "," + b + "," + 0.8 + ")";
       canvasContext.strokeStyle =
@@ -225,7 +260,6 @@ class Home extends Component {
               <div className="darkBorderBot optionsHeader">BG Image</div>
               <div className="subMenu">
                 <div style={optionsBox}>
-
                   {/* Default Image */}
                   <div className="btnCustom" onClick={this.handleDefaultPic}>
                     Default Picture
@@ -273,6 +307,8 @@ class Home extends Component {
           /> */}
           <AudioPlayer autoPlay src={this.state.src} />
         </div>
+
+        {/* Playlist (WIP) */}
       </div>
     );
   }

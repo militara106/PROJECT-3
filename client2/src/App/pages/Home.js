@@ -138,9 +138,15 @@ class Home extends Component {
     });
   };
 
-  handleTheme = () => {
-    // Black and White Test
+  // Visualizer Themes
+  fireTheme = () => {
+    this.changeTheme(100, 1, -50, 1, 0, 0);
+  };
+  ebonTheme = () => {
     this.changeTheme(0, 1, 0, 1, 0, 1);
+  };
+  aquaTheme = () => {
+    this.changeTheme(0, 0, -50, 1, 100, 1);
   };
 
   // ----------------------AUDIO VISUALIZER-----------------------
@@ -230,6 +236,25 @@ class Home extends Component {
         {/* NavBar */}
         <NavBar>
           <CollapseMenu toggle={this.ToggleVisualizer}>
+            {/*---- Theme Change Options ----*/}
+            <div>
+              <div className="darkBorderBot optionsHeader">Visualizer Themes</div>
+              <div className="subMenu">
+                <div style={optionsBox}>
+                  <div className="btnCustom" onClick={this.fireTheme}>
+                    Fire
+                  </div>
+                  <div className="btnCustom" onClick={this.ebonTheme}>
+                    Ebon
+                  </div>
+                  <div className="btnCustom" onClick={this.aquaTheme}>
+                    Aqua
+                  </div>
+                </div>
+              </div>
+            </div>
+            {/*---- Theme Change Options End ----*/}
+
             {/*---- Audio Option ----*/}
             <div>
               <div className="darkBorderBot optionsHeader">Audio</div>

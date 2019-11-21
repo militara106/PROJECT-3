@@ -103,7 +103,7 @@ body {
 }
 
 .songInfo {
-  border-left: 2px solid #f2a10b;
+  border-left: 2px solid white;
   padding: 1rem;
   transition: 0.2s;
 }

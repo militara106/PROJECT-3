@@ -24,13 +24,21 @@ const optionsBox = {
 class Home extends Component {
   // Default State/Song
   state = {
-    songName: "",
-    artist: "No Audio Playing",
-    src: "",
+
+    // Account Info
     account: "",
     room: "",
+
+    // Current Song Playing
+    songName: "No Audio Playing",
+    artist: "Choose Songs in Options",
+    src: "",
     mediaElement: "",
+
+    // Check if visualizer is initialized
     visualizerCheck: false,
+
+    // Color Base Values
     redAdd: 100,
     redMult: 1,
     greenAdd: -50,
@@ -160,6 +168,7 @@ class Home extends Component {
 
       drawBaseCanvas();
 
+      // Color Based on State
       let rA = this.state.redAdd;
       let rM = this.state.redMult;
       let gA = this.state.greenAdd;

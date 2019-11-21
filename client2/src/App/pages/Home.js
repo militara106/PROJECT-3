@@ -152,12 +152,6 @@ class Home extends Component {
     let barWidth = (canvas.width / analyzer.frequencyBinCount) * 2;
     let x, x2;
     // let y, y2;
-    let rA = this.state.redAdd;
-    let rM = this.state.redMult;
-    let gA = this.state.greenAdd;
-    let gM = this.state.greenMult;
-    let bA = this.state.blueAdd;
-    let bM = this.state.blueMult;
 
     //Bar Visualizer
     const renderBarVisualizer = () => {

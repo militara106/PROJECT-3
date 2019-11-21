@@ -17,7 +17,7 @@ class CollapseMenu extends Component {
       document.getElementById("options").style.color = "white";
       this.setState({ menuVisible: true });
     } else {
-      document.getElementById("menu").style.right = "-50%";
+      document.getElementById("menu").style.right = "-200%";
       document.getElementById("options").style.color = "inherit";
       this.setState({ menuVisible: false });
     }

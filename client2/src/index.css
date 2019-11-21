@@ -168,7 +168,7 @@ body {
 }
 
 .optionsPos{
-  right: -50%;
+  right: -200%;
   top: 100%;
   position: absolute;
 }
@@ -225,6 +225,14 @@ body {
   /* For mobile phones: */
   .overlay {
     left: 0%;
+  }
+
+  h1{
+    font-size: 130%;
+  }
+
+  h3{
+    font-size: 100%;
   }
 
   .vybe {

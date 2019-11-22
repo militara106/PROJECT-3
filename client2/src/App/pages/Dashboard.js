@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { Component, Fragment } from 'react';
 import WebPlaybackReact from '../components/WebPlaybackReact';
 import LoginCallback from '../components/LoginCallback';
@@ -5,6 +6,9 @@ import NowPlayingScreen from '../components/NowPlayingScreen';
 import IntroScreen from '../components/Intro';
 
 window.onSpotifyWebPlaybackSDKReady = () => {};
+=======
+import React, { Component } from 'react';
+>>>>>>> 742d01f2e876d9c6f8bc50ea47ef4682c814afb4
 
 export default class Dashboard extends Component {
   state = {
@@ -64,6 +68,7 @@ export default class Dashboard extends Component {
     };
     
     return (
+<<<<<<< HEAD
       <div className="Dashboard">      
         <main>
           {!userAccessToken && <IntroScreen />}
@@ -101,6 +106,11 @@ export default class Dashboard extends Component {
           }
         </main>
       </div>
+=======
+    <div className="App">
+      <h1>Spotify Dashboard</h1>
+    </div>
+>>>>>>> 742d01f2e876d9c6f8bc50ea47ef4682c814afb4
     );
   }
 };

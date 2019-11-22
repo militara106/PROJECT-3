@@ -1,11 +1,10 @@
 import React from "react";
-
-function Navbar() {
+function Navbar(props) {
   return (
     <div>
-    <nav className="navbar navGradient lightFont navbar-fixed-top topNavBar">
-        <h1 className="vybe">VYBE</h1>
-        <div>Options/Filler</div> 
+    <nav className="navbar navGradient darkFont navbar-fixed-top topNavBar">
+        <h1 className="vybe lightestFont">VYBE</h1>
+        {props.children}
     </nav>
     <div className="lowerBorderGradient" />
     </div>

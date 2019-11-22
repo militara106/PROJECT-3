@@ -7,16 +7,17 @@ body,
 #app > div,
 #root {
   height: 100%;
+  color: white;
+  overflow-x: hidden;
+  font-family: "Open Sans Condensed", sans-serif;
 }
 
 body {
   background-color: #282828;
-  color: #66fcf1;
   text-shadow: 2px 2px 5px grey;
-  font-family: "Open Sans Condensed", sans-serif;
 }
 
-.navbar{
+.navbar {
   z-index: 10;
 }
 
@@ -26,6 +27,10 @@ body {
   color: white;
 }
 
+/* Dark Border */
+.darkBorderBot {
+  border-bottom: solid 1px #2b2f3f;
+}
 /* DARKEST BG COLOR */
 .darkestBg {
   background-color: #0b0c10;
@@ -37,44 +42,53 @@ body {
 }
 
 /* LIGHT BG COLOR */
-.lightBg{
+.lightBg {
   background-color: #2b2f3f;
 }
 
 /* MEDIUM FONT COLOR */
 .medFont {
-  color: #c5c6c7;
+  /* color: #c5c6c7; */
+  color: #f2a10b;
 }
 
 /* LIGHT FONT COLOR */
 .lightFont {
-  color: #66fcf1;
+  /* color: #66fcf1; */
+  color: #f7f503;
 }
 
 /* DARK FONT COLOR */
 .darkFont {
-  color: #45a29e;
+  /* color: #45a29e; */
+  color: #82811c;
+}
+
+/* LIGHTEST FONT COLOR */
+.lightestFont {
+  color: white;
 }
 
 /* VYBE LOGO */
-.vybe{
-  font-family: 'Bungee Inline', cursive;
+.vybe {
+  font-family: "Bungee Inline", cursive;
   font-size: 500%;
 }
 
 /* NAVBAR GRADIENT */
-.navGradient{
-  background: linear-gradient(180deg, #0b0c10 80%, rgba(40,40,40,0) 100%);
+.navGradient {
+  background: linear-gradient(180deg, #0b0c10 80%, rgba(40, 40, 40, 0) 100%);
   padding: 1rem;
 }
 
-#visualizerContainer{
+#visualizerContainer {
   position: absolute;
-  top:0%;
+  top: 0%;
   height: 100%;
   width: 100%;
 }
 
+/*--Flaoting Song Info--*/
 .overlay {
   display: flex;
   flex-direction: column;
@@ -88,27 +102,21 @@ body {
   z-index: 10;
 }
 
-.songInfo{
-  border-left: 2px solid #66fcf1;
-  /* border-width: 4px;
-  border-style: solid;
-  border-image: 
-    linear-gradient(
-      to right,
-      #66fcf1, 
-      rgba(0, 0, 0, 0)
-    ) 1 100%;
-    border-right: none; */
-    padding: 1rem;
+.songInfo {
+  border-left: 2px solid white;
+  padding: 1rem;
+  transition: 0.2s;
 }
+/*--Floating Song Info END--*/
 
-.mainVisual{
+/*--Visualizer and Background--*/
+.mainVisual {
   text-align: center;
   height: 100%;
   width: 100%;
 }
 
-.mainVisualOverlay{
+.mainVisualOverlay {
   position: absolute;
   top: 0%;
   height: 100%;
@@ -119,8 +127,9 @@ body {
   opacity: 0.1;
   z-index: -1;
 }
+/*--Visualizer and Background END--*/
 
-.loginBG{
+.loginBG {
   position: absolute;
   top: 0%;
   height: 100%;
@@ -132,19 +141,101 @@ body {
   z-index: -1;
 }
 
-.fillerText{
-position: relative;
-top: 40%;
+/*--Options Menu--*/
+
+.optionsBtn {
+  display: block;
+  cursor: pointer;
 }
 
+.optionsBtn:hover {
+  transition: 0.2s;
+  font-size: 110%;
+  color: white;
+}
+
+.btnCustom:hover {
+  transition: 0.2s;
+  color: white;
+  cursor: pointer;
+}
+
+.optionsHeader{
+  font-size: 120%;
+  padding: .2rem;
+  width: 100%;
+  text-align:center;
+}
+
+.optionsPos{
+  right: -200%;
+  top: 100%;
+  position: absolute;
+}
+.optionsMenu {
+  display: flex;
+  border-radius: .2rem;
+  height: auto;
+  box-shadow: 2px 2px 5px black;
+  transition: 0.2s;
+  padding: .5rem;
+}
+
+.subMenu{
+  padding: .5rem;
+}
+
+.inputContainer {
+  display: flex;
+  text-align: center;
+}
+
+.inputFile {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+/*--Options Menu END--*/
+
+/*--Audio Player--*/
+.flex {
+  background: none !important;
+  box-shadow: none !important;
+  color: white;
+}
+
+.react-h5-audio-player {
+  width: 50% !important;
+}
+
+.toggle-play-button {
+  background-color: rgba(40, 40, 40, 0) !important;
+  box-shadow: none !important;
+}
+
+.pause-icon {
+  box-shadow: rgba(40, 40, 40, 1) 7px 0px 0px 0px inset !important;
+}
+/*--Audio Player End*/
 
 @media only screen and (max-width: 768px) {
   /* For mobile phones: */
-  .overlay{
+  .overlay {
     left: 0%;
   }
 
-  .vybe{
+  h1{
+    font-size: 130%;
+  }
+
+  h3{
+    font-size: 100%;
+  }
+
+  .vybe {
     font-size: 300%;
   }
 }

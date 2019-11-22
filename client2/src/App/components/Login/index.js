@@ -2,7 +2,7 @@ export default {
     logInWithSpotify: (() => {
 
       var clientId =  "198e199ecc1640cfb59d3ab919efd393";
-      var callback =  "localhost:5000/dashboard";
+      var callback =  "http://bcs-project-3.herokuapp.com/dashboard";
       var scopes = [
         "user-read-private",
         "user-read-email",

@@ -23,6 +23,19 @@ var spotifyApi = new SpotifyWebApi({
   redirectUri: process.env.CALLBACK_URL
 });
 
+app.use(express.static(__dirname + "/public"));
+
+// Serve the static files from the React app
+
+app
+  .use(express.static(path.join(__dirname, "client2/build")))
+  .use(cors())
+  .use(cookieParser());
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname + "/client2/build/index.html"));
+});
+
 app.get("/api/spotify/login", (req, res) => {
   var url = spotifyApi.createAuthorizeURL(scopes);
   console.log(url);
@@ -38,23 +51,10 @@ app.get("/api/spotify/callback/", async (req, res) => {
     spotifyApi.setAccessToken(access_token);
     spotifyApi.setRefreshToken(refresh_token);
 
-    res.redirect("http://162.222.193.3:5000/api/spotify/callback/");
+    res.redirect("http://69.196.41.174:5000/api/spotify/callback");
   } catch (err) {
     res.redirect("/#/error/invalid token");
   }
-});
-
-app.use(express.static(__dirname + "/public"));
-
-// Serve the static files from the React app
-
-app
-  .use(express.static(path.join(__dirname, "client2/build")))
-  .use(cors())
-  .use(cookieParser());
-
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname + "/client2/build/index.html"));
 });
 
 const port = process.env.PORT || 5000;

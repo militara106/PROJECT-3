@@ -2,8 +2,13 @@ const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const express = require("express");
 const path = require("path");
+const forceSecure = require("force-secure-express");
 
 const app = express();
+
+app.use(forceSecure([
+  "bcs-project-3.herokuapp.com"
+]));
 
 app.use(express.static(__dirname + "/public"));
 

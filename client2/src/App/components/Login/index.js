@@ -7,7 +7,6 @@ export default {
         "user-read-private",
         "user-read-email",
         "user-read-birthdate",
-        "user-read-private",
         "playlist-modify-public",
         "playlist-modify-private",
         "streaming"

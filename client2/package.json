@@ -12,6 +12,7 @@
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.2.0",
     "react-spotify-web-playback": "^0.6.0",
+    "react-spotify-widgets": "^0.1.7",
     "spotify-web-api-node": "^4.0.0",
     "typescript": "^3.7.2"
   },

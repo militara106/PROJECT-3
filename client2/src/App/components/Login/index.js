@@ -6,8 +6,11 @@ export default {
       var scopes = [
         "user-read-private",
         "user-read-email",
+        "user-read-birthdate",
+        "user-read-private",
         "playlist-modify-public",
-        "playlist-modify-private"
+        "playlist-modify-private",
+        "streaming"
       ];
 
       window.location = [

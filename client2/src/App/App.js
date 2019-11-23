@@ -13,6 +13,9 @@ class App extends Component {
         <Route exact path='/' component={Login}/>
           <Route path='/home' component={Home}/>
           <Route path='/spotifyhome' component={SpotifyHome} />
+
+          {/* No Match */}
+          <Route component={Login}/>
         </Switch>
       </div>
     )

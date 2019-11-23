@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Row from "../components/Row";
 import Col from "../components/Col";
-import { Authorize } from "react-auth0-components/es5";
 class Login extends Component {
   // Default State/Song
   state = {
@@ -24,13 +23,6 @@ class Login extends Component {
             </Col>
             <Col size="sm-5">
               <h3 className="testColor">Login Block</h3>
-              <Authorize
-                domain={process.env.YOUR_AUTH0_DOMAIN}
-                clientID={process.env.YOUR_AUTH0_CLIENT_ID}
-                render={({ error, userInfo, authResult }) => {
-                  return <div>conditionally render userInfo here...</div>;
-                }}
-              />
             </Col>
           </Row>
         </div>

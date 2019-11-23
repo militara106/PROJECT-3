@@ -43,7 +43,6 @@ export default class Dashboard extends Component {
   
   render() {
     let {
-      userDeviceId,
       userAccessToken,
       playerLoaded,
       playerSelected,

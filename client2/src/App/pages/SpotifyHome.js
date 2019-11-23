@@ -22,7 +22,7 @@ const optionsBox = {
   flexDirection: "column"
 };
 
-class Home extends Component {
+class SpotifyHome extends Component {
   // Default State/Song
   state = {
 

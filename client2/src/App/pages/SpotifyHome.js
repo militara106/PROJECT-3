@@ -337,7 +337,6 @@ class SpotifyHome extends Component {
           <AudioPlayer src={this.state.src}/>
           <Dashboard />
         </div>
-
         {/* Playlist (WIP) */}
       </div>
     );

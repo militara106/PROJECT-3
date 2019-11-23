@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import Login from '../Login';
+import Login from '../LoginSpotify';
 
 export default class IntroScreen extends Component {
   buttonClick() {

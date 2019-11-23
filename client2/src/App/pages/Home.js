@@ -334,6 +334,7 @@ class Home extends Component {
             id={"audio-element"}
             controls
           /> */}
+          {/* <AudioPlayer src={this.state.src}/> */}
           <Dashboard />
         </div>
 

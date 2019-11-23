@@ -5,7 +5,6 @@ import MainVisual from "../components/MainVisual";
 // import ReactAudioPlayer from "react-audio-player";
 import AudioPlayer from "react-h5-audio-player";
 import CollapseMenu from "../components/CollapseMenu";
-import Dashboard from "./Dashboard";
 
 // import { Link } from 'react-router-dom';
 
@@ -335,7 +334,6 @@ class Home extends Component {
             controls
           /> */}
           <AudioPlayer src={this.state.src}/>
-          {/* <Dashboard /> */}
         </div>
 
         {/* Playlist (WIP) */}

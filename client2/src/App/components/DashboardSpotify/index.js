@@ -1,8 +1,8 @@
 import React, { Component, Fragment } from 'react';
-import WebPlaybackReact from '../components/WebPlaybackReact';
-import LoginCallback from '../components/LoginCallback';
-import NowPlayingScreen from '../components/NowPlayingScreen';
-import IntroScreen from '../components/Intro';
+import WebPlaybackReact from '../WebPlaybackReact';
+import LoginCallback from '../LoginCallbackSpotify';
+import NowPlayingScreen from '../NowPlayingScreen';
+import IntroScreen from '../Intro';
 
 window.onSpotifyWebPlaybackSDKReady = () => {};
 

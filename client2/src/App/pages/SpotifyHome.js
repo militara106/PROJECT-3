@@ -5,7 +5,7 @@ import MainVisual from "../components/MainVisual";
 // import ReactAudioPlayer from "react-audio-player";
 import AudioPlayer from "react-h5-audio-player";
 import CollapseMenu from "../components/CollapseMenu";
-import Dashboard from "./Dashboard";
+import Dashboard from "../components/DashboardSpotify";
 
 // import { Link } from 'react-router-dom';
 

@@ -51,7 +51,7 @@ export default class Dashboard extends Component {
     } = this.state;
     
     let webPlaybackSdkProps = {
-      playerName: "Spotify React Player",
+      playerName: "VYBE Media Visualizer",
       playerInitialVolume: 1.0,
       playerRefreshRateMs: 100,
       playerAutoConnect: true,

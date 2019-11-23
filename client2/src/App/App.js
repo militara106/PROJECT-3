@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import './App.css';
 import Home from './pages/Home';
-import Dashboard from './pages/Dashboard';
+import SpotifyHome from './pages/SpotifyHome';
 import Login from './pages/Login';
 
 class App extends Component {
@@ -12,7 +12,7 @@ class App extends Component {
         <Switch>
         <Route exact path='/' component={Login}/>
           <Route path='/home' component={Home}/>
-          <Route path='/dashboard' component={Dashboard}/>
+          <Route path='/spotifyhome' component={SpotifyHome}/>
         </Switch>
       </div>
     )

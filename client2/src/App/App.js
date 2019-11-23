@@ -7,10 +7,11 @@ import Login from './pages/Login';
 class App extends Component {
   render() {
     return (
-      <div className="h-100">
+      <div className="h-100" >
         <Switch>
         <Route exact path='/' component={Login}/>
           <Route path='/home' component={Home}/>
+          <Route path='/spotifyhome' component={SpotifyHome} />
         </Switch>
       </div>
     )

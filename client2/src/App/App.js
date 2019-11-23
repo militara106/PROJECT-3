@@ -12,7 +12,7 @@ class App extends Component {
         <Switch>
         <Route exact path='/' component={Login}/>
           <Route path='/home' component={Home}/>
-          <Route path='/spotifyhome' component={SpotifyHome}/>
+          <Route path='/spotifyhome' component={SpotifyHome} />
         </Switch>
       </div>
     )

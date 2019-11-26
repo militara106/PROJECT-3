@@ -329,12 +329,6 @@ class SpotifyHome extends Component {
 
         {/* Audio Player */}
         <div style={audioPos}>
-          {/* <ReactAudioPlayer
-            src={this.state.src}
-            id={"audio-element"}
-            controls
-          /> */}
-          <AudioPlayer src={this.state.src}/>
           <Dashboard />
         </div>
         {/* Playlist (WIP) */}

@@ -272,29 +272,8 @@ class Home extends Component {
         {/* NavBar */}
         <NavBar>
           <CollapseMenu toggle={this.ToggleVisualizer}>
-            {/*---- Theme Change Options ----*/}
-            <div>
-              <div className="darkBorderBot optionsHeader">
-                Visualizer Themes
-              </div>
-              <div className="subMenu">
-                <div style={optionsBox}>
-                  <div className="btnCustom" onClick={this.fireTheme}>
-                    Fire
-                  </div>
-                  <div className="btnCustom" onClick={this.ebonTheme}>
-                    Ebon
-                  </div>
-                  <div className="btnCustom" onClick={this.aquaTheme}>
-                    Aqua
-                  </div>
-                </div>
-              </div>
-            </div>
-            {/*---- Theme Change Options End ----*/}
-
             {/*---- Audio Option ----*/}
-            <div>
+            <div className="darkBorder">
               <div className="darkBorderBot optionsHeader">Audio</div>
               <div className="subMenu">
                 {/* Start Demo */}
@@ -322,8 +301,8 @@ class Home extends Component {
             {/*---- Audio Option End ----*/}
 
             {/*---- Overlay Option ----*/}
-            <div>
-              <div className="darkBorderBot optionsHeader">BG Image</div>
+            <div className="darkBorder">
+              <div className="darkBorderBot optionsHeader">Background</div>
               <div className="subMenu">
                 <div style={optionsBox}>
                   {/* Default Image */}

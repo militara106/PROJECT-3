@@ -1,5 +1,10 @@
 import React, { Component } from "react";
 
+const optionsBox = {
+  display: "flex",
+  flexDirection: "column"
+};
+
 class CollapseMenu extends Component {
   constructor(props) {
     super();
@@ -10,6 +15,8 @@ class CollapseMenu extends Component {
     menuVisible: false,
     visualizerVisible: false
   };
+
+  
 
   toggleMenu = () => {
     if (this.state.menuVisible === false) {
@@ -40,10 +47,13 @@ class CollapseMenu extends Component {
 
         <div
           id="menu"
-          className="optionsMenu optionsPos text-center darkestBg medFont"
+          className="optionsMenu optionsPos text-center medFont"
         >
           {/* Display Options */}
           <div>
+
+            <div className="darkBorder">
+            {/* TOGGLE VISUALIZER */}
             <div className="darkBorderBot optionsHeader">Visualizer</div>
             <div className="subMenu">
               <div className="btnCustom" onClick={this.props.toggle}>
@@ -53,6 +63,29 @@ class CollapseMenu extends Component {
                 </div>
               </div>
             </div>
+            
+            {/* VISUALIZER COLOR */}
+            <div>
+              <div className="darkBorderBot optionsHeader">
+                Colors
+              </div>
+              <div className="subMenu">
+                <div style={optionsBox}>
+                  <div className="btnCustom" onClick={this.fireTheme}>
+                    Fire
+                  </div>
+                  <div className="btnCustom" onClick={this.ebonTheme}>
+                    Ebon
+                  </div>
+                  <div className="btnCustom" onClick={this.aquaTheme}>
+                    Aqua
+                  </div>
+                </div>
+              </div>
+            </div>
+            </div>
+
+
           </div>
           {this.props.children}
         </div>

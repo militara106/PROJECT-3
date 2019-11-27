@@ -1,25 +1,34 @@
-import React, { Component } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import React from 'react';
+import { Router, Route, Switch } from "react-router-dom";
 import './App.css';
 import Home from './pages/Home';
+import Loading from "./components/Loading";
 import Login from './pages/Login';
 import SpotifyHome from './pages/SpotifyHome';
+import history from "../utils/history";
+import { useAuth0 } from "../react-auth0-spa";
 
-class App extends Component {
-  render() {
-    return (
+const App = () => {
+  const { loading, user } = useAuth0();
+
+  if (loading) {
+    return <Loading />;
+  }
+  return (
+    <Router history={history}>
+      {console.log(user)}
       <div className="h-100" >
         <Switch>
-        <Route exact path='/' component={Login}/>
-          <Route path='/home' component={Home}/>
+          <Route exact path='/' component={Login} />
+          <Route path='/home' component={Home} />
           <Route path='/spotifyhome' component={SpotifyHome} />
 
           {/* 404 Route */}
-          <Route component={Login}/>
+          <Route component={Login} />
         </Switch>
       </div>
-    )
-  }
+    </Router>
+  )
 }
 
 export default App;

@@ -85,7 +85,10 @@ class CollapseMenu extends Component {
                       Bars
                     </div>
                     <div className="btnCustom" onClick={this.props.round}>
-                      Circles
+                      Speaker
+                    </div>
+                    <div className="btnCustom" onClick={this.props.circleBar}>
+                      Circle
                     </div>
                   </div>
                 </div>

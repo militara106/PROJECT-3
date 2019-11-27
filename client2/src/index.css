@@ -184,7 +184,6 @@ body {
 .optionsMenu {
   display: flex;
   border-radius: .2rem;
-  height: auto;
   transition: 0.2s;
   padding: .5rem;
 }

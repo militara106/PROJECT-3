@@ -227,11 +227,11 @@ class Home extends Component {
       else if (this.state.visualizerStyle === "round") {
         for (let j = 0; j < circles; j++) {
           barHeight = (freqArray[j * 3] + 5) * 2.5;
-          radius = freqArray[j];
+          radius = freqArray[j]/2;
 
           setCanvasColor(j, barHeight, rA, rM, gA, gM, bA, bM);
           canvasContext.lineWidth = barWidth;
-          drawArc(center_x, center_y, radius + j * 20, j, 2 * Math.PI - j);
+          drawArc(center_x, center_y, radius + j * 5, j, 2 * Math.PI - j);
         }
       }
     };
@@ -271,7 +271,8 @@ class Home extends Component {
       <div className="d-flex flex-column h-100">
         {/* NavBar */}
         <NavBar>
-          <CollapseMenu toggle={this.ToggleVisualizer}>
+          <CollapseMenu toggle={this.ToggleVisualizer} fireTheme={this.fireTheme}
+          ebonTheme={this.ebonTheme} aquaTheme={this.aquaTheme} bars={this.barVisualizer} round={this.roundVisualizer}>
             {/*---- Audio Option ----*/}
             <div className="darkBorder">
               <div className="darkBorderBot optionsHeader">Audio</div>
@@ -297,11 +298,9 @@ class Home extends Component {
                   </div>
                 </div>
               </div>
-            </div>
             {/*---- Audio Option End ----*/}
 
             {/*---- Overlay Option ----*/}
-            <div className="darkBorder">
               <div className="darkBorderBot optionsHeader">Background</div>
               <div className="subMenu">
                 <div style={optionsBox}>

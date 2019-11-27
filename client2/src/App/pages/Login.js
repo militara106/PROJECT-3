@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import Row from "../components/Row";
 import Col from "../components/Col";
 import { useAuth0 } from "../../react-auth0-spa";
@@ -11,6 +11,11 @@ const Login = () => {
       returnTo: window.location.origin
     });
   };
+
+  const linkStyle = {
+    color: "inherit",
+    textDecoration: "none"
+  }
 
   return (
     <div className="d-flex flex-column h-100">
@@ -30,9 +35,12 @@ const Login = () => {
             )}
             {/* LOGOUT */}
             {isAuthenticated && (
+              <div>
               <h3 className="testColor" onClick={() => logoutWithRedirect({})}>
                 Logout Block
               </h3>
+              <h3 className="btnCustom"><a style={linkStyle} href="/home">Go To Home Dashboard</a></h3>
+              </div>
             )}
           </Col>
         </Row>

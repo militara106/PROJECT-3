@@ -11,8 +11,14 @@ import { useAuth0 } from "../react-auth0-spa";
 const App = () => {
   const { loading, user } = useAuth0();
 
+  const loadingStyle = {
+    position: "absolute",
+    top: "50%",
+    left: "50%"
+  }
+
   if (loading) {
-    return <Loading />;
+    return (<div style={loadingStyle}><Loading /></div>);
   }
   return (
     <Router history={history}>

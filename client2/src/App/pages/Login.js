@@ -10,7 +10,7 @@ const Login = () => {
     logout({
       returnTo: window.location.origin
     });
-  }
+  };
 
   return (
     <div className="d-flex flex-column h-100">
@@ -22,22 +22,22 @@ const Login = () => {
             <h3 className="testColor">Intro</h3>
           </Col>
           <Col size="sm-5">
-            {(!isAuthenticated) && (
-              <h3
-                className="testColor"
-                onClick={() => loginWithRedirect({})}
-              >
-                Login Block</h3>)}
-                {(isAuthenticated) && (
-              <h3
-                className="testColor"
-                onClick={() => logoutWithRedirect({})}
-              >
-                Logout Block</h3>)}
+            {/* LOGIN */}
+            {!isAuthenticated && (
+              <h3 className="testColor" onClick={() => loginWithRedirect({})}>
+                Login Block
+              </h3>
+            )}
+            {/* LOGOUT */}
+            {isAuthenticated && (
+              <h3 className="testColor" onClick={() => logoutWithRedirect({})}>
+                Logout Block
+              </h3>
+            )}
           </Col>
         </Row>
       </div>
     </div>
   );
-}
+};
 export default Login;

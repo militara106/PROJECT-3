@@ -151,10 +151,13 @@ class Home extends Component {
 
   // Visualizer Stlyes
   barVisualizer = () => {
-    this.setState({visualizerStyle:"bar"});
-  }
+    this.setState({ visualizerStyle: "bar" });
+  };
   roundVisualizer = () => {
-    this.setState({visualizerStyle:"round"})
+    this.setState({ visualizerStyle: "round" });
+  };
+  circleBarVisualizer = () => {
+    this.setState({visualizerStyle: "circleBar"});
   }
 
   // ----------------------AUDIO VISUALIZER-----------------------
@@ -200,6 +203,8 @@ class Home extends Component {
       var radius = 1;
       var circles = 50;
 
+      // Circle Bar Viz Variables
+
       // BAR VISUALIZER
       if (this.state.visualizerStyle === "bar") {
         for (var i = 0; i < canvas.width; i++) {
@@ -223,16 +228,21 @@ class Home extends Component {
           x2 -= barWidth;
         }
       }
-      // ROUND VISUALIZER 
+      // ROUND VISUALIZER
       else if (this.state.visualizerStyle === "round") {
         for (let j = 0; j < circles; j++) {
           barHeight = (freqArray[j * 3] + 5) * 2.5;
-          radius = freqArray[j];
+          radius = freqArray[j] / 2;
 
           setCanvasColor(j, barHeight, rA, rM, gA, gM, bA, bM);
           canvasContext.lineWidth = barWidth;
-          drawArc(center_x, center_y, radius + j * 20, j, 2 * Math.PI - j);
+          drawArc(center_x, center_y, radius + j * 5, j, 2 * Math.PI - j);
         }
+      }
+
+      // CIRCLE BAR VISUALIZER
+      else if (this.state.visualizerStyle === "circleBar") {
+        console.log("Circle Visualizer WIP");
       }
     };
     renderBarVisualizer();
@@ -271,30 +281,17 @@ class Home extends Component {
       <div className="d-flex flex-column h-100">
         {/* NavBar */}
         <NavBar>
-          <CollapseMenu toggle={this.ToggleVisualizer}>
-            {/*---- Theme Change Options ----*/}
-            <div>
-              <div className="darkBorderBot optionsHeader">
-                Visualizer Themes
-              </div>
-              <div className="subMenu">
-                <div style={optionsBox}>
-                  <div className="btnCustom" onClick={this.fireTheme}>
-                    Fire
-                  </div>
-                  <div className="btnCustom" onClick={this.ebonTheme}>
-                    Ebon
-                  </div>
-                  <div className="btnCustom" onClick={this.aquaTheme}>
-                    Aqua
-                  </div>
-                </div>
-              </div>
-            </div>
-            {/*---- Theme Change Options End ----*/}
-
+          <CollapseMenu
+            toggle={this.ToggleVisualizer}
+            fireTheme={this.fireTheme}
+            ebonTheme={this.ebonTheme}
+            aquaTheme={this.aquaTheme}
+            bars={this.barVisualizer}
+            round={this.roundVisualizer}
+            circleBar={this.circleBarVisualizer}
+          >
             {/*---- Audio Option ----*/}
-            <div>
+            <div className="darkBorder">
               <div className="darkBorderBot optionsHeader">Audio</div>
               <div className="subMenu">
                 {/* Start Demo */}
@@ -318,12 +315,10 @@ class Home extends Component {
                   </div>
                 </div>
               </div>
-            </div>
-            {/*---- Audio Option End ----*/}
+              {/*---- Audio Option End ----*/}
 
-            {/*---- Overlay Option ----*/}
-            <div>
-              <div className="darkBorderBot optionsHeader">BG Image</div>
+              {/*---- Overlay Option ----*/}
+              <div className="darkBorderBot optionsHeader">Background</div>
               <div className="subMenu">
                 <div style={optionsBox}>
                   {/* Default Image */}

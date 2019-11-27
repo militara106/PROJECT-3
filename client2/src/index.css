@@ -27,7 +27,14 @@ body {
   color: white;
 }
 
-/* Dark Border */
+/* Dark Border All */
+.darkBorder{
+  border: solid 1px #0b0c10;
+  margin: 0 5px 0 5px;
+  box-shadow: 2px 2px 5px black;
+}
+
+/* Dark Border Bot */
 .darkBorderBot {
   border-bottom: solid 1px #2b2f3f;
 }
@@ -165,6 +172,8 @@ body {
   padding: .2rem;
   width: 100%;
   text-align:center;
+  background: #0b0c10;
+  color: white;
 }
 
 .optionsPos{
@@ -175,8 +184,6 @@ body {
 .optionsMenu {
   display: flex;
   border-radius: .2rem;
-  height: auto;
-  box-shadow: 2px 2px 5px black;
   transition: 0.2s;
   padding: .5rem;
 }

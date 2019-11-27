@@ -24,7 +24,6 @@ const optionsBox = {
 class Home extends Component {
   // Default State/Song
   state = {
-
     // Account Info
     account: "",
     room: "",
@@ -37,6 +36,7 @@ class Home extends Component {
 
     // Check if visualizer is initialized
     visualizerCheck: false,
+    visualizerStyle: "bar",
 
     // Color Base Values
     redAdd: 100,
@@ -149,6 +149,14 @@ class Home extends Component {
     this.changeTheme(0, 0, -50, 1, 100, 1);
   };
 
+  // Visualizer Stlyes
+  barVisualizer = () => {
+    this.setState({visualizerStyle:"bar"});
+  }
+  roundVisualizer = () => {
+    this.setState({visualizerStyle:"round"})
+  }
+
   // ----------------------AUDIO VISUALIZER-----------------------
   Visualizer = (analyzer, freqArray) => {
     // Canvas Variables
@@ -173,6 +181,7 @@ class Home extends Component {
       analyzer.getByteFrequencyData(freqArray);
 
       drawBaseCanvas();
+      console.log("Canvas base created");
 
       // Color Based on State
       let rA = this.state.redAdd;
@@ -185,25 +194,45 @@ class Home extends Component {
       x = canvas.width / 2 + barWidth;
       x2 = x - barWidth;
 
-      for (var i = 0; i < canvas.width; i++) {
-        barHeight = (freqArray[i * 3] + 5) * 2.5;
+      // Round Viz Variables
+      var center_x = canvas.width / 2;
+      var center_y = canvas.height / 2;
+      var radius = 1;
+      var circles = 50;
 
-        setCanvasColor(i, barHeight, rA, rM, gA, gM, bA, bM);
-        canvasContext.fillRect(
-          x,
-          (canvas.height - barHeight) / 2,
-          barWidth,
-          barHeight
-        );
-        canvasContext.fillRect(
-          x2,
-          (canvas.height - barHeight) / 2,
-          barWidth,
-          barHeight
-        );
+      // BAR VISUALIZER
+      if (this.state.visualizerStyle === "bar") {
+        for (var i = 0; i < canvas.width; i++) {
+          barHeight = (freqArray[i * 3] + 5) * 2.5;
 
-        x += barWidth;
-        x2 -= barWidth;
+          setCanvasColor(i, barHeight, rA, rM, gA, gM, bA, bM);
+          canvasContext.fillRect(
+            x,
+            (canvas.height - barHeight) / 2,
+            barWidth,
+            barHeight
+          );
+          canvasContext.fillRect(
+            x2,
+            (canvas.height - barHeight) / 2,
+            barWidth,
+            barHeight
+          );
+
+          x += barWidth;
+          x2 -= barWidth;
+        }
+      }
+      // ROUND VISUALIZER 
+      else if (this.state.visualizerStyle === "round") {
+        for (let j = 0; j < circles; j++) {
+          barHeight = (freqArray[j * 3] + 5) * 2.5;
+          radius = freqArray[j];
+
+          setCanvasColor(j, barHeight, rA, rM, gA, gM, bA, bM);
+          canvasContext.lineWidth = barWidth;
+          drawArc(center_x, center_y, radius + j * 20, j, 2 * Math.PI - j);
+        }
       }
     };
     renderBarVisualizer();
@@ -227,6 +256,13 @@ class Home extends Component {
       canvasContext.strokeStyle =
         "rgba(" + r + "," + g + "," + b + "," + 0.8 + ")";
     }
+
+    //  Draw Arc
+    function drawArc(x, y, radius, start, end) {
+      canvasContext.beginPath();
+      canvasContext.arc(x, y, radius, start, end);
+      canvasContext.stroke();
+    }
   };
   // ----------------------AUDIO VISUALIZER END-----------------------
 
@@ -238,7 +274,9 @@ class Home extends Component {
           <CollapseMenu toggle={this.ToggleVisualizer}>
             {/*---- Theme Change Options ----*/}
             <div>
-              <div className="darkBorderBot optionsHeader">Visualizer Themes</div>
+              <div className="darkBorderBot optionsHeader">
+                Visualizer Themes
+              </div>
               <div className="subMenu">
                 <div style={optionsBox}>
                   <div className="btnCustom" onClick={this.fireTheme}>
@@ -333,7 +371,7 @@ class Home extends Component {
             id={"audio-element"}
             controls
           /> */}
-          <AudioPlayer src={this.state.src}/>
+          <AudioPlayer src={this.state.src} />
         </div>
 
         {/* Playlist (WIP) */}

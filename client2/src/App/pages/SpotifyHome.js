@@ -2,8 +2,6 @@ import React, { Component } from "react";
 import NavBar from "../components/Navbar";
 import TextOverlay from "../components/TextOverlay";
 import MainVisual from "../components/MainVisual";
-// import ReactAudioPlayer from "react-audio-player";
-import AudioPlayer from "react-h5-audio-player";
 import CollapseMenu from "../components/CollapseMenu";
 import Dashboard from "../components/DashboardSpotify";
 

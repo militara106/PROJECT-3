@@ -25,10 +25,8 @@ class CollapseMenu extends Component {
 
   toggleVisualizer = () => {
     if (this.state.visualizerVisible === false) {
-      document.getElementById("visualizerToggle").style.color = "white";
       this.setState({ visualizerVisible: true });
     } else {
-      document.getElementById("visualizerToggle").style.color = "inherit";
       this.setState({ visualizerVisible: false });
     }
   };
@@ -46,11 +44,12 @@ class CollapseMenu extends Component {
         >
           {/* Display Options */}
           <div>
-            <div className="darkBorderBot optionsHeader">Visualizers</div>
+            <div className="darkBorderBot optionsHeader">Visualizer</div>
             <div className="subMenu">
               <div className="btnCustom" onClick={this.props.toggle}>
                 <div id="visualizerToggle" onClick={this.toggleVisualizer}>
-                  Bars
+                  {!this.state.visualizerVisible && ("Show")}
+                  {this.state.visualizerVisible && ("Hide")}
                 </div>
               </div>
             </div>

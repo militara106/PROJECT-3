@@ -153,6 +153,7 @@ body {
 .optionsBtn {
   display: block;
   cursor: pointer;
+  color: grey;
 }
 
 .optionsBtn:hover {
@@ -209,23 +210,34 @@ body {
 
 /*--Audio Player--*/
 .flex {
-  background: none !important;
-  box-shadow: none !important;
-  color: white;
+  background: #0b0c10 !important;
+  box-shadow: 2px 2px 5px black !important;
+  color: inherit !important;
+  border-radius: 100px;
+  opacity: 30%;
+  transition: .5s;
+}
+
+.flex:hover{
+  opacity: 100%;
 }
 
 .react-h5-audio-player {
   width: 50% !important;
+  color: inherit !important;
 }
 
 .toggle-play-button {
   background-color: rgba(40, 40, 40, 0) !important;
   box-shadow: none !important;
+  color: inherit !important;
 }
 
 .pause-icon {
   box-shadow: rgba(40, 40, 40, 1) 7px 0px 0px 0px inset !important;
+  color: inherit !important;
 }
+
 /*--Audio Player End*/
 
 @media only screen and (max-width: 768px) {

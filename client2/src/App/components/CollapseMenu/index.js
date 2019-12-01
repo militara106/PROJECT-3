@@ -23,7 +23,7 @@ class CollapseMenu extends Component {
       this.setState({ menuVisible: true });
     } else {
       document.getElementById("menu").style.right = "-200%";
-      document.getElementById("options").style.color = "inherit";
+      document.getElementById("options").style.color = "grey";
       this.setState({ menuVisible: false });
     }
   };

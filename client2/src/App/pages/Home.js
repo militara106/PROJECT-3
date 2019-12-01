@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import NavBar from "../components/Navbar";
 import TextOverlay from "../components/TextOverlay";
 import MainVisual from "../components/MainVisual";
-// import ReactAudioPlayer from "react-audio-player";
 import AudioPlayer from "react-h5-audio-player";
 import CollapseMenu from "../components/CollapseMenu";
 
@@ -44,7 +43,28 @@ class Home extends Component {
     greenAdd: -50,
     greenMult: 1,
     blueAdd: 0,
-    blueMult: 0
+    blueMult: 0,
+
+    // Background Colors
+    mainFont: {
+      color: "#f2a10b"
+    },
+    subFont: {
+      color: "#f2a10b"
+    },
+    navbarBG: {
+      background:
+        "linear-gradient(180deg, #0b0c10 80%, rgba(40, 40, 40, 0) 100%)"
+    },
+    subBG: {
+      backgroundColor: "#282828"
+    },
+    mainBorder: {
+      borderColor: "#f2a10b"
+    },
+    vybe: {
+      color: "white"
+    }
   };
 
   // Handle Audio File Upload
@@ -141,9 +161,13 @@ class Home extends Component {
   // Visualizer Themes
   fireTheme = () => {
     this.changeTheme(100, 1, -50, 1, 0, 0);
+    this.changeColorSet("#f2a10b", "#f2a10b", "#0b0c10", "#282828", "white");
+    this.changeBodyColor("#282828");
   };
   ebonTheme = () => {
     this.changeTheme(0, 1, 0, 1, 0, 1);
+    this.changeColorSet("white", "white", "white", "white", "black");
+    this.changeBodyColor("black");
   };
   aquaTheme = () => {
     this.changeTheme(0, 0, -50, 1, 100, 1);
@@ -157,7 +181,37 @@ class Home extends Component {
     this.setState({ visualizerStyle: "round" });
   };
   circleBarVisualizer = () => {
-    this.setState({visualizerStyle: "circleBar"});
+    this.setState({ visualizerStyle: "circleBar" });
+  };
+
+  changeBodyColor(color) {
+    document.getElementsByTagName("body")[0].style.backgroundColor = color;
+  }
+
+  changeColorSet(mainFont, subFont, navbarBG, subBG, vybe) {
+    this.setState({
+      mainFont: {
+        color: mainFont
+      },
+      subFont: {
+        color: subFont
+      },
+      navbarBG: {
+        background:
+          "linear-gradient(180deg, " +
+          navbarBG +
+          " 80%, rgba(40, 40, 40, 0) 100%)"
+      },
+      subBG: {
+        backgroundColor: subBG
+      },
+      mainBorder: {
+        borderColor: mainFont
+      },
+      vyeb: {
+        color: vybe
+      }
+    });
   }
 
   // ----------------------AUDIO VISUALIZER-----------------------
@@ -280,7 +334,7 @@ class Home extends Component {
     return (
       <div className="d-flex flex-column h-100">
         {/* NavBar */}
-        <NavBar>
+        <NavBar style={this.state.navbarBG} vybe={this.state.vybe}>
           <CollapseMenu
             toggle={this.ToggleVisualizer}
             fireTheme={this.fireTheme}
@@ -357,16 +411,15 @@ class Home extends Component {
         <TextOverlay
           songName={this.state.songName}
           artist={this.state.artist}
+          style={this.state.mainFont}
+          border={this.state.mainBorder}
         />
 
         {/* Audio Player */}
-        <div style={audioPos}>
-          {/* <ReactAudioPlayer
-            src={this.state.src}
-            id={"audio-element"}
-            controls
-          /> */}
-          <AudioPlayer src={this.state.src} />
+        <div style={this.state.mainFont}>
+          <div style={audioPos}>
+            <AudioPlayer src={this.state.src} loop={true} />
+          </div>
         </div>
 
         {/* Playlist (WIP) */}

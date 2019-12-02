@@ -453,7 +453,7 @@ class Home extends Component {
         />
 
         {/* Audio Player */}
-        <div style={this.state.mainFont}>
+        <div style={this.state.mainFont} className="bottomBar">
           <div style={audioPos}>
             <AudioPlayer src={this.state.src} loop={true} />
           </div>

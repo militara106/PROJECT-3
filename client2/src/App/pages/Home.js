@@ -159,27 +159,55 @@ class Home extends Component {
   };
 
   // Visualizer Themes
+
+  // FIRE THEME
   fireTheme = () => {
+
+    // +red, xred, +green, xgreen, +blue, xblue
     this.changeTheme(100, 1, -50, 1, 0, 0);
 
     // Main font, Sub Font, Navbar Color, Sub BG Color, VYBE Logo Color
     this.changeColorSet("#f2a10b", "#f2a10b", "#0b0c10", "#282828", "white");
+
+    // Body Color
     this.changeBodyColor("#282828");
   };
+
+  // EBON THEME
   ebonTheme = () => {
+    // +red, xred, +green, xgreen, +blue, xblue
     this.changeTheme(0, 1, 0, 1, 0, 1);
 
     // Main font, Sub Font, Navbar Color, Sub BG Color, VYBE Logo Color
     this.changeColorSet("white", "white", "white", "white", "black");
+
+    // Body Color
     this.changeBodyColor("black");
   };
+
+  // AQUA THEME
   aquaTheme = () => {
+    // +red, xred, +green, xgreen, +blue, xblue
     this.changeTheme(0, 0, -50, 1, 100, 1);
 
     // Main font, Sub Font, Navbar Color, Sub BG Color, VYBE Logo Color
     this.changeColorSet("aqua", "#240090", "#3500d3", "white", "aqua");
+
+    // Body color
     this.changeBodyColor("#0c0032");
   };
+
+  // REDLINE THEME
+  redlineTheme = () => {
+    // +red, xred, +green, xgreen, +blue, xblue
+    this.changeTheme(100, 1, 10, 1, 10, 1);
+
+    // Main font, Sub Font, Navbar Color, Sub BG Color, VYBE Logo Color
+    this.changeColorSet("#e3e2df", "#e3e2df", "#e3e2df", "#9a1750", "#5d001e");
+
+    // Body color
+    this.changeBodyColor("#5d001e");
+  }
 
   // Visualizer Stlyes
   barVisualizer = () => {
@@ -348,6 +376,7 @@ class Home extends Component {
             fireTheme={this.fireTheme}
             ebonTheme={this.ebonTheme}
             aquaTheme={this.aquaTheme}
+            redlineTheme={this.redlineTheme}
             bars={this.barVisualizer}
             round={this.roundVisualizer}
             circleBar={this.circleBarVisualizer}

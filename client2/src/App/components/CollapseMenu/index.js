@@ -72,6 +72,9 @@ class CollapseMenu extends Component {
                     <div className="btnCustom" onClick={this.props.aquaTheme}>
                       Aqua
                     </div>
+                    <div className="btnCustom" onClick={this.props.redlineTheme}>
+                      Redline
+                    </div>
                   </div>
                 </div>
               </div>

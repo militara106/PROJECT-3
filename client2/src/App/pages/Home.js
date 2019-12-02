@@ -161,16 +161,24 @@ class Home extends Component {
   // Visualizer Themes
   fireTheme = () => {
     this.changeTheme(100, 1, -50, 1, 0, 0);
+
+    // Main font, Sub Font, Navbar Color, Sub BG Color, VYBE Logo Color
     this.changeColorSet("#f2a10b", "#f2a10b", "#0b0c10", "#282828", "white");
     this.changeBodyColor("#282828");
   };
   ebonTheme = () => {
     this.changeTheme(0, 1, 0, 1, 0, 1);
+
+    // Main font, Sub Font, Navbar Color, Sub BG Color, VYBE Logo Color
     this.changeColorSet("white", "white", "white", "white", "black");
     this.changeBodyColor("black");
   };
   aquaTheme = () => {
     this.changeTheme(0, 0, -50, 1, 100, 1);
+
+    // Main font, Sub Font, Navbar Color, Sub BG Color, VYBE Logo Color
+    this.changeColorSet("aqua", "#240090", "#3500d3", "white", "aqua");
+    this.changeBodyColor("#0c0032");
   };
 
   // Visualizer Stlyes
@@ -208,7 +216,7 @@ class Home extends Component {
       mainBorder: {
         borderColor: mainFont
       },
-      vyeb: {
+      vybe: {
         color: vybe
       }
     });

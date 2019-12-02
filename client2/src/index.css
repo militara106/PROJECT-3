@@ -209,21 +209,24 @@ body {
 /*--Options Menu END--*/
 
 /*--Audio Player--*/
+.bottomBar{
+  opacity: 30%;
+  transition: .2s;
+}
+
+.bottomBar:hover{
+  opacity: 100%;
+}
+
 .flex {
   background: #0b0c10 !important;
   box-shadow: 2px 2px 5px black !important;
   color: inherit !important;
   border-radius: 100px;
-  opacity: 30%;
-  transition: .5s;
-}
-
-.flex:hover{
-  opacity: 100%;
 }
 
 .react-h5-audio-player {
-  width: 50% !important;
+  width: 30% !important;
   color: inherit !important;
 }
 

@@ -4,7 +4,7 @@ import './App.css';
 import Home from './pages/Home';
 import Loading from "./components/Loading";
 import Login from './pages/Login';
-import SpotifyHome from './pages/SpotifyHome';
+// import SpotifyHome from './pages/SpotifyHome';
 import history from "../utils/history";
 import { useAuth0 } from "../react-auth0-spa";
 
@@ -28,7 +28,7 @@ const App = () => {
         <Switch>
           <Route exact path='/' component={Login} />
           <Route path='/home' component={Home} />
-          <Route path='/spotifyhome' component={SpotifyHome} />
+          {/* <Route path='/spotifyhome' component={SpotifyHome} /> */}
 
           {/* No Match */}
           <Route component={Login}/>

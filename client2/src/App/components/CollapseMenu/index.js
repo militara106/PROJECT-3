@@ -47,7 +47,7 @@ class CollapseMenu extends Component {
         <div id="menu" className="optionsMenu optionsPos text-center medFont">
           {/* Display Options */}
           <div>
-            <div className="darkBorder">
+            <div className="darkBorder darkBg">
               {/* TOGGLE VISUALIZER */}
               <div className="darkBorderBot optionsHeader">Visualizer</div>
               <div className="subMenu">

@@ -30,7 +30,7 @@ const Login = () => {
             {/* LOGIN */}
             {!isAuthenticated && (
               <h3 className="login" onClick={() => loginWithRedirect({})}>
-                Get Started <i class="fas fa-ellipsis-v"></i>
+                Get Started
               </h3>
             )}
             {/* LOGOUT */}

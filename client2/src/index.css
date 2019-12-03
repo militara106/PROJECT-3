@@ -27,7 +27,14 @@ body {
   color: white;
 }
 
-/* Dark Border */
+/* Dark Border All */
+.darkBorder {
+  border: solid 1px #0b0c10;
+  margin: 0 5px 0 5px;
+  box-shadow: 2px 2px 5px black;
+}
+
+/* Dark Border Bot */
 .darkBorderBot {
   border-bottom: solid 1px #2b2f3f;
 }
@@ -106,6 +113,7 @@ body {
   border-left: 2px solid white;
   padding: 1rem;
   transition: 0.2s;
+  text-shadow: 2px 1px 2px black;
 }
 /*--Floating Song Info END--*/
 
@@ -129,6 +137,8 @@ body {
 }
 /*--Visualizer and Background END--*/
 
+/* Login */
+
 .loginBG {
   position: absolute;
   top: 0%;
@@ -141,11 +151,89 @@ body {
   z-index: -1;
 }
 
+.login {
+  padding: 5px;
+  text-align: center;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: 0.2s;
+  width: 100%;
+  margin: auto;
+}
+
+.login:hover {
+  background: #0b0c10;
+}
+
+.toHome {
+  padding: 5px;
+  text-align: center;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: 0.2s;
+  width: 100%;
+  margin: auto;
+  margin-top: 1rem;
+}
+
+.toHome:hover {
+  text-shadow: 2px 2px 5px black;
+  background: #0b0c10;
+}
+
+.linkStyle {
+  color: inherit;
+  text-decoration: none;
+}
+
+.linkStyle:hover {
+  text-decoration: none;
+}
+
+.intro {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+  align-items: center;
+  text-align: center;
+  font-size: 200%;
+  background-image: url("./Assets/verbageBG.jpg");
+  background-position: center;
+  background-size: cover;
+  font-family: "Bungee Inline", cursive;
+  margin-bottom: 1rem;
+  height: 50vh;
+  text-shadow: 2px 2px 5px black;
+  border-radius: 20px;
+  color: white;
+}
+
+.preVerb {
+  font-size: 80%;
+}
+
+.verbage {
+  display: inline-block;
+  padding-left: 8px;
+  color: #f2a10b;
+}
+
+.wordsContainer {
+  display: flex;
+  justify-content: center;
+  word-wrap: none;
+  align-items: center;
+  width: 100%;
+  font-size: 200%;
+}
+/* Login END */
+
 /*--Options Menu--*/
 
 .optionsBtn {
   display: block;
   cursor: pointer;
+  color: grey;
 }
 
 .optionsBtn:hover {
@@ -160,29 +248,29 @@ body {
   cursor: pointer;
 }
 
-.optionsHeader{
+.optionsHeader {
   font-size: 120%;
-  padding: .2rem;
+  padding: 0.2rem;
   width: 100%;
-  text-align:center;
+  text-align: center;
+  background: #0b0c10;
+  color: white;
 }
 
-.optionsPos{
-  right: -200%;
+.optionsPos {
+  right: 1%;
   top: 100%;
   position: absolute;
 }
 .optionsMenu {
   display: flex;
-  border-radius: .2rem;
-  height: auto;
-  box-shadow: 2px 2px 5px black;
+  border-radius: 0.2rem;
   transition: 0.2s;
-  padding: .5rem;
+  padding: 0.5rem;
 }
 
-.subMenu{
-  padding: .5rem;
+.subMenu {
+  padding: 0.5rem;
 }
 
 .inputContainer {
@@ -201,41 +289,76 @@ body {
 /*--Options Menu END--*/
 
 /*--Audio Player--*/
+.bottomBar {
+  opacity: 100%;
+  transition: 0.2s;
+}
+
+.bottomBar:hover {
+  opacity: 100%;
+}
+
 .flex {
-  background: none !important;
-  box-shadow: none !important;
-  color: white;
+  background: #0b0c10 !important;
+  box-shadow: 2px 2px 5px black !important;
+  color: inherit !important;
+  border-radius: 100px;
 }
 
 .react-h5-audio-player {
-  width: 50% !important;
+  width: 30% !important;
+  color: inherit !important;
 }
 
 .toggle-play-button {
   background-color: rgba(40, 40, 40, 0) !important;
   box-shadow: none !important;
+  color: inherit !important;
 }
 
 .pause-icon {
   box-shadow: rgba(40, 40, 40, 1) 7px 0px 0px 0px inset !important;
+  color: inherit !important;
 }
+
 /*--Audio Player End*/
+
+@media only screen and (max-width: 1000px) {
+  .wordsContainer {
+    flex-direction: column;
+  }
+}
 
 @media only screen and (max-width: 768px) {
   /* For mobile phones: */
   .overlay {
     left: 0%;
+    top: 60%;
+    font-size: 80%;
   }
 
-  h1{
+  h1 {
     font-size: 130%;
   }
 
-  h3{
-    font-size: 100%;
+  h3 {
+    font-size: 150%;
+  }
+
+  .toHome {
+    font-size: 150%;
   }
 
   .vybe {
     font-size: 300%;
+  }
+
+  .intro {
+    font-size: 150%;
+    margin-bottom: -7rem;
+  }
+
+  .react-h5-audio-player {
+    width: 900% !important;
   }
 }

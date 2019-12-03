@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import NavBar from "../components/Navbar";
 import TextOverlay from "../components/TextOverlay";
 import MainVisual from "../components/MainVisual";
-// import ReactAudioPlayer from "react-audio-player";
 import AudioPlayer from "react-h5-audio-player";
 import CollapseMenu from "../components/CollapseMenu";
 
@@ -24,19 +23,19 @@ const optionsBox = {
 class Home extends Component {
   // Default State/Song
   state = {
-
     // Account Info
     account: "",
     room: "",
 
     // Current Song Playing
     songName: "No Audio Playing",
-    artist: "Choose Songs in Options",
+    artist: "Get Started in the Options",
     src: "",
     mediaElement: "",
 
     // Check if visualizer is initialized
     visualizerCheck: false,
+    visualizerStyle: "bar",
 
     // Color Base Values
     redAdd: 100,
@@ -44,7 +43,28 @@ class Home extends Component {
     greenAdd: -50,
     greenMult: 1,
     blueAdd: 0,
-    blueMult: 0
+    blueMult: 0,
+
+    // Background Colors
+    mainFont: {
+      color: "#f2a10b"
+    },
+    subFont: {
+      color: "#f2a10b"
+    },
+    navbarBG: {
+      background:
+        "linear-gradient(180deg, #0b0c10 80%, rgba(40, 40, 40, 0) 100%)"
+    },
+    subBG: {
+      backgroundColor: "#282828"
+    },
+    mainBorder: {
+      borderColor: "#f2a10b"
+    },
+    vybe: {
+      color: "white"
+    }
   };
 
   // Handle Audio File Upload
@@ -139,15 +159,96 @@ class Home extends Component {
   };
 
   // Visualizer Themes
+
+  // FIRE THEME
   fireTheme = () => {
+
+    // +red, xred, +green, xgreen, +blue, xblue
     this.changeTheme(100, 1, -50, 1, 0, 0);
+
+    // Main font, Sub Font, Navbar Color, Sub BG Color, VYBE Logo Color
+    this.changeColorSet("#f2a10b", "#f2a10b", "#0b0c10", "#282828", "white");
+
+    // Body Color
+    this.changeBodyColor("#282828");
   };
+
+  // EBON THEME
   ebonTheme = () => {
+    // +red, xred, +green, xgreen, +blue, xblue
     this.changeTheme(0, 1, 0, 1, 0, 1);
+
+    // Main font, Sub Font, Navbar Color, Sub BG Color, VYBE Logo Color
+    this.changeColorSet("white", "white", "white", "white", "black");
+
+    // Body Color
+    this.changeBodyColor("black");
   };
+
+  // AQUA THEME
   aquaTheme = () => {
+    // +red, xred, +green, xgreen, +blue, xblue
     this.changeTheme(0, 0, -50, 1, 100, 1);
+
+    // Main font, Sub Font, Navbar Color, Sub BG Color, VYBE Logo Color
+    this.changeColorSet("aqua", "#240090", "#3500d3", "white", "aqua");
+
+    // Body color
+    this.changeBodyColor("#1c1042");
   };
+
+  // REDLINE THEME
+  redlineTheme = () => {
+    // +red, xred, +green, xgreen, +blue, xblue
+    this.changeTheme(50, .5, 10, .5, 10, .5);
+
+    // Main font, Sub Font, Navbar Color, Sub BG Color, VYBE Logo Color
+    this.changeColorSet("#5d001e", "#e3e2df", "#5d001e", "#fa6a69", "#e3e2df");
+
+    // Body color
+    this.changeBodyColor("#c3c2bf");
+  }
+
+  // Visualizer Stlyes
+  barVisualizer = () => {
+    this.setState({ visualizerStyle: "bar" });
+  };
+  roundVisualizer = () => {
+    this.setState({ visualizerStyle: "round" });
+  };
+  circleBarVisualizer = () => {
+    this.setState({ visualizerStyle: "circleBar" });
+  };
+
+  changeBodyColor(color) {
+    document.getElementsByTagName("body")[0].style.backgroundColor = color;
+  }
+
+  changeColorSet(mainFont, subFont, navbarBG, subBG, vybe) {
+    this.setState({
+      mainFont: {
+        color: mainFont
+      },
+      subFont: {
+        color: subFont
+      },
+      navbarBG: {
+        background:
+          "linear-gradient(180deg, " +
+          navbarBG +
+          " 80%, rgba(40, 40, 40, 0) 100%)"
+      },
+      subBG: {
+        backgroundColor: subBG
+      },
+      mainBorder: {
+        borderColor: mainFont
+      },
+      vybe: {
+        color: vybe
+      }
+    });
+  }
 
   // ----------------------AUDIO VISUALIZER-----------------------
   Visualizer = (analyzer, freqArray) => {
@@ -167,7 +268,7 @@ class Home extends Component {
     let x, x2;
     // let y, y2;
 
-    //Bar Visualizer
+    //Render Visualizer (IGNORE FUNCTION NAME)
     const renderBarVisualizer = () => {
       requestAnimationFrame(renderBarVisualizer);
       analyzer.getByteFrequencyData(freqArray);
@@ -185,25 +286,52 @@ class Home extends Component {
       x = canvas.width / 2 + barWidth;
       x2 = x - barWidth;
 
-      for (var i = 0; i < canvas.width; i++) {
-        barHeight = (freqArray[i * 3] + 5) * 2.5;
+      // Round Viz Variables
+      var center_x = canvas.width / 2;
+      var center_y = canvas.height / 2;
+      var radius = 1;
+      var circles = 100;
 
-        setCanvasColor(i, barHeight, rA, rM, gA, gM, bA, bM);
-        canvasContext.fillRect(
-          x,
-          (canvas.height - barHeight) / 2,
-          barWidth,
-          barHeight
-        );
-        canvasContext.fillRect(
-          x2,
-          (canvas.height - barHeight) / 2,
-          barWidth,
-          barHeight
-        );
+      // Circle Bar Viz Variables
 
-        x += barWidth;
-        x2 -= barWidth;
+      // BAR VISUALIZER
+      if (this.state.visualizerStyle === "bar") {
+        for (var i = 0; i < canvas.width; i++) {
+          barHeight = (freqArray[i * 3] + 5) * 2.5;
+
+          setCanvasColor(i, barHeight, rA, rM, gA, gM, bA, bM);
+          canvasContext.fillRect(
+            x,
+            (canvas.height - barHeight) / 2,
+            barWidth,
+            barHeight
+          );
+          canvasContext.fillRect(
+            x2,
+            (canvas.height - barHeight) / 2,
+            barWidth,
+            barHeight
+          );
+
+          x += barWidth;
+          x2 -= barWidth;
+        }
+      }
+      // ROUND VISUALIZER
+      else if (this.state.visualizerStyle === "round") {
+        for (let j = 0; j < circles; j++) {
+          barHeight = (freqArray[j * 3] + 5) * 2.5;
+          radius = freqArray[j] / 2;
+
+          setCanvasColor(j, barHeight, rA, rM, gA, gM, bA, bM);
+          canvasContext.lineWidth = barWidth;
+          drawArc(center_x, center_y, radius + j * 5, j, 2 * Math.PI - j);
+        }
+      }
+
+      // CIRCLE BAR VISUALIZER
+      else if (this.state.visualizerStyle === "circleBar") {
+        console.log("Circle Visualizer WIP");
       }
     };
     renderBarVisualizer();
@@ -227,6 +355,13 @@ class Home extends Component {
       canvasContext.strokeStyle =
         "rgba(" + r + "," + g + "," + b + "," + 0.8 + ")";
     }
+
+    //  Draw Arc
+    function drawArc(x, y, radius, start, end) {
+      canvasContext.beginPath();
+      canvasContext.arc(x, y, radius, start, end);
+      canvasContext.stroke();
+    }
   };
   // ----------------------AUDIO VISUALIZER END-----------------------
 
@@ -234,29 +369,19 @@ class Home extends Component {
     return (
       <div className="d-flex flex-column h-100">
         {/* NavBar */}
-        <NavBar>
-          <CollapseMenu toggle={this.ToggleVisualizer}>
-            {/*---- Theme Change Options ----*/}
-            <div>
-              <div className="darkBorderBot optionsHeader">Visualizer Themes</div>
-              <div className="subMenu">
-                <div style={optionsBox}>
-                  <div className="btnCustom" onClick={this.fireTheme}>
-                    Fire
-                  </div>
-                  <div className="btnCustom" onClick={this.ebonTheme}>
-                    Ebon
-                  </div>
-                  <div className="btnCustom" onClick={this.aquaTheme}>
-                    Aqua
-                  </div>
-                </div>
-              </div>
-            </div>
-            {/*---- Theme Change Options End ----*/}
-
+        <NavBar style={this.state.navbarBG} vybe={this.state.vybe}>
+          <CollapseMenu
+            toggle={this.ToggleVisualizer}
+            fireTheme={this.fireTheme}
+            ebonTheme={this.ebonTheme}
+            aquaTheme={this.aquaTheme}
+            redlineTheme={this.redlineTheme}
+            bars={this.barVisualizer}
+            round={this.roundVisualizer}
+            circleBar={this.circleBarVisualizer}
+          >
             {/*---- Audio Option ----*/}
-            <div>
+            <div className="darkBorder darkBg">
               <div className="darkBorderBot optionsHeader">Audio</div>
               <div className="subMenu">
                 {/* Start Demo */}
@@ -274,18 +399,16 @@ class Home extends Component {
                       accept="audio/*"
                       onChange={this.handleFileUpload}
                     />
-                    <label id="fileLabel" for="thefile">
+                    <label id="fileLabel" htmlFor="thefile">
                       Upload Music
                     </label>
                   </div>
                 </div>
               </div>
-            </div>
-            {/*---- Audio Option End ----*/}
+              {/*---- Audio Option End ----*/}
 
-            {/*---- Overlay Option ----*/}
-            <div>
-              <div className="darkBorderBot optionsHeader">BG Image</div>
+              {/*---- Overlay Option ----*/}
+              <div className="darkBorderBot optionsHeader">Background</div>
               <div className="subMenu">
                 <div style={optionsBox}>
                   {/* Default Image */}
@@ -302,12 +425,18 @@ class Home extends Component {
                       accept="image/*"
                       onChange={this.handlePicUpload}
                     />
-                    <label id="fileLabel" for="imageFile">
+                    <label id="fileLabel" htmlFor="imageFile">
                       Upload Picture
                     </label>
                   </div>
                 </div>
               </div>
+
+              <div className="darkBorderBot optionsHeader">Navigation</div>
+              <div className="subMenu">
+              <a className="linkStyle btnCustom" href="/">Login Page</a>
+              </div>
+
             </div>
             {/*---- Overlay Option End ----*/}
           </CollapseMenu>
@@ -324,16 +453,15 @@ class Home extends Component {
         <TextOverlay
           songName={this.state.songName}
           artist={this.state.artist}
+          style={this.state.mainFont}
+          border={this.state.mainBorder}
         />
 
         {/* Audio Player */}
-        <div style={audioPos}>
-          {/* <ReactAudioPlayer
-            src={this.state.src}
-            id={"audio-element"}
-            controls
-          /> */}
-          <AudioPlayer src={this.state.src}/>
+        <div style={this.state.mainFont} className="bottomBar">
+          <div style={audioPos}>
+            <AudioPlayer src={this.state.src} loop={true} />
+          </div>
         </div>
 
         {/* Playlist (WIP) */}

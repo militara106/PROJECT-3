@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import NavBar from "../components/Navbar";
 import TextOverlay from "../components/TextOverlay";
 import MainVisual from "../components/MainVisual";
+import ReactAudioPlayer from "react-audio-player";
 import AudioPlayer from "react-h5-audio-player";
 import CollapseMenu from "../components/CollapseMenu";
 
@@ -436,7 +437,6 @@ class Home extends Component {
               <div className="subMenu">
               <a className="linkStyle btnCustom" href="/">Login Page</a>
               </div>
-
             </div>
             {/*---- Overlay Option End ----*/}
           </CollapseMenu>
@@ -447,6 +447,7 @@ class Home extends Component {
           <div id="visualizerContainer">
             <canvas id="visualizer"></canvas>
           </div>
+          <AudioPlayer src={this.state.src} loop={true} />
         </MainVisual>
 
         {/* Song Info */}
@@ -460,7 +461,7 @@ class Home extends Component {
         {/* Audio Player */}
         <div style={this.state.mainFont} className="bottomBar">
           <div style={audioPos}>
-            <AudioPlayer src={this.state.src} loop={true} />
+            {/* <AudioPlayer src={this.state.src} loop={true} /> */}
           </div>
         </div>
 

@@ -10,9 +10,9 @@ class Verbage extends Component {
         <TextLoop>
           {this.verbage.map(element => {
             if (element === "VYBE") {
-              return <span className="lightestFont">{element}</span>
+              return <span key={element} className="lightestFont">{element}</span>
             } else {
-              return <span>{element}</span>;
+              return <span key={element}>{element}</span>;
             }
           })}
         </TextLoop>

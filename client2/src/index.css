@@ -290,7 +290,7 @@ body {
 
 /*--Audio Player--*/
 .bottomBar {
-  opacity: 100%;
+  opacity: 50%;
   transition: 0.2s;
 }
 
@@ -334,15 +334,15 @@ body {
   .overlay {
     left: 0%;
     top: 60%;
-    font-size: 80%;
+    font-size: 100%;
   }
 
   h1 {
-    font-size: 130%;
+    font-size: 150%;
   }
 
   h3 {
-    font-size: 150%;
+    font-size: 130%;
   }
 
   .toHome {
@@ -359,6 +359,6 @@ body {
   }
 
   .react-h5-audio-player {
-    width: 900% !important;
+    width: 90% !important;
   }
 }

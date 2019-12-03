@@ -7,7 +7,7 @@ import { useAuth0 } from "../../react-auth0-spa";
 const Login = () => {
   // const { user, isAuthenticated, loginWithRedirect, logout } = useAuth0();
 
-  const {user, isAuthenticated, loginWithRedirect, logout } = useAuth0();
+  const {isAuthenticated, loginWithRedirect, logout } = useAuth0();
 
   const logoutWithRedirect = () => {
     logout({

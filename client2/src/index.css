@@ -173,6 +173,15 @@ body {
   font-size: 160%;
 }
 
+.linkStyle{
+  color: inherit;
+  text-decoration: none;
+}
+
+.linkStyle:hover{
+  text-decoration: none;
+}
+
 /* Login END */
 
 /*--Options Menu--*/

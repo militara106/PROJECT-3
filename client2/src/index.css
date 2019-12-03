@@ -113,6 +113,7 @@ body {
   border-left: 2px solid white;
   padding: 1rem;
   transition: 0.2s;
+  text-shadow: 2px 1px 2px black;
 }
 /*--Floating Song Info END--*/
 

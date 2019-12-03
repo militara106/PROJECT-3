@@ -136,6 +136,8 @@ body {
 }
 /*--Visualizer and Background END--*/
 
+/* Login */
+
 .loginBG {
   position: absolute;
   top: 0%;
@@ -147,6 +149,31 @@ body {
   opacity: 0.1;
   z-index: -1;
 }
+
+.login {
+  padding: 5px;
+  text-align: center;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: .2s;
+}
+
+.login:hover {
+  background: #0b0c10;
+}
+
+.toHome{
+  text-align: center;
+  padding: 1rem;
+  font-size: 150%;
+  transition: .2s;
+}
+
+.toHome:hover{
+  font-size: 160%;
+}
+
+/* Login END */
 
 /*--Options Menu--*/
 

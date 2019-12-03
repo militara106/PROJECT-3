@@ -29,17 +29,17 @@ const Login = () => {
           <Col size="sm-5">
             {/* LOGIN */}
             {!isAuthenticated && (
-              <h3 className="login" onClick={() => loginWithRedirect({})}>
-                Get Started
+              <h3 className="login darkBorder lightBg" onClick={() => loginWithRedirect({})}>
+                Get Started <i className="fas fa-arrow-right"></i>
               </h3>
             )}
             {/* LOGOUT */}
             {isAuthenticated && (
               <div>
-              <h3 className="logout" onClick={() => logoutWithRedirect({})}>
+              <h3 className="login darkBorder lightBg" onClick={() => logoutWithRedirect({})}>
                 Log Out 
               </h3>
-              <h3 className="btnCustom"><a style={linkStyle} href="/home">Go To Home Dashboard</a></h3>
+              <h3 className="btnCustom toHome"><a style={linkStyle} href="/home">Go To Home Dashboard <i className="fas fa-arrow-right"></i></a></h3>
               </div>
             )}
           </Col>

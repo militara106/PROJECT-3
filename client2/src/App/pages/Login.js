@@ -23,18 +23,26 @@ const Login = () => {
   return (
     <div className="d-flex flex-column h-100">
       <div className="loginBG" />
-      <h1 className="vybe text-center">VYBE</h1>
       <div className="container h-100">
         <Row className=" h-100 row align-items-center">
-          <Col size="sm-7">
-            <h1 className="darkBorder intro">
-              Feelin' the
-              <span className="verbage">
-                <Verbage />
-              </span>
-            </h1>
-          </Col>
-          <Col size="sm-5">
+          <Col size="sm-8">
+            {/* INTRO BOX */}
+            <div className="intro darkBorder">
+
+              {/* VERBAGE TEXT */}
+              <h1 className="wordsContainer">
+                <span className="preVerb">Feel the</span>
+                <span className="verbage">
+                  <Verbage />
+                </span>
+              </h1>
+
+            </div>
+
+            </Col>
+            <Col size="sm-4">
+
+            <h1 className="vybe text-center">VYBE</h1>
             {/* LOGIN */}
             {!isAuthenticated && (
               <h3
@@ -53,9 +61,9 @@ const Login = () => {
                 >
                   Log Out
                 </h3>
-                <h3 className="btnCustom toHome">
+                <h3 className="toHome darkBorder lightBg">
                   <a style={linkStyle} href="/home">
-                    Go To Home Dashboard <i className="fas fa-arrow-right"></i>
+                    Start Session <i className="fas fa-arrow-right"></i>
                   </a>
                 </h3>
               </div>

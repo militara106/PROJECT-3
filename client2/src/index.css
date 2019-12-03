@@ -156,6 +156,8 @@ body {
   border-radius: 50px;
   cursor: pointer;
   transition: .2s;
+  width: 100%;
+  margin: auto;
 }
 
 .login:hover {
@@ -163,14 +165,19 @@ body {
 }
 
 .toHome{
+  padding: 5px;
   text-align: center;
-  padding: 1rem;
-  font-size: 150%;
+  border-radius: 50px;
+  cursor: pointer;
   transition: .2s;
+  width: 100%;
+  margin: auto;
+  margin-top: 1rem;
 }
 
 .toHome:hover{
-  font-size: 160%;
+  text-shadow: 2px 2px 5px black;
+  background: #0b0c10;
 }
 
 .linkStyle{
@@ -186,22 +193,37 @@ body {
   display: flex;
   justify-content: center;
   padding: 1rem;
-  align-items: baseline;
+  align-items: center;
+  text-align: center;
   font-size: 200%;
-  background-image: url("./Assets/overlayBG.jpg");
+  background-image: url("./Assets/verbageBG.jpg");
   background-position: center;
   background-size: cover;
-  color: #f2a10b;
   font-family: "Bungee Inline", cursive;
+  margin-bottom: 1rem;
+  height: 50Vh;
+  text-shadow: 2px 2px 5px black;
+  border-radius: 20px;
+  color: white;
+}
+
+.preVerb{
+  font-size: 60%;
 }
 
 .verbage{
-  position: relative;
-  top: 100%;
-  flex-direction: column;
-  padding-left: 8px;
+  display: inline-block;
+  padding-left: 8px ;
+  color: #f2a10b;
 }
 
+.wordsContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  font-size: 200%;
+}
 /* Login END */
 
 /*--Options Menu--*/

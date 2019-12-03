@@ -2,14 +2,18 @@ import React, { Component } from "react";
 import TextLoop from "react-text-loop";
 
 class Verbage extends Component {
-  verbage = ["VYBE", "Music", "Love", "Rhythm", "Beat"];
+  verbage = ["Beat", "Love", "VYBE"];
 
   render() {
     return (
       <div id="verbContainer">
         <TextLoop>
           {this.verbage.map(element => {
-            return <span>{element}</span>;
+            if (element === "VYBE") {
+              return <span className="lightestFont">{element}</span>
+            } else {
+              return <span>{element}</span>;
+            }
           })}
         </TextLoop>
       </div>

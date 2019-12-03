@@ -12,7 +12,7 @@ class CollapseMenu extends Component {
 
   // State
   state = {
-    menuVisible: false,
+    menuVisible: true,
     visualizerVisible: false
   };
 
@@ -40,7 +40,8 @@ class CollapseMenu extends Component {
     return (
       <div className="optionsContainer">
         <div id="options" className="optionsBtn" onClick={this.toggleMenu}>
-        <i class="fas fa-ellipsis-v"></i>
+          {/* MENU ICON */}
+        <i className="fas fa-ellipsis-v"></i>
         </div>
 
         <div id="menu" className="optionsMenu optionsPos text-center medFont">

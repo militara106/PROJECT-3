@@ -194,19 +194,19 @@ class Home extends Component {
     this.changeColorSet("aqua", "#240090", "#3500d3", "white", "aqua");
 
     // Body color
-    this.changeBodyColor("#0c0032");
+    this.changeBodyColor("#1c1042");
   };
 
   // REDLINE THEME
   redlineTheme = () => {
     // +red, xred, +green, xgreen, +blue, xblue
-    this.changeTheme(100, 1, 10, 1, 10, 1);
+    this.changeTheme(50, .5, 10, .5, 10, .5);
 
     // Main font, Sub Font, Navbar Color, Sub BG Color, VYBE Logo Color
-    this.changeColorSet("#e3e2df", "#e3e2df", "#e3e2df", "#9a1750", "#5d001e");
+    this.changeColorSet("#5d001e", "#e3e2df", "#5d001e", "#fa6a69", "#e3e2df");
 
     // Body color
-    this.changeBodyColor("#5d001e");
+    this.changeBodyColor("#c3c2bf");
   }
 
   // Visualizer Stlyes
@@ -381,7 +381,7 @@ class Home extends Component {
             circleBar={this.circleBarVisualizer}
           >
             {/*---- Audio Option ----*/}
-            <div className="darkBorder">
+            <div className="darkBorder darkBg">
               <div className="darkBorderBot optionsHeader">Audio</div>
               <div className="subMenu">
                 {/* Start Demo */}

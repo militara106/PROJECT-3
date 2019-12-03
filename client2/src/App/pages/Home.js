@@ -290,7 +290,7 @@ class Home extends Component {
       var center_x = canvas.width / 2;
       var center_y = canvas.height / 2;
       var radius = 1;
-      var circles = 50;
+      var circles = 100;
 
       // Circle Bar Viz Variables
 

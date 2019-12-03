@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import TextLoop from "react-text-loop";
 
 class Verbage extends Component {
-  verbage = ["Beat", "Soul", "VYBE","Music","Heat", "VYBE"];
+  verbage = ["Beat", "Soul", "VYBE","Music","Heart", "VYBE"];
 
   render() {
     return (

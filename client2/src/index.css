@@ -208,7 +208,7 @@ body {
 }
 
 .preVerb{
-  font-size: 60%;
+  font-size: 80%;
 }
 
 .verbage{
@@ -220,6 +220,7 @@ body {
 .wordsContainer{
   display: flex;
   justify-content: center;
+  word-wrap: none;
   align-items: center;
   width: 100%;
   font-size: 200%;
@@ -321,6 +322,12 @@ body {
 }
 
 /*--Audio Player End*/
+
+@media only screen and (max-width: 1000px){
+  .wordsContainer{
+    flex-direction: column;
+  }
+}
 
 @media only screen and (max-width: 768px) {
   /* For mobile phones: */

@@ -208,21 +208,20 @@ body {
 }
 
 .preVerb{
-  font-size: 160%;
+  font-size: 60%;
 }
 
 .verbage{
   display: inline-block;
-  padding-right: 8px ;
+  padding-left: 8px ;
   color: #f2a10b;
-  font-size: 100%;
 }
 
 .wordsContainer{
   display: flex;
   justify-content: center;
   align-items: center;
-  width: auto;
+  width: 100%;
   font-size: 200%;
 }
 /* Login END */
@@ -322,12 +321,6 @@ body {
 }
 
 /*--Audio Player End*/
-
-@media only screen and (max-width: 1000px) {
-  .wordsContainer{
-    flex-direction: column;
-  }
-}
 
 @media only screen and (max-width: 768px) {
   /* For mobile phones: */

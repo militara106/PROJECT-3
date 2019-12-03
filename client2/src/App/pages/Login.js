@@ -31,16 +31,18 @@ const Login = () => {
 
               {/* VERBAGE TEXT */}
               <h1 className="wordsContainer">
+                <span className="preVerb">Feel the</span>
                 <span className="verbage">
                   <Verbage />
                 </span>
-                <span className="preVerb">Vybe</span>
               </h1>
 
             </div>
 
             </Col>
             <Col size="sm-4">
+
+            <h1 className="vybe text-center">VYBE</h1>
             {/* LOGIN */}
             {!isAuthenticated && (
               <h3

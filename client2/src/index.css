@@ -208,20 +208,21 @@ body {
 }
 
 .preVerb{
-  font-size: 60%;
+  font-size: 160%;
 }
 
 .verbage{
   display: inline-block;
-  padding-left: 8px ;
+  padding-right: 8px ;
   color: #f2a10b;
+  font-size: 100%;
 }
 
 .wordsContainer{
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  width: auto;
   font-size: 200%;
 }
 /* Login END */
@@ -322,6 +323,12 @@ body {
 
 /*--Audio Player End*/
 
+@media only screen and (max-width: 1000px) {
+  .wordsContainer{
+    flex-direction: column;
+  }
+}
+
 @media only screen and (max-width: 768px) {
   /* For mobile phones: */
   .overlay {
@@ -348,6 +355,7 @@ body {
 
   .intro{
     font-size: 150%;
+    margin-bottom: -7rem;
   }
 
   .react-h5-audio-player {

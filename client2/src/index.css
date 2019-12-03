@@ -326,6 +326,8 @@ body {
   /* For mobile phones: */
   .overlay {
     left: 0%;
+    top: 60%;
+    font-size: 80%;
   }
 
   h1{
@@ -346,5 +348,9 @@ body {
 
   .intro{
     font-size: 150%;
+  }
+
+  .react-h5-audio-player {
+    width: 900% !important;
   }
 }

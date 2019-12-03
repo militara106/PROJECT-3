@@ -9,6 +9,7 @@ function TextOverlay(props) {
         <h3>{props.artist}</h3>
         </div>
       </div>
+      {props.children}
     </div>
   );
 }

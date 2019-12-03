@@ -447,7 +447,6 @@ class Home extends Component {
           <div id="visualizerContainer">
             <canvas id="visualizer"></canvas>
           </div>
-          <AudioPlayer src={this.state.src} loop={true} />
         </MainVisual>
 
         {/* Song Info */}
@@ -456,14 +455,16 @@ class Home extends Component {
           artist={this.state.artist}
           style={this.state.mainFont}
           border={this.state.mainBorder}
-        />
+        >
+          <AudioPlayer src={this.state.src} loop={true} />
+        </TextOverlay>
 
         {/* Audio Player */}
-        <div style={this.state.mainFont} className="bottomBar">
+        {/* <div style={this.state.mainFont} className="bottomBar">
           <div style={audioPos}>
-            {/* <AudioPlayer src={this.state.src} loop={true} /> */}
+            <AudioPlayer src={this.state.src} loop={true} />
           </div>
-        </div>
+        </div> */}
 
         {/* Playlist (WIP) */}
       </div>

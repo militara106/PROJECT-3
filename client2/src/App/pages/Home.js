@@ -2,19 +2,19 @@ import React, { Component } from "react";
 import NavBar from "../components/Navbar";
 import TextOverlay from "../components/TextOverlay";
 import MainVisual from "../components/MainVisual";
-import ReactAudioPlayer from "react-audio-player";
+// import ReactAudioPlayer from "react-audio-player";
 import AudioPlayer from "react-h5-audio-player";
 import CollapseMenu from "../components/CollapseMenu";
 
 // import { Link } from 'react-router-dom';
 
-const audioPos = {
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
-  marginBottom: "1rem",
-  zIndex: "10"
-};
+// const audioPos = {
+//   display: "flex",
+//   justifyContent: "center",
+//   alignItems: "center",
+//   marginBottom: "1rem",
+//   zIndex: "10"
+// };
 
 const optionsBox = {
   display: "flex",
@@ -456,6 +456,7 @@ class Home extends Component {
           style={this.state.mainFont}
           border={this.state.mainBorder}
         >
+          {/* Audio Player 2 */}
           <AudioPlayer src={this.state.src} loop={true} />
         </TextOverlay>
 

@@ -40,7 +40,7 @@ class CollapseMenu extends Component {
     return (
       <div className="optionsContainer">
         <div id="options" className="optionsBtn" onClick={this.toggleMenu}>
-          Options
+        <i class="fas fa-ellipsis-v"></i>
         </div>
 
         <div id="menu" className="optionsMenu optionsPos text-center medFont">

@@ -268,13 +268,12 @@ class Home extends Component {
     let x, x2;
     // let y, y2;
 
-    //Bar Visualizer
+    //Render Visualizer (IGNORE FUNCTION NAME)
     const renderBarVisualizer = () => {
       requestAnimationFrame(renderBarVisualizer);
       analyzer.getByteFrequencyData(freqArray);
 
       drawBaseCanvas();
-      console.log("Canvas base created");
 
       // Color Based on State
       let rA = this.state.redAdd;
@@ -400,7 +399,7 @@ class Home extends Component {
                       accept="audio/*"
                       onChange={this.handleFileUpload}
                     />
-                    <label id="fileLabel" for="thefile">
+                    <label id="fileLabel" htmlFor="thefile">
                       Upload Music
                     </label>
                   </div>
@@ -426,7 +425,7 @@ class Home extends Component {
                       accept="image/*"
                       onChange={this.handlePicUpload}
                     />
-                    <label id="fileLabel" for="imageFile">
+                    <label id="fileLabel" htmlFor="imageFile">
                       Upload Picture
                     </label>
                   </div>

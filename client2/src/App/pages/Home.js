@@ -431,6 +431,12 @@ class Home extends Component {
                   </div>
                 </div>
               </div>
+
+              <div className="darkBorderBot optionsHeader">Navigation</div>
+              <div className="subMenu">
+              <a className="linkStyle btnCustom" href="/">Login Page</a>
+              </div>
+
             </div>
             {/*---- Overlay Option End ----*/}
           </CollapseMenu>

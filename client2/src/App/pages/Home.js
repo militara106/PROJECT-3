@@ -29,7 +29,7 @@ class Home extends Component {
 
     // Current Song Playing
     songName: "No Audio Playing",
-    artist: "Choose Songs in Options",
+    artist: "Get Started in the Options",
     src: "",
     mediaElement: "",
 

@@ -30,13 +30,8 @@ const App = () => {
           <Route path='/home' component={Home} />
           <Route path='/spotifyhome' component={SpotifyHome} />
 
-<<<<<<< HEAD
           {/* No Match */}
           <Route component={Login}/>
-=======
-          {/* 404 Route */}
-          <Route component={Login} />
->>>>>>> f284a1fb236d3f35a13d285ad73ab87b1e370530
         </Switch>
       </div>
     </Router>

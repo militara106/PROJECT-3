@@ -6,6 +6,7 @@ import MainVisual from "../components/MainVisual";
 import AudioPlayer from "react-h5-audio-player";
 import CollapseMenu from "../components/CollapseMenu";
 import { TwitterTimelineEmbed } from "react-twitter-embed";
+import Lyrics from '../components/Lyrics'
 
 // import { Link } from 'react-router-dom';
 
@@ -517,6 +518,9 @@ class Home extends Component {
         </div> */}
 
         {/* Playlist (WIP) */}
+
+        {/* Song Lyrics Here */}
+        <Lyrics/>
       </div>
     );
   }

@@ -1,30 +1,29 @@
-import React, { Component } from 'react';
-const genius = require("genius-lyrics");
-const Genius = new genius.Client('H73AWVbAuOyEwi6Xz-zEaCEKlTXVIME-VXtaa0ZiCAFX-CEAhmvWcmaepu0zsBnm');
+import React, { Component } from "react";
+import { getLyrics } from "genius-lyrics-api";
 
 export default class Lyrics extends Component {
-    state = {
-        lyrics: ""
-    }
-    
-    componentDidMount(){
-        var lyrics = this.newLyric();
-        console.log(lyrics);
-    }
+  state = {
+    lyrics: ""
+  };
 
-    async newLyric() {
-        const search = await Genius.findTrack('vete bad bunny');
-        const url = await Genius.getUrl(search, 1);
-        const lyricsJSON = await Genius.getLyrics(url);
-        const lyrics = await lyricsJSON.lyrics;
-        return lyrics;
-    }
+  componentDidMount() {
+    var lyrics = this.newLyric();
+    console.log(lyrics);
+  }
 
-    render(){
-        return (
-            <div>
-
-            </div>
-        );
+  newLyric(title, artist) {
+    const options = {
+      apiKey:
+        "ZBy5lmqxq-nq7R4o7YLBQTVIdzkpjIDc6VpLsuOzH8R1t-Wcr_LbRRd3vKXjv6kR",
+      title: this.title,
+      artist: this.artist,
+      optimizeQuery: true
     };
+
+    getLyrics(options).then(lyrics => console.log(lyrics));
+  }
+
+  render() {
+    return <div></div>;
+  }
 }

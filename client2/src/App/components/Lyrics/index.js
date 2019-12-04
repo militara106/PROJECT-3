@@ -16,7 +16,7 @@ export default class Lyrics extends Component {
         const search = await Genius.findTrack('vete bad bunny');
         const url = await Genius.getUrl(search, 1);
         const lyricsJSON = await Genius.getLyrics(url);
-        const lyrics = lyricsJSON.lyrics;
+        const lyrics = await lyricsJSON.lyrics;
         return lyrics;
     }
 

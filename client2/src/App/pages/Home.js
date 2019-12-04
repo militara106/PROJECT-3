@@ -5,6 +5,7 @@ import MainVisual from "../components/MainVisual";
 // import ReactAudioPlayer from "react-audio-player";
 import AudioPlayer from "react-h5-audio-player";
 import CollapseMenu from "../components/CollapseMenu";
+import { TwitterTimelineEmbed } from "react-twitter-embed";
 
 // import { Link } from 'react-router-dom';
 
@@ -163,7 +164,6 @@ class Home extends Component {
 
   // FIRE THEME
   fireTheme = () => {
-
     // +red, xred, +green, xgreen, +blue, xblue
     this.changeTheme(100, 1, -50, 1, 0, 0);
 
@@ -201,14 +201,14 @@ class Home extends Component {
   // REDLINE THEME
   redlineTheme = () => {
     // +red, xred, +green, xgreen, +blue, xblue
-    this.changeTheme(50, .5, 10, .5, 10, .5);
+    this.changeTheme(50, 0.5, 10, 0.5, 10, 0.5);
 
     // Main font, Sub Font, Navbar Color, Sub BG Color, VYBE Logo Color
     this.changeColorSet("#5d001e", "#e3e2df", "#5d001e", "#fa6a69", "#e3e2df");
 
     // Body color
     this.changeBodyColor("#c3c2bf");
-  }
+  };
 
   // Visualizer Stlyes
   barVisualizer = () => {
@@ -366,6 +366,21 @@ class Home extends Component {
   };
   // ----------------------AUDIO VISUALIZER END-----------------------
 
+  // Auto-Scroll
+  ScrollDiv(div, repeat) {
+    let x = document.getElementById(div);
+    if (x.scrollTop < x.scrollHeight - x.offsetHeight) {
+      x.scrollTop = x.scrollTop + 1;
+    } else if (repeat === true) {
+      x.scrollTop = 0;
+    }
+    console.log("scrolling");
+  }
+
+  componentDidMount(){
+    setInterval(this.ScrollDiv,50,"twitterContainer",true);
+  }
+
   render() {
     return (
       <div className="d-flex flex-column h-100">
@@ -435,7 +450,9 @@ class Home extends Component {
 
               <div className="darkBorderBot optionsHeader">Navigation</div>
               <div className="subMenu">
-              <a className="linkStyle btnCustom" href="/">Login Page</a>
+                <a className="linkStyle btnCustom" href="/">
+                  Login Page
+                </a>
               </div>
             </div>
             {/*---- Overlay Option End ----*/}
@@ -459,6 +476,38 @@ class Home extends Component {
           {/* Audio Player 2 */}
           <AudioPlayer src={this.state.src} loop={true} />
         </TextOverlay>
+
+        {/* Twitter */}
+        <div className="twitterContainer" id="twitterContainer">
+
+          {/* Big Sean */}
+          <div id="bigSean">
+            <TwitterTimelineEmbed
+              sourceType="profile"
+              screenName="bigsean"
+              transparent
+              theme="dark"
+              noScrollbar
+              noFooter
+              noHeader
+              noBorders
+            />
+          </div>
+
+          {/* Bad Bunny */}
+          <div id="badBunny">
+          <TwitterTimelineEmbed
+              sourceType="profile"
+              screenName="imbadBunny"
+              transparent
+              theme="dark"
+              noScrollbar
+              noFooter
+              noHeader
+              noBorders
+            />
+          </div>
+        </div>
 
         {/* Audio Player */}
         {/* <div style={this.state.mainFont} className="bottomBar">

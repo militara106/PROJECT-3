@@ -103,7 +103,7 @@ body {
   padding: 1rem;
   border-radius: 1rem;
   width: auto;
-  left: 10%;
+  left: 30%;
   top: 70%;
   z-index: 10;
 }
@@ -315,7 +315,7 @@ body {
 }
 
 .react-h5-audio-player {
-  width: 100% !important;
+  width: 75% !important;
   color: inherit !important;
 }
 
@@ -331,6 +331,25 @@ body {
 }
 
 /*--Audio Player End*/
+
+/* -- Twitter -- */
+
+.twitterContainer{
+  position: absolute;
+  z-index: 0;
+  left: 0%;
+  bottom: 0%;
+  width: 20%;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  height: 100%;
+}
+
+#bigSean{
+  display: none;
+}
+
+/* -- Twitter End */
 
 @media only screen and (max-width: 1000px) {
   .wordsContainer {

@@ -263,8 +263,8 @@ label {
 }
 
 .optionsPos {
-  right: 1%;
-  top: 100%;
+  right: 0%;
+  top: 30%;
   position: absolute;
 }
 .optionsMenu {
@@ -272,6 +272,10 @@ label {
   border-radius: 0.2rem;
   transition: 0.2s;
   padding: 0.5rem;
+}
+
+.hideBtn{
+  font-size: 150%;
 }
 
 .subMenu {

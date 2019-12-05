@@ -470,6 +470,12 @@ class Home extends Component {
 
         {/* Playlist (WIP) */}
 
+        {/* Lyrics Display */}
+        <Lyrics
+          songName={this.state.songName}
+          style={this.state.mainFont}
+          border={this.state.mainBorder}
+        />
       </div>
     );
   }

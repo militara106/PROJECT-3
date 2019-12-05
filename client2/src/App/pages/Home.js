@@ -479,7 +479,7 @@ class Home extends Component {
 
   componentDidMount = () => {
     setInterval(this.ScrollDiv, 50, "twitterContainer", true);
-    setInterval(this.ScrollDiv, 50, "lyricsContainer", false);
+    setInterval(this.ScrollDiv, 80, "lyricsContainer", false);
   };
 
   // Toggle Hide Div

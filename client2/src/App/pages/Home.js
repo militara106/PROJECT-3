@@ -169,6 +169,28 @@ class Home extends Component {
     );
   };
 
+  // Single Again
+  changeToSingleAgain = () => {
+    this.setState(
+      {
+        src: "Single-Again.mp3",
+        songName: "Single Again",
+        artist: "Big Sean"
+      },
+      () => {
+        console.log(this.state.songName);
+        // Show and reset container
+        document.getElementById("twitterContainer").style.display = "block";
+        document.getElementById("twitterContainer").scrollTop = 0;
+
+        // Make only Song Visible
+        document.getElementById("trueDamage").style.display = "none";
+        document.getElementById("badBunny").style.display = "none";
+        document.getElementById("bigSean").style.display = "block";
+      }
+    );
+  };
+
   // Handle Picture Upload
   handlePicUpload = event => {
     // Get File src
@@ -487,10 +509,11 @@ class Home extends Component {
                 </div>
               </div>
 
-              <div className="darkBorderBot optionsHeader">Custom Audio</div>
+              <div className="darkBorderBot optionsHeader">Preset Songs</div>
               <div className="subMenu">
                 {/* Start Demo */}
                 <div style={optionsBox}>
+                  {/* ------PRESET SONGS------- */}
                   {/* GIANTS */}
                   <div className="btnCustom" onClick={this.changeToGiants}>
                     Giants by True Damage
@@ -499,6 +522,11 @@ class Home extends Component {
                   <div className="btnCustom" onClick={this.changeToVete}>
                     Vete by Bad Bunny
                   </div>
+                  {/* SINGLE AGAIN */}
+                  <div className="btnCustom" onClick={this.changeToSingleAgain}>
+                    Single Again by Big Sean
+                  </div>
+                  {/* ------PRESET SONGS------- */}
                 </div>
               </div>
               {/*---- Audio Option End ----*/}

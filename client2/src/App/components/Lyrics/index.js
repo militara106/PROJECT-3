@@ -249,17 +249,25 @@ const lyrics = [
   
   [Post-Chorus: Becky G & All]
   Sleepin' giants, sleepin', sleepin' giants`
-]
+];
+
 
 export default class Lyrics extends Component {
   state = {
     lyrics: ""
   };
 
-  componentDidMount() {
-  }
+  componentDidMount() {}
 
-  render() {
-    return <div></div>;
+  render(props) {
+    return (
+      <div className="overlay">
+        <div className="songInfo lightestFont" style={props.border}>
+          <div style={props.style}>
+            <p>{this.state.lyrics}</p>
+          </div>
+        </div>
+      </div>
+    );
   }
 }

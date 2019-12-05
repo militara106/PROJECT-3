@@ -470,8 +470,6 @@ class Home extends Component {
 
         {/* Playlist (WIP) */}
 
-        {/* Song Lyrics Here */}
-        <Lyrics/>
       </div>
     );
   }

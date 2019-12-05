@@ -235,6 +235,10 @@ label {
   margin-bottom: 0;
 }
 
+#options{
+  display: none;
+}
+
 .optionsBtn {
   display: block;
   cursor: pointer;
@@ -360,7 +364,7 @@ audio::-webkit-media-controls-fullscreen-button,
 audio::-webkit-media-controls-rewind-button,
 audio::-webkit-media-controls-return-to-realtime-button,
 audio::-webkit-media-controls-toggle-closed-captions-button {
-  background-color: grey;
+  background-color: #383838;
   color: white;
   text-shadow: inherit;
 }

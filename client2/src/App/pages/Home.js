@@ -42,9 +42,9 @@ class Home extends Component {
 
     // Color Base Values
     redAdd: 100,
-    redMult: 1,
+    redMult: .5,
     greenAdd: -50,
-    greenMult: 1,
+    greenMult: .5,
     blueAdd: 0,
     blueMult: 0,
 
@@ -129,7 +129,7 @@ class Home extends Component {
   changeToGiants = () => {
     this.setState(
       {
-        src: "Giants.mp3",
+        src: "./audio/Giants/audio.mp3",
         songName: "Giants",
         artist: "True Damage"
       },
@@ -151,7 +151,7 @@ class Home extends Component {
   changeToVete = () => {
     this.setState(
       {
-        src: "Vete.mp3",
+        src: "./audio/Vete/audio.mp3",
         songName: "Vete",
         artist: "Bad Bunny"
       },
@@ -173,7 +173,7 @@ class Home extends Component {
   changeToSingleAgain = () => {
     this.setState(
       {
-        src: "Single-Again.mp3",
+        src: "./audio/Single-Again/audio.mp3",
         songName: "Single Again",
         artist: "Big Sean"
       },
@@ -253,7 +253,7 @@ class Home extends Component {
   // FIRE THEME
   fireTheme = () => {
     // +red, xred, +green, xgreen, +blue, xblue
-    this.changeTheme(100, 1, -50, 1, 0, 0);
+    this.changeTheme(100, .5, -50, .5, 0, 0);
 
     // Main font, Sub Font, Navbar Color, Sub BG Color, VYBE Logo Color
     this.changeColorSet("#f2a10b", "#f2a10b", "#0b0c10", "#282828", "white");

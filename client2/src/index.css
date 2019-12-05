@@ -229,6 +229,12 @@ body {
 
 /*--Options Menu--*/
 
+label{
+  text-align: center;
+  width: 100%;
+  margin-bottom: 0;
+}
+
 .optionsBtn {
   display: block;
   cursor: pointer;
@@ -315,7 +321,7 @@ body {
 }
 
 .react-h5-audio-player {
-  width: 75% !important;
+  width: 100% !important;
   color: inherit !important;
 }
 
@@ -346,6 +352,14 @@ body {
 }
 
 #bigSean{
+  display: none;
+}
+
+#badBunny{
+  display: none;
+}
+
+#trueDamage{
   display: none;
 }
 

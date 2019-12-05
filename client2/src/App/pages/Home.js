@@ -6,7 +6,7 @@ import MainVisual from "../components/MainVisual";
 import AudioPlayer from "react-h5-audio-player";
 import CollapseMenu from "../components/CollapseMenu";
 import { TwitterTimelineEmbed } from "react-twitter-embed";
-import Lyrics from '../components/Lyrics'
+import Lyrics from "../components/Lyrics";
 
 // import { Link } from 'react-router-dom';
 
@@ -92,16 +92,81 @@ class Home extends Component {
     newFileName = newFileName.charAt(0).toUpperCase() + newFileName.slice(1);
 
     // Set States
-    this.setState({ src: newsrc, songName: newFileName, artist: "" });
+    this.setState({ src: newsrc, songName: newFileName, artist: "" }, () => {
+      if (
+        this.state.songName !== "Giants" &&
+        this.state.songName !== "Vete" &&
+        this.state.songName !== "Single Again"
+      ) {
+        document.getElementById("twitterContainer").style.display = "none";
+      }
+    });
   };
 
   //Start "BenSound" Demo
   handleDemoSong = () => {
-    this.setState({
-      src: "bensound-creativeminds.mp3",
-      songName: "Creative",
-      artist: "Bensound.com"
-    });
+    this.setState(
+      {
+        src: "bensound-creativeminds.mp3",
+        songName: "Creative",
+        artist: "Bensound.com"
+      },
+      () => {
+        if (
+          this.state.songName !== "Giants" &&
+          this.state.songName !== "Vete" &&
+          this.state.songName !== "Single Again"
+        ) {
+          document.getElementById("twitterContainer").style.display = "none";
+        }
+      }
+    );
+  };
+
+  // Audio Switch
+
+  // GIANTS
+  changeToGiants = () => {
+    this.setState(
+      {
+        src: "Giants.mp3",
+        songName: "Giants",
+        artist: "True Damage"
+      },
+      () => {
+        console.log(this.state.songName);
+        // Show and reset container
+        document.getElementById("twitterContainer").style.display = "block";
+        document.getElementById("twitterContainer").scrollTop = 0;
+
+        // Make only Song Visible
+        document.getElementById("trueDamage").style.display = "block";
+        document.getElementById("badBunny").style.display = "none";
+        document.getElementById("bigSean").style.display = "none";
+      }
+    );
+  };
+
+  // Vete
+  changeToVete = () => {
+    this.setState(
+      {
+        src: "Vete.mp3",
+        songName: "Vete",
+        artist: "Bad Bunny"
+      },
+      () => {
+        console.log(this.state.songName);
+        // Show and reset container
+        document.getElementById("twitterContainer").style.display = "block";
+        document.getElementById("twitterContainer").scrollTop = 0;
+
+        // Make only Song Visible
+        document.getElementById("trueDamage").style.display = "none";
+        document.getElementById("badBunny").style.display = "block";
+        document.getElementById("bigSean").style.display = "none";
+      }
+    );
   };
 
   // Handle Picture Upload
@@ -375,11 +440,10 @@ class Home extends Component {
     } else if (repeat === true) {
       x.scrollTop = 0;
     }
-    console.log("scrolling");
   }
 
-  componentDidMount(){
-    setInterval(this.ScrollDiv,50,"twitterContainer",true);
+  componentDidMount() {
+    setInterval(this.ScrollDiv, 50, "twitterContainer", true);
   }
 
   render() {
@@ -399,7 +463,7 @@ class Home extends Component {
           >
             {/*---- Audio Option ----*/}
             <div className="darkBorder darkBg">
-              <div className="darkBorderBot optionsHeader">Audio</div>
+              <div className="darkBorderBot optionsHeader">Custom Audio</div>
               <div className="subMenu">
                 {/* Start Demo */}
                 <div style={optionsBox}>
@@ -419,6 +483,21 @@ class Home extends Component {
                     <label id="fileLabel" htmlFor="thefile">
                       Upload Music
                     </label>
+                  </div>
+                </div>
+              </div>
+
+              <div className="darkBorderBot optionsHeader">Custom Audio</div>
+              <div className="subMenu">
+                {/* Start Demo */}
+                <div style={optionsBox}>
+                  {/* GIANTS */}
+                  <div className="btnCustom" onClick={this.changeToGiants}>
+                    Giants by True Damage
+                  </div>
+                  {/* VETE */}
+                  <div className="btnCustom" onClick={this.changeToVete}>
+                    Vete by Bad Bunny
                   </div>
                 </div>
               </div>
@@ -480,7 +559,7 @@ class Home extends Component {
 
         {/* Twitter */}
         <div className="twitterContainer" id="twitterContainer">
-
+          Twitter Not Available
           {/* Big Sean */}
           <div id="bigSean">
             <TwitterTimelineEmbed
@@ -494,12 +573,24 @@ class Home extends Component {
               noBorders
             />
           </div>
-
           {/* Bad Bunny */}
           <div id="badBunny">
-          <TwitterTimelineEmbed
+            <TwitterTimelineEmbed
               sourceType="profile"
               screenName="imbadBunny"
+              transparent
+              theme="dark"
+              noScrollbar
+              noFooter
+              noHeader
+              noBorders
+            />
+          </div>
+          {/* True Damage */}
+          <div id="trueDamage">
+            <TwitterTimelineEmbed
+              sourceType="profile"
+              screenName="riotgames"
               transparent
               theme="dark"
               noScrollbar
@@ -520,7 +611,7 @@ class Home extends Component {
         {/* Playlist (WIP) */}
 
         {/* Song Lyrics Here */}
-        <Lyrics/>
+        <Lyrics />
       </div>
     );
   }

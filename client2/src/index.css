@@ -229,7 +229,7 @@ body {
 
 /*--Options Menu--*/
 
-label{
+label {
   text-align: center;
   width: 100%;
   margin-bottom: 0;
@@ -312,11 +312,11 @@ label{
   /* background: none !important;
   border: none !important;
   box-shadow: none !important; */
-  transition: .2s;
+  transition: 0.2s;
   opacity: 30%;
 }
 
-.flex:hover{
+.flex:hover {
   opacity: 100%;
 }
 
@@ -336,11 +336,39 @@ label{
   color: inherit !important;
 }
 
+audio {
+  opacity: 30%;
+  transition: 0.2s;
+  background-color: none;
+}
+audio::-webkit-media-controls-panel,
+audio::-webkit-media-controls-mute-button,
+audio::-webkit-media-controls-play-button,
+audio::-webkit-media-controls-timeline-container,
+audio::-webkit-media-controls-current-time-display,
+audio::-webkit-media-controls-time-remaining-display,
+audio::-webkit-media-controls-timeline,
+audio::-webkit-media-controls-volume-slider-container,
+audio::-webkit-media-controls-volume-slider,
+audio::-webkit-media-controls-seek-back-button,
+audio::-webkit-media-controls-seek-forward-button,
+audio::-webkit-media-controls-fullscreen-button,
+audio::-webkit-media-controls-rewind-button,
+audio::-webkit-media-controls-return-to-realtime-button,
+audio::-webkit-media-controls-toggle-closed-captions-button {
+  background-color: grey;
+  color: white;
+  text-shadow: inherit;
+}
+audio:hover {
+  opacity: 100%;
+}
+
 /*--Audio Player End -- */
 
 /* -- Twitter -- */
 
-.twitterContainer{
+.twitterContainer {
   position: absolute;
   z-index: 0;
   left: 0%;
@@ -350,29 +378,29 @@ label{
   overflow-x: hidden;
   height: 85%;
   display: none;
-  transition: .2s;
+  transition: 0.2s;
 }
 
-#twitterContainer{
+#twitterContainer {
   left: -200%;
 }
 
-#bigSean{
+#bigSean {
   display: none;
 }
 
-#badBunny{
+#badBunny {
   display: none;
 }
 
-#trueDamage{
+#trueDamage {
   display: none;
 }
 
 /* -- Twitter End --*/
 
 /* --Lyrics-- */
-.floatingText{
+.floatingText {
   position: absolute;
   right: 0%;
   bottom: 0%;
@@ -381,11 +409,11 @@ label{
   text-align: center;
   overflow: hidden;
   font-size: 130%;
-  white-space:pre-wrap;
-  transition: .2s;
+  white-space: pre-wrap;
+  transition: 0.2s;
 }
 
-#lyricsContainer{
+#lyricsContainer {
   right: -200%;
 }
 
@@ -405,11 +433,11 @@ label{
     font-size: 100%;
   }
 
-  .twitterContainer{
+  .twitterContainer {
     height: 90%;
   }
 
-  .floatingText{
+  .floatingText {
     height: 90%;
   }
 

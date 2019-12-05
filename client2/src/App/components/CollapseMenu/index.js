@@ -18,7 +18,7 @@ class CollapseMenu extends Component {
 
   toggleMenu = () => {
     if (this.state.menuVisible === false) {
-      document.getElementById("menu").style.right = "1%";
+      document.getElementById("menu").style.right = "0%";
       document.getElementById("options").style.color = "white";
       this.setState({ menuVisible: true });
     } else {
@@ -39,13 +39,14 @@ class CollapseMenu extends Component {
   render() {
     return (
       <div className="optionsContainer">
-        <div id="options" className="optionsBtn" onClick={this.toggleMenu}>
+        <div id="options" className="optionsBtn xBtn" onClick={this.toggleMenu}>
           {/* MENU ICON */}
         <i className="fas fa-ellipsis-v"></i>
         </div>
 
         <div id="menu" className="optionsMenu optionsPos text-center medFont">
           {/* Display Options */}
+          <div onClick={this.toggleMenu} className="btnCustom hideBtn"><i class="fas fa-times"></i></div>
           <div>
             <div className="darkBorder darkBg">
               {/* TOGGLE VISUALIZER */}

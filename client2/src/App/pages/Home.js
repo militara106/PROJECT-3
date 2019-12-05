@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import NavBar from "../components/Navbar";
 import TextOverlay from "../components/TextOverlay";
 import MainVisual from "../components/MainVisual";
-// import ReactAudioPlayer from "react-audio-player";
-import AudioPlayer from "react-h5-audio-player";
+import ReactAudioPlayer from "react-audio-player";
+// import AudioPlayer from "react-h5-audio-player";
 import CollapseMenu from "../components/CollapseMenu";
 import { TwitterTimelineEmbed } from "react-twitter-embed";
 import Lyrics from "../components/Lyrics";
@@ -11,13 +11,13 @@ import text from "../components/textBox/text.js";
 
 // import { Link } from 'react-router-dom';
 
-// const audioPos = {
-//   display: "flex",
-//   justifyContent: "center",
-//   alignItems: "center",
-//   marginBottom: "1rem",
-//   zIndex: "10"
-// };
+const audioPos = {
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  marginBottom: "1rem",
+  zIndex: "10"
+};
 
 const optionsBox = {
   display: "flex",
@@ -479,7 +479,7 @@ class Home extends Component {
 
   componentDidMount = () => {
     setInterval(this.ScrollDiv, 50, "twitterContainer", true);
-    setInterval(this.ScrollDiv, 50, "lyricsContainer", false);
+    setInterval(this.ScrollDiv, 80, "lyricsContainer", false);
   };
 
   // Toggle Hide Div
@@ -640,7 +640,9 @@ class Home extends Component {
           border={this.state.mainBorder}
         >
           {/* Audio Player 2 */}
-          <AudioPlayer src={this.state.src} loop={true} />
+          {/* <AudioPlayer src={this.state.src} loop={true} /> */}
+          <ReactAudioPlayer src={this.state.src} loop={true} autoPlay={true} controls/>
+          
         </TextOverlay>
 
         {/* Lyrics */}
@@ -698,7 +700,7 @@ class Home extends Component {
         {/* Audio Player */}
         {/* <div style={this.state.mainFont} className="bottomBar">
           <div style={audioPos}>
-            <AudioPlayer src={this.state.src} loop={true} />
+            <ReactAudioPlayer src={this.state.src} loop autoplay controls/>
           </div>
         </div> */}
 

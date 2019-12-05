@@ -261,8 +261,8 @@ export default class Lyrics extends Component {
     console.log("lyrics component mounted.");
   }
 
-  render(props) {
-    switch(props.songName) {
+  render() {
+    switch(this.props.songName) {
       case "Vete":
         this.setState.lyrics = lyrics[0];
         break;
@@ -277,8 +277,8 @@ export default class Lyrics extends Component {
     }
     return (
       <div className="overlay">
-        <div className="songInfo lightestFont" style={props.border}>
-          <div style={props.style}>
+        <div className="songInfo lightestFont" style={this.props.border}>
+          <div style={this.props.style}>
             <p>{this.state.lyrics}</p>
           </div>
         </div>

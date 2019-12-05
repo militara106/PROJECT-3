@@ -7,6 +7,7 @@ import AudioPlayer from "react-h5-audio-player";
 import CollapseMenu from "../components/CollapseMenu";
 import { TwitterTimelineEmbed } from "react-twitter-embed";
 import Lyrics from "../components/Lyrics";
+import text from "../components/textBox/text.js";
 
 // import { Link } from 'react-router-dom';
 
@@ -42,9 +43,9 @@ class Home extends Component {
 
     // Color Base Values
     redAdd: 100,
-    redMult: .5,
+    redMult: 0.5,
     greenAdd: -50,
-    greenMult: .5,
+    greenMult: 0.5,
     blueAdd: 0,
     blueMult: 0,
 
@@ -67,7 +68,9 @@ class Home extends Component {
     },
     vybe: {
       color: "white"
-    }
+    },
+
+    lyrics: ""
   };
 
   // Handle Audio File Upload
@@ -92,15 +95,18 @@ class Home extends Component {
     newFileName = newFileName.charAt(0).toUpperCase() + newFileName.slice(1);
 
     // Set States
-    this.setState({ src: newsrc, songName: newFileName, artist: "" }, () => {
-      if (
-        this.state.songName !== "Giants" &&
-        this.state.songName !== "Vete" &&
-        this.state.songName !== "Single Again"
-      ) {
-        document.getElementById("twitterContainer").style.display = "none";
+    this.setState(
+      { src: newsrc, songName: newFileName, artist: "", lyrics: "" },
+      () => {
+        if (
+          this.state.songName !== "Giants" &&
+          this.state.songName !== "Vete" &&
+          this.state.songName !== "Single Again"
+        ) {
+          document.getElementById("twitterContainer").style.display = "none";
+        }
       }
-    });
+    );
   };
 
   //Start "BenSound" Demo
@@ -109,7 +115,8 @@ class Home extends Component {
       {
         src: "bensound-creativeminds.mp3",
         songName: "Creative",
-        artist: "Bensound.com"
+        artist: "Bensound.com",
+        lyrics: ""
       },
       () => {
         if (
@@ -131,13 +138,15 @@ class Home extends Component {
       {
         src: "./audio/Giants/audio.mp3",
         songName: "Giants",
-        artist: "True Damage"
+        artist: "True Damage",
+        lyrics: text.data.giants
       },
       () => {
         console.log(this.state.songName);
         // Show and reset container
         document.getElementById("twitterContainer").style.display = "block";
         document.getElementById("twitterContainer").scrollTop = 0;
+        document.getElementById("lyricsContainer").scrollTop = 0;
 
         // Make only Song Visible
         document.getElementById("trueDamage").style.display = "block";
@@ -153,13 +162,15 @@ class Home extends Component {
       {
         src: "./audio/Vete/audio.mp3",
         songName: "Vete",
-        artist: "Bad Bunny"
+        artist: "Bad Bunny",
+        lyrics: text.data.vete
       },
       () => {
         console.log(this.state.songName);
         // Show and reset container
         document.getElementById("twitterContainer").style.display = "block";
         document.getElementById("twitterContainer").scrollTop = 0;
+        document.getElementById("lyricsContainer").scrollTop = 0;
 
         // Make only Song Visible
         document.getElementById("trueDamage").style.display = "none";
@@ -175,13 +186,15 @@ class Home extends Component {
       {
         src: "./audio/Single-Again/audio.mp3",
         songName: "Single Again",
-        artist: "Big Sean"
+        artist: "Big Sean",
+        lyrics: text.data.singleAgain.replace(/\\n/g, "\n")
       },
       () => {
         console.log(this.state.songName);
         // Show and reset container
         document.getElementById("twitterContainer").style.display = "block";
         document.getElementById("twitterContainer").scrollTop = 0;
+        document.getElementById("lyricsContainer").scrollTop = 0;
 
         // Make only Song Visible
         document.getElementById("trueDamage").style.display = "none";
@@ -253,7 +266,7 @@ class Home extends Component {
   // FIRE THEME
   fireTheme = () => {
     // +red, xred, +green, xgreen, +blue, xblue
-    this.changeTheme(100, .5, -50, .5, 0, 0);
+    this.changeTheme(100, 0.5, -50, 0.5, 0, 0);
 
     // Main font, Sub Font, Navbar Color, Sub BG Color, VYBE Logo Color
     this.changeColorSet("#f2a10b", "#f2a10b", "#0b0c10", "#282828", "white");
@@ -265,7 +278,7 @@ class Home extends Component {
   // EBON THEME
   ebonTheme = () => {
     // +red, xred, +green, xgreen, +blue, xblue
-    this.changeTheme(0, 1, 0, 1, 0, 1);
+    this.changeTheme(0, 0.5, 0, 0.5, 0, 0.5);
 
     // Main font, Sub Font, Navbar Color, Sub BG Color, VYBE Logo Color
     this.changeColorSet("white", "white", "white", "white", "black");
@@ -277,7 +290,7 @@ class Home extends Component {
   // AQUA THEME
   aquaTheme = () => {
     // +red, xred, +green, xgreen, +blue, xblue
-    this.changeTheme(0, 0, -50, 1, 100, 1);
+    this.changeTheme(0, 0, -50, 0.5, 100, 0.5);
 
     // Main font, Sub Font, Navbar Color, Sub BG Color, VYBE Logo Color
     this.changeColorSet("aqua", "#240090", "#3500d3", "white", "aqua");
@@ -464,8 +477,42 @@ class Home extends Component {
     }
   }
 
-  componentDidMount() {
+  componentDidMount = () => {
     setInterval(this.ScrollDiv, 50, "twitterContainer", true);
+    setInterval(this.ScrollDiv, 50, "lyricsContainer", false);
+  };
+
+  // Toggle Hide Div
+  hideDivLeft = id => {
+    let check = document.getElementById(id).style.left;
+    console.log(check);
+    if (check === "0%") {
+      document.getElementById(id).style.left = "-200%";
+      console.log(id + " hidden");
+    } else {
+      document.getElementById(id).style.left = "0%";
+      console.log(id + " shown");
+    }
+  };
+
+  hideDivRight = id => {
+    let check = document.getElementById(id).style.right;
+    console.log(check);
+    if (check === "0%") {
+      document.getElementById(id).style.right = "-200%";
+      console.log(id + " hidden");
+    } else {
+      document.getElementById(id).style.right = "0%";
+      console.log(id + " shown");
+    }
+  }
+
+  toggleTwitter = () => {
+    this.hideDivLeft("twitterContainer");
+  };
+
+  toggleLyrics = () => {
+    this.hideDivRight("lyricsContainer");
   }
 
   render() {
@@ -530,7 +577,8 @@ class Home extends Component {
                 </div>
               </div>
               {/*---- Audio Option End ----*/}
-
+            </div>
+            <div className="darkBorder darkBg">
               {/*---- Overlay Option ----*/}
               <div className="darkBorderBot optionsHeader">Background</div>
               <div className="subMenu">
@@ -556,6 +604,16 @@ class Home extends Component {
                 </div>
               </div>
 
+              {/* Customize */}
+              <div className="darkBorderBot optionsHeader">Customize</div>
+              <div className="subMenu">
+                <div className="btnCustom" onClick={this.toggleTwitter}>
+                  Toggle Twitter
+                </div>
+                <div className="btnCustom" onClick={this.toggleLyrics}>Toggle Lyrics</div>
+              </div>
+
+              {/* Navigation */}
               <div className="darkBorderBot optionsHeader">Navigation</div>
               <div className="subMenu">
                 <a className="linkStyle btnCustom" href="/">
@@ -585,9 +643,17 @@ class Home extends Component {
           <AudioPlayer src={this.state.src} loop={true} />
         </TextOverlay>
 
+        {/* Lyrics */}
+        <div className="floatingText" id="lyricsContainer">
+          {this.state.lyrics}
+        </div>
+
         {/* Twitter */}
-        <div className="twitterContainer" id="twitterContainer">
-          Twitter Not Available
+        <div
+          className="twitterContainer"
+          data-visible={false}
+          id="twitterContainer"
+        >
           {/* Big Sean */}
           <div id="bigSean">
             <TwitterTimelineEmbed

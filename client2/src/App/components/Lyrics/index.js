@@ -257,9 +257,24 @@ export default class Lyrics extends Component {
     lyrics: ""
   };
 
-  componentDidMount() {}
+  componentDidMount() {
+    console.log("lyrics component mounted.");
+  }
 
   render(props) {
+    switch(props.songName) {
+      case "Vete":
+        this.setState.lyrics = lyrics[0];
+        break;
+      case "Single Again":
+        this.setState.lyrics = lyrics[1];
+        break;
+      case "GIANTS":
+        this.setState.lyrics = lyrics[2];
+        break;
+      default:
+        console.log("no lyrics available!");
+    }
     return (
       <div className="overlay">
         <div className="songInfo lightestFont" style={props.border}>

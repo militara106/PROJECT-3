@@ -305,10 +305,10 @@ class Home extends Component {
     this.changeTheme(50, 0.5, 10, 0.5, 10, 0.5);
 
     // Main font, Sub Font, Navbar Color, Sub BG Color, VYBE Logo Color
-    this.changeColorSet("#5d001e", "#e3e2df", "#5d001e", "#fa6a69", "#e3e2df");
+    this.changeColorSet("#e3e2df", "#e3e2df", "#5d001e", "#fa6a69", "#e3e2df");
 
     // Body color
-    this.changeBodyColor("#c3c2bf");
+    this.changeBodyColor("#a3a29f");
   };
 
   // Visualizer Stlyes

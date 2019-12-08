@@ -9,9 +9,11 @@ const jsonResponse= {
       Yeah, what happens when it's too good to throw away?
       You either let it go bad or go away
       (I need to pray)
+
       Take my time (part two), take my time, I'ma take my time
       Na-na-na-na-na-na-na (look)
       Na-na-na-na-na-na-na (uh)
+
       I'm single again (single again)
       Told 'em we'll be better off friends (uh)
       Maybe I should just focus on me (on me)
@@ -24,6 +26,7 @@ const jsonResponse= {
       Guess that's just the way it's gon' be (gon' be)
       Maybe I should spend this time on me (on me)
       Maybe I should spend this cash on me (on me)
+
       Instead of blaming all my old girls when I leave (what?)
       Instead of calling up these fake hoes that I don't need (what?)
       Old relationships turn to new déjà vus
@@ -41,6 +44,7 @@ const jsonResponse= {
       Told her we'll be better off friends (off friends)
       Maybe I should just focus on me (on me)
       And slow down, don't rush romance
+
       I'm single again (single again)
       Told 'em that we better off friends (off friends)
       Blaming you is just so easy (uh-huh)
@@ -49,9 +53,11 @@ const jsonResponse= {
       Guess that's just the way it's gon' be (yeah, yeah)
       Maybe I should spend this time on me (on me)
       Maybe I should spend this cash on me
+
       Take my time, take my time, I'ma take my time
       Take my time, I'ma take my time, yeah
       Even if I'm late, I'ma take my time
+
       What have you done for yourself?
       What have you done for your mental health? (Yeah, yeah)
       I even tried the drugs and they didn't help
@@ -64,6 +70,7 @@ const jsonResponse= {
       That I prolly shoulda gave to myself
       Cycles I need to break in myself
       If I'm alone, I'm second to no one else, so (yeah)
+
       I'm single again (oh)
       Told 'em we'll be better off friends (better off friends)
       Maybe I should just focus on me (on me)
@@ -76,14 +83,29 @@ const jsonResponse= {
       Guess that's just the way it's gon' be (way)
       Maybe I should spend this time on me (way)
       Maybe I should spend this cash on me (ooh)
+
       Take my time, take my time, I'ma take my time, yeah
       Take my time, I'ma take my time, yeah
       Even if I'm late, I'ma take my time
+
       Yeah
       Stay on this grind (ohh)
       (Ohh, yeah)
       (Dolla $ign, oh)
-      (Ohh)`,
+      (Ohh)
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      `,
 
       giants: 
       `
@@ -165,7 +187,20 @@ const jsonResponse= {
       This time ya gonna see, how we do it like that (yeah)
       We're living like giants (giants), yeah, giants (hey)
       We're bigger than giants, we're giants
-      Oh, oh, oh, oh`,
+      Oh, oh, oh, oh
+            
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      `,
 
       vete: 
       `
@@ -225,7 +260,20 @@ const jsonResponse= {
       Espero que seas feliz y que te diviertas, eh
       Pero pa' acá no vuelvas, no-no-no-no
       
-      Hazen`
+      Hazen
+            
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      `
     }
   };
   

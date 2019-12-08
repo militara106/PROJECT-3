@@ -4,8 +4,6 @@ const jsonResponse= {
       `
       
 
-
-
       Yeah, what happens when it's too good to throw away?
       You either let it go bad or go away
       (I need to pray)
@@ -93,25 +91,11 @@ const jsonResponse= {
       (Ohh, yeah)
       (Dolla $ign, oh)
       (Ohh)
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
       `,
 
       giants: 
       `
-      
-
-
+    
       
       원하는 게 얼굴에 보여
       I'm trouble and you're wa-wa-wa-wanting it
@@ -188,25 +172,11 @@ const jsonResponse= {
       We're living like giants (giants), yeah, giants (hey)
       We're bigger than giants, we're giants
       Oh, oh, oh, oh
-            
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
       `,
 
       vete: 
       `
       
-
-
       
       (Yeh-yeh-yeh-yeh, yeh-yeh-yeh-yeh)
       Si te vas, yo quiero saber si tú te vas
@@ -261,18 +231,6 @@ const jsonResponse= {
       Pero pa' acá no vuelvas, no-no-no-no
       
       Hazen
-            
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
       `
     }
   };

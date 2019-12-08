@@ -106,25 +106,25 @@ class Home extends Component {
         this.changeToSingleAgain();
         break;
       default:
-          this.setState(
-            {
-              src: newsrc,
-              songName: newFileName,
-              artist: "",
-              lyrics: "Lyrics Not Available"
-            },
-            () => {
-              if (
-                this.state.songName !== "Giants" &&
-                this.state.songName !== "Vete" &&
-                this.state.songName !== "Single Again"
-              ) {
-                document.getElementById("trueDamage").style.display = "none";
-                document.getElementById("badBunny").style.display = "none";
-                document.getElementById("bigSean").style.display = "none";
-              }
+        this.setState(
+          {
+            src: newsrc,
+            songName: newFileName,
+            artist: "",
+            lyrics: "Lyrics Not Available"
+          },
+          () => {
+            if (
+              this.state.songName !== "Giants" &&
+              this.state.songName !== "Vete" &&
+              this.state.songName !== "Single Again"
+            ) {
+              document.getElementById("trueDamage").style.display = "none";
+              document.getElementById("badBunny").style.display = "none";
+              document.getElementById("bigSean").style.display = "none";
             }
-          );
+          }
+        );
     }
   };
 
@@ -498,9 +498,10 @@ class Home extends Component {
     }
   }
 
+  // COMPONENT DID MOUNT
   componentDidMount = () => {
     setInterval(this.ScrollDiv, 50, "twitterContainer", true);
-    setInterval(this.ScrollDiv, 50, "lyricsContainer", true);
+    setInterval(this.ScrollDiv, 60, "lyricsContainer", true);
   };
 
   // Toggle Hide Div

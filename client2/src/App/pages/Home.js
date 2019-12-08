@@ -95,18 +95,37 @@ class Home extends Component {
     newFileName = newFileName.charAt(0).toUpperCase() + newFileName.slice(1);
 
     // Set States
-    this.setState(
-      { src: newsrc, songName: newFileName, artist: "", lyrics: "" },
-      () => {
-        if (
-          this.state.songName !== "Giants" &&
-          this.state.songName !== "Vete" &&
-          this.state.songName !== "Single Again"
-        ) {
-          document.getElementById("twitterContainer").style.display = "none";
-        }
-      }
-    );
+    switch (newFileName) {
+      case "Giants":
+        this.changeToGiants();
+        break;
+      case "Vete":
+        this.changeToVete();
+        break;
+      case "Single Again":
+        this.changeToSingleAgain();
+        break;
+      default:
+          this.setState(
+            {
+              src: newsrc,
+              songName: newFileName,
+              artist: "",
+              lyrics: "Lyrics Not Available"
+            },
+            () => {
+              if (
+                this.state.songName !== "Giants" &&
+                this.state.songName !== "Vete" &&
+                this.state.songName !== "Single Again"
+              ) {
+                document.getElementById("trueDamage").style.display = "none";
+                document.getElementById("badBunny").style.display = "none";
+                document.getElementById("bigSean").style.display = "none";
+              }
+            }
+          );
+    }
   };
 
   //Start "BenSound" Demo
@@ -116,7 +135,7 @@ class Home extends Component {
         src: "bensound-creativeminds.mp3",
         songName: "Creative",
         artist: "Bensound.com",
-        lyrics: ""
+        lyrics: "Lyrics Not Available"
       },
       () => {
         if (
@@ -124,7 +143,9 @@ class Home extends Component {
           this.state.songName !== "Vete" &&
           this.state.songName !== "Single Again"
         ) {
-          document.getElementById("twitterContainer").style.display = "none";
+          document.getElementById("trueDamage").style.display = "none";
+          document.getElementById("badBunny").style.display = "none";
+          document.getElementById("bigSean").style.display = "none";
         }
       }
     );
@@ -505,7 +526,7 @@ class Home extends Component {
       document.getElementById(id).style.right = "0%";
       console.log(id + " shown");
     }
-  }
+  };
 
   toggleTwitter = () => {
     this.hideDivLeft("twitterContainer");
@@ -513,7 +534,7 @@ class Home extends Component {
 
   toggleLyrics = () => {
     this.hideDivRight("lyricsContainer");
-  }
+  };
 
   render() {
     return (
@@ -563,15 +584,15 @@ class Home extends Component {
                   {/* ------PRESET SONGS------- */}
                   {/* GIANTS */}
                   <div className="btnCustom" onClick={this.changeToGiants}>
-                    Giants by True Damage
+                    "Giants" by True Damage
                   </div>
                   {/* VETE */}
                   <div className="btnCustom" onClick={this.changeToVete}>
-                    Vete by Bad Bunny
+                    "Vete" by Bad Bunny
                   </div>
                   {/* SINGLE AGAIN */}
                   <div className="btnCustom" onClick={this.changeToSingleAgain}>
-                    Single Again by Big Sean
+                    "Single Again" by Big Sean
                   </div>
                   {/* ------PRESET SONGS------- */}
                 </div>
@@ -610,7 +631,9 @@ class Home extends Component {
                 <div className="btnCustom" onClick={this.toggleTwitter}>
                   Toggle Twitter
                 </div>
-                <div className="btnCustom" onClick={this.toggleLyrics}>Toggle Lyrics</div>
+                <div className="btnCustom" onClick={this.toggleLyrics}>
+                  Toggle Lyrics
+                </div>
               </div>
 
               {/* Navigation */}
@@ -641,8 +664,12 @@ class Home extends Component {
         >
           {/* Audio Player 2 */}
           {/* <AudioPlayer src={this.state.src} loop={true} /> */}
-          <ReactAudioPlayer src={this.state.src} loop={true} autoPlay={true} controls/>
-          
+          <ReactAudioPlayer
+            src={this.state.src}
+            loop={true}
+            autoPlay={true}
+            controls
+          />
         </TextOverlay>
 
         {/* Lyrics */}
@@ -656,6 +683,7 @@ class Home extends Component {
           data-visible={false}
           id="twitterContainer"
         >
+          Twitter Not Available
           {/* Big Sean */}
           <div id="bigSean">
             <TwitterTimelineEmbed

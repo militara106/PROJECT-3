@@ -6,18 +6,18 @@ import ReactAudioPlayer from "react-audio-player";
 // import AudioPlayer from "react-h5-audio-player";
 import CollapseMenu from "../components/CollapseMenu";
 import { TwitterTimelineEmbed } from "react-twitter-embed";
-import Lyrics from "../components/Lyrics";
+// import Lyrics from "../components/Lyrics";
 import text from "../components/textBox/text.js";
 
 // import { Link } from 'react-router-dom';
 
-const audioPos = {
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
-  marginBottom: "1rem",
-  zIndex: "10"
-};
+// const audioPos = {
+//   display: "flex",
+//   justifyContent: "center",
+//   alignItems: "center",
+//   marginBottom: "1rem",
+//   zIndex: "10"
+// };
 
 const optionsBox = {
   display: "flex",
@@ -70,7 +70,7 @@ class Home extends Component {
       color: "white"
     },
 
-    lyrics: ""
+    lyrics: "Lyrics Not Available"
   };
 
   // Handle Audio File Upload
@@ -97,13 +97,13 @@ class Home extends Component {
     // Set States
     switch (newFileName) {
       case "Giants":
-        this.changeToGiants();
+        this.changeToSong("./audio/Giants/audio.mp3","Giants","True Damage", text.data.giants,"trueDamage")
         break;
       case "Vete":
-        this.changeToVete();
+        this.changeToSong("./audio/Vete/audio.mp3","Vete","Bad Bunny", text.data.vete,"badBunny")
         break;
       case "Single Again":
-        this.changeToSingleAgain();
+        this.changeToSong("./audio/Single-Again/audio.mp3","Single Again","Big Sean", text.data.singleAgain,"bigSean");
         break;
       default:
         this.setState(
@@ -119,9 +119,7 @@ class Home extends Component {
               this.state.songName !== "Vete" &&
               this.state.songName !== "Single Again"
             ) {
-              document.getElementById("trueDamage").style.display = "none";
-              document.getElementById("badBunny").style.display = "none";
-              document.getElementById("bigSean").style.display = "none";
+              this.hideAllTwitter();
             }
           }
         );
@@ -138,92 +136,37 @@ class Home extends Component {
         lyrics: "Lyrics Not Available"
       },
       () => {
-        if (
-          this.state.songName !== "Giants" &&
-          this.state.songName !== "Vete" &&
-          this.state.songName !== "Single Again"
-        ) {
-          document.getElementById("trueDamage").style.display = "none";
-          document.getElementById("badBunny").style.display = "none";
-          document.getElementById("bigSean").style.display = "none";
-        }
+          this.resetScolling("twitterContainer");
+          this.resetScolling("lyricsContainer");
+          this.hideAllTwitter();
+          this.showSingleTwitter("bensound");
       }
     );
   };
 
-  // Audio Switch
-
-  // GIANTS
-  changeToGiants = () => {
+  // Universal Change Song
+  changeToSong = (filePath, songName, artist, lyrics, twitterId) =>{
     this.setState(
       {
-        src: "./audio/Giants/audio.mp3",
-        songName: "Giants",
-        artist: "True Damage",
-        lyrics: text.data.giants
+        src: filePath,
+        songName: songName,
+        artist: artist,
+        lyrics: lyrics
       },
       () => {
         console.log(this.state.songName);
         // Show and reset container
         document.getElementById("twitterContainer").style.display = "block";
-        document.getElementById("twitterContainer").scrollTop = 0;
-        document.getElementById("lyricsContainer").scrollTop = 0;
+        this.resetScolling("twitterContainer");
+        this.resetScolling("lyricsContainer");
 
         // Make only Song Visible
-        document.getElementById("trueDamage").style.display = "block";
-        document.getElementById("badBunny").style.display = "none";
-        document.getElementById("bigSean").style.display = "none";
+        this.hideAllTwitter();
+        this.showSingleTwitter(twitterId);
       }
     );
-  };
 
-  // Vete
-  changeToVete = () => {
-    this.setState(
-      {
-        src: "./audio/Vete/audio.mp3",
-        songName: "Vete",
-        artist: "Bad Bunny",
-        lyrics: text.data.vete
-      },
-      () => {
-        console.log(this.state.songName);
-        // Show and reset container
-        document.getElementById("twitterContainer").style.display = "block";
-        document.getElementById("twitterContainer").scrollTop = 0;
-        document.getElementById("lyricsContainer").scrollTop = 0;
-
-        // Make only Song Visible
-        document.getElementById("trueDamage").style.display = "none";
-        document.getElementById("badBunny").style.display = "block";
-        document.getElementById("bigSean").style.display = "none";
-      }
-    );
-  };
-
-  // Single Again
-  changeToSingleAgain = () => {
-    this.setState(
-      {
-        src: "./audio/Single-Again/audio.mp3",
-        songName: "Single Again",
-        artist: "Big Sean",
-        lyrics: text.data.singleAgain.replace(/\\n/g, "\n")
-      },
-      () => {
-        console.log(this.state.songName);
-        // Show and reset container
-        document.getElementById("twitterContainer").style.display = "block";
-        document.getElementById("twitterContainer").scrollTop = 0;
-        document.getElementById("lyricsContainer").scrollTop = 0;
-
-        // Make only Song Visible
-        document.getElementById("trueDamage").style.display = "none";
-        document.getElementById("badBunny").style.display = "none";
-        document.getElementById("bigSean").style.display = "block";
-      }
-    );
-  };
+  }
 
   // Handle Picture Upload
   handlePicUpload = event => {
@@ -498,10 +441,15 @@ class Home extends Component {
     }
   }
 
+  resetScolling = id => {
+    document.getElementById(id).scrollTop = 0;
+  }
+
   // COMPONENT DID MOUNT
   componentDidMount = () => {
     setInterval(this.ScrollDiv, 50, "twitterContainer", true);
     setInterval(this.ScrollDiv, 60, "lyricsContainer", true);
+    this.hideAllTwitter();
   };
 
   // Toggle Hide Div
@@ -536,6 +484,17 @@ class Home extends Component {
   toggleLyrics = () => {
     this.hideDivRight("lyricsContainer");
   };
+
+  hideAllTwitter = () => {
+   let twitterDiv = document.getElementsByClassName("twitterDiv");
+    for(let i = 0; i < twitterDiv.length; i++){
+      twitterDiv[i].style.display = "none";
+    }
+  };
+
+  showSingleTwitter = id => {
+    document.getElementById(id).style.display = "block";
+  }
 
   render() {
     return (
@@ -584,15 +543,15 @@ class Home extends Component {
                 <div style={optionsBox}>
                   {/* ------PRESET SONGS------- */}
                   {/* GIANTS */}
-                  <div className="btnCustom" onClick={this.changeToGiants}>
+                  <div className="btnCustom" onClick={() => this.changeToSong("./audio/Giants/audio.mp3","Giants","True Damage", text.data.giants,"trueDamage")}>
                     "Giants" by True Damage
                   </div>
                   {/* VETE */}
-                  <div className="btnCustom" onClick={this.changeToVete}>
+                  <div className="btnCustom" onClick={() => this.changeToSong("./audio/Vete/audio.mp3","Vete","Bad Bunny", text.data.vete,"badBunny")}>
                     "Vete" by Bad Bunny
                   </div>
                   {/* SINGLE AGAIN */}
-                  <div className="btnCustom" onClick={this.changeToSingleAgain}>
+                  <div className="btnCustom" onClick={() => this.changeToSong("./audio/Single-Again/audio.mp3","Single Again","Big Sean", text.data.singleAgain,"bigSean")}>
                     "Single Again" by Big Sean
                   </div>
                   {/* ------PRESET SONGS------- */}
@@ -686,7 +645,7 @@ class Home extends Component {
         >
           Twitter Not Available
           {/* Big Sean */}
-          <div id="bigSean">
+          <div id="bigSean" className="twitterDiv">
             <TwitterTimelineEmbed
               sourceType="profile"
               screenName="bigsean"
@@ -699,7 +658,7 @@ class Home extends Component {
             />
           </div>
           {/* Bad Bunny */}
-          <div id="badBunny">
+          <div id="badBunny" className="twitterDiv">
             <TwitterTimelineEmbed
               sourceType="profile"
               screenName="imbadBunny"
@@ -712,10 +671,36 @@ class Home extends Component {
             />
           </div>
           {/* True Damage */}
-          <div id="trueDamage">
+          <div id="trueDamage" className="twitterDiv">
             <TwitterTimelineEmbed
               sourceType="profile"
               screenName="riotgames"
+              transparent
+              theme="dark"
+              noScrollbar
+              noFooter
+              noHeader
+              noBorders
+            />
+          </div>
+          {/* yetep */}
+          <div id="yetep" className="twitterDiv">
+          <TwitterTimelineEmbed
+              sourceType="profile"
+              screenName="imyetep"
+              transparent
+              theme="dark"
+              noScrollbar
+              noFooter
+              noHeader
+              noBorders
+            />
+          </div>
+          {/* bensound */}
+          <div id="bensound" className="twitterDiv">
+          <TwitterTimelineEmbed
+              sourceType="profile"
+              screenName="bensound"
               transparent
               theme="dark"
               noScrollbar
@@ -736,7 +721,7 @@ class Home extends Component {
         {/* Playlist (WIP) */}
 
         {/* Song Lyrics Here */}
-        <Lyrics />
+        {/* <Lyrics /> */}
       </div>
     );
   }

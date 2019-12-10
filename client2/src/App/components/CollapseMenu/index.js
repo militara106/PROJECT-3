@@ -100,7 +100,7 @@ class CollapseMenu extends Component {
             </div>
           </div>
           {this.props.children}
-          <div onClick={this.toggleMenu} className="btnCustom hideBtn"><i class="fas fa-times"></i></div>
+          <div onClick={this.toggleMenu} className="btnCustom hideBtn"><i className="fas fa-times"></i></div>
         </div>
       </div>
     );

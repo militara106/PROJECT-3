@@ -347,7 +347,7 @@ label {
 audio {
   opacity: 30%;
   transition: 0.2s;
-  background-color: none;
+  background:
 }
 audio::-webkit-media-controls-panel,
 audio::-webkit-media-controls-mute-button,
@@ -364,11 +364,10 @@ audio::-webkit-media-controls-fullscreen-button,
 audio::-webkit-media-controls-rewind-button,
 audio::-webkit-media-controls-return-to-realtime-button,
 audio::-webkit-media-controls-toggle-closed-captions-button {
-  background-color: none;
-  color: white;
-  text-shadow: inherit;
-  border: none;
-  box-shadow: none;
+  text-shadow: none !important;
+  text-decoration: none !important;
+  border: none !important;
+  box-shadow: none !important;
 }
 audio:hover {
   opacity: 100%;
@@ -387,24 +386,11 @@ audio:hover {
   overflow-y: hidden;
   overflow-x: hidden;
   height: 85%;
-  display: none;
   transition: 0.2s;
 }
 
 #twitterContainer {
   left: -200%;
-}
-
-#bigSean {
-  display: none;
-}
-
-#badBunny {
-  display: none;
-}
-
-#trueDamage {
-  display: none;
 }
 
 /* -- Twitter End --*/

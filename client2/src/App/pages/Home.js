@@ -97,14 +97,50 @@ class Home extends Component {
     // Set States
     switch (newFileName) {
       case "Giants":
-        this.changeToSong("./audio/Giants/audio.mp3","Giants","True Damage", text.data.giants,"trueDamage")
+        this.changeToSong(
+          "./audio/Giants/audio.mp3",
+          "Giants",
+          "True Damage",
+          text.data.giants,
+          "trueDamage"
+        );
         break;
       case "Vete":
-        this.changeToSong("./audio/Vete/audio.mp3","Vete","Bad Bunny", text.data.vete,"badBunny")
+        this.changeToSong(
+          "./audio/Vete/audio.mp3",
+          "Vete",
+          "Bad Bunny",
+          text.data.vete,
+          "badBunny"
+        );
         break;
       case "Single Again":
-        this.changeToSong("./audio/Single-Again/audio.mp3","Single Again","Big Sean", text.data.singleAgain,"bigSean");
+        this.changeToSong(
+          "./audio/Single-Again/audio.mp3",
+          "Single Again",
+          "Big Sean",
+          text.data.singleAgain,
+          "bigSean"
+        );
         break;
+      case "Move Mountains":
+        this.changeToSong(
+          newsrc,
+          newFileName,
+          "Angela",
+          "Lyrics Not Available",
+          ""
+        );
+        break;
+      case "Dim":
+          this.changeToSong(
+            newsrc,
+            newFileName,
+            "Yetep",
+            "Lyrics Not Available",
+            "yetep"
+          );
+          break;
       default:
         this.setState(
           {
@@ -136,16 +172,16 @@ class Home extends Component {
         lyrics: "Lyrics Not Available"
       },
       () => {
-          this.resetScolling("twitterContainer");
-          this.resetScolling("lyricsContainer");
-          this.hideAllTwitter();
-          this.showSingleTwitter("bensound");
+        this.resetScolling("twitterContainer");
+        this.resetScolling("lyricsContainer");
+        this.hideAllTwitter();
+        this.showSingleTwitter("bensound");
       }
     );
   };
 
   // Universal Change Song
-  changeToSong = (filePath, songName, artist, lyrics, twitterId) =>{
+  changeToSong = (filePath, songName, artist, lyrics, twitterId) => {
     this.setState(
       {
         src: filePath,
@@ -156,17 +192,20 @@ class Home extends Component {
       () => {
         console.log(this.state.songName);
         // Show and reset container
-        document.getElementById("twitterContainer").style.display = "block";
-        this.resetScolling("twitterContainer");
-        this.resetScolling("lyricsContainer");
+        if (twitterId !== "") {
+          document.getElementById("twitterContainer").style.display = "block";
+          this.resetScolling("twitterContainer");
+          this.resetScolling("lyricsContainer");
 
-        // Make only Song Visible
-        this.hideAllTwitter();
-        this.showSingleTwitter(twitterId);
+          // Make only Song Visible
+          this.hideAllTwitter();
+          this.showSingleTwitter(twitterId);
+        } else {
+          this.hideAllTwitter();
+        }
       }
     );
-
-  }
+  };
 
   // Handle Picture Upload
   handlePicUpload = event => {
@@ -443,7 +482,7 @@ class Home extends Component {
 
   resetScolling = id => {
     document.getElementById(id).scrollTop = 0;
-  }
+  };
 
   // COMPONENT DID MOUNT
   componentDidMount = () => {
@@ -486,15 +525,15 @@ class Home extends Component {
   };
 
   hideAllTwitter = () => {
-   let twitterDiv = document.getElementsByClassName("twitterDiv");
-    for(let i = 0; i < twitterDiv.length; i++){
+    let twitterDiv = document.getElementsByClassName("twitterDiv");
+    for (let i = 0; i < twitterDiv.length; i++) {
       twitterDiv[i].style.display = "none";
     }
   };
 
   showSingleTwitter = id => {
     document.getElementById(id).style.display = "block";
-  }
+  };
 
   render() {
     return (
@@ -543,15 +582,48 @@ class Home extends Component {
                 <div style={optionsBox}>
                   {/* ------PRESET SONGS------- */}
                   {/* GIANTS */}
-                  <div className="btnCustom" onClick={() => this.changeToSong("./audio/Giants/audio.mp3","Giants","True Damage", text.data.giants,"trueDamage")}>
+                  <div
+                    className="btnCustom"
+                    onClick={() =>
+                      this.changeToSong(
+                        "./audio/Giants/audio.mp3",
+                        "Giants",
+                        "True Damage",
+                        text.data.giants,
+                        "trueDamage"
+                      )
+                    }
+                  >
                     "Giants" by True Damage
                   </div>
                   {/* VETE */}
-                  <div className="btnCustom" onClick={() => this.changeToSong("./audio/Vete/audio.mp3","Vete","Bad Bunny", text.data.vete,"badBunny")}>
+                  <div
+                    className="btnCustom"
+                    onClick={() =>
+                      this.changeToSong(
+                        "./audio/Vete/audio.mp3",
+                        "Vete",
+                        "Bad Bunny",
+                        text.data.vete,
+                        "badBunny"
+                      )
+                    }
+                  >
                     "Vete" by Bad Bunny
                   </div>
                   {/* SINGLE AGAIN */}
-                  <div className="btnCustom" onClick={() => this.changeToSong("./audio/Single-Again/audio.mp3","Single Again","Big Sean", text.data.singleAgain,"bigSean")}>
+                  <div
+                    className="btnCustom"
+                    onClick={() =>
+                      this.changeToSong(
+                        "./audio/Single-Again/audio.mp3",
+                        "Single Again",
+                        "Big Sean",
+                        text.data.singleAgain,
+                        "bigSean"
+                      )
+                    }
+                  >
                     "Single Again" by Big Sean
                   </div>
                   {/* ------PRESET SONGS------- */}
@@ -685,7 +757,7 @@ class Home extends Component {
           </div>
           {/* yetep */}
           <div id="yetep" className="twitterDiv">
-          <TwitterTimelineEmbed
+            <TwitterTimelineEmbed
               sourceType="profile"
               screenName="imyetep"
               transparent
@@ -698,7 +770,7 @@ class Home extends Component {
           </div>
           {/* bensound */}
           <div id="bensound" className="twitterDiv">
-          <TwitterTimelineEmbed
+            <TwitterTimelineEmbed
               sourceType="profile"
               screenName="bensound"
               transparent
